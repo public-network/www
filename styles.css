@@ -1,0 +1,389 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/Figtree.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/Figtree-Italic.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --ink: #060c21;
+  --paper: #ffffff;
+  --muted: #6a6f80;
+  --line: #e5e5e8;
+  --max: 720px;
+  --gap: 10rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, ol, ul, em, strong, a, span, div {
+  font-family: inherit;
+}
+
+main {
+  width: 100%;
+}
+
+main > section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: var(--gap) 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+main > section:last-of-type {
+  border-bottom: none;
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero */
+main > section.hero {
+  min-height: calc(100vh - 50px);
+  max-width: none;
+  padding: 3rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+}
+
+.hero-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: var(--max);
+  width: 100%;
+}
+
+.hero-lock .term {
+  width: 100%;
+  text-align: left;
+}
+
+.circle {
+  width: min(61vw, 355px);
+  height: auto;
+  animation: breathe-loading 4s ease-in-out forwards;
+  flex-shrink: 0;
+}
+
+body.settled .circle {
+  animation: breathe-subtle 10s ease-in-out infinite;
+}
+
+/* Preface — edge-to-edge navy */
+main > section.preface-dark {
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--gap) 0;
+  max-width: none;
+  margin: 0;
+  border-bottom: none;
+  width: 100%;
+}
+
+.preface-dark .inner {
+  max-width: var(--max);
+}
+
+.preface-dark h2,
+.preface-dark h3,
+.preface-dark p {
+  color: var(--paper);
+}
+
+.preface-dark p.italic {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes breathe-loading {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.08) rotate(0.4deg); }
+}
+
+@keyframes breathe-subtle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.012) rotate(0.15deg); }
+}
+
+.mark {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.tagline em {
+  font-style: italic;
+}
+
+/* Typography */
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 2.5rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  max-width: 65ch;
+}
+
+p.italic, .italic p {
+  font-style: italic;
+  color: #2a2f40;
+}
+
+.quote {
+  margin-top: 1.5rem;
+  color: var(--muted);
+}
+
+.note {
+  font-size: 0.95rem;
+  color: var(--muted);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  margin-bottom: 1rem;
+}
+
+ol li {
+  counter-increment: item;
+  padding-left: 2rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+ol li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+/* Definitions */
+.definition {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.term h2 {
+  margin-bottom: 0.5rem;
+}
+
+.pos {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  font-style: italic;
+}
+
+.pos + .pos {
+  margin-bottom: 1.25rem;
+}
+
+/* Patron list */
+.patron-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.5rem 2rem;
+  padding: 2rem 0;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.patron-list li {
+  font-weight: 500;
+  padding: 0.25rem 0;
+}
+
+/* Closing */
+.closing {
+  text-align: center;
+}
+
+.closing p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.closing-circle {
+  width: min(30vw, 180px);
+  margin: 4rem auto 0;
+  display: block;
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  padding: 6rem 0;
+  text-align: center;
+  border-bottom: none;
+}
+
+footer p {
+  margin: 0 auto 0.5rem;
+  max-width: none;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero reveals immediately on load */
+.hero.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.circle-wrap {
+  line-height: 0;
+  flex-shrink: 0;
+  display: block;
+  align-self: center;
+  overflow: visible;
+  will-change: transform;
+}
+
+.circle-wrap .circle {
+  display: block;
+  max-width: 100%;
+}
+
+/* Loading state — term hidden so circle is centered alone */
+body:not(.loaded) .hero-lock .term {
+  display: none;
+}
+
+/* Term — fade only, no slide */
+.hero-lock .term {
+  opacity: 0;
+  transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-lock .term.visible {
+  opacity: 1;
+}
+
+/* Preface — fade only */
+.preface-dark {
+  opacity: 0;
+  transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preface-dark.visible {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  body {
+    font-size: 17px;
+  }
+  :root {
+    --gap: 6rem;
+  }
+  main {
+    padding: 0 1.25rem;
+  }
+  .patron-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .circle {
+    animation: none !important;
+  }
+}
