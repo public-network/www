@@ -23,6 +23,7 @@
     const glass = document.getElementById('glass-layer');
     if (!glass) return;
     const root = document.documentElement;
+    const cue = document.querySelector('.reveal-cue');
 
     function apply() {
       const h = window.innerHeight;
@@ -41,6 +42,10 @@
       const t = Math.min(1, (y / h) / 0.2);
       const eased = t * t * (3 - 2 * t);
       root.style.setProperty('--pn-circle-fill', mixRgb(eased));
+
+      // Fade out the scroll cue as the reveal starts — gone by ~40%
+      // of scroll so it doesn't fight the circle for attention.
+      if (cue) cue.style.opacity = String(Math.max(0, 0.55 * (1 - (y / h) * 2.5)));
     }
 
     window.addEventListener('scroll', apply, { passive: true });

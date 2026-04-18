@@ -299,6 +299,9 @@ input, textarea, select, .w-input, .w-select {
   grid-template-columns: none !important;
   overflow: visible !important;
   box-sizing: border-box !important;
+  /* Nudge the whole stack up 3% of viewport so it reads a little
+     higher than dead-center. */
+  transform: translateY(-3vh);
 }
 
 /* Circle column — width matches the definition column, content is
@@ -722,6 +725,44 @@ body.sidebar-collapsed .iface-toggle {
 }
 body.sidebar-collapsed .iface-canvas {
   margin-left: 0;
+}
+
+/* Subtle scroll cue — pinned to the bottom-center of the viewport,
+   gently bobbing. Fades out proportional to the glass's translation
+   so it disappears as the reveal completes. */
+.reveal-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 60;
+  color: var(--wotc-ink-muted);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: reveal-cue-bob 2.8s ease-in-out infinite;
+  transition: opacity 200ms ease;
+}
+.reveal-cue svg { display: block; }
+@keyframes reveal-cue-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 3px); }
+}
+body.reveal-hidden .reveal-cue {
+  opacity: 0;
+}
+
+/* Launch-minimal mode — hides the whole side-nav shell (sidebar,
+   toggle, show-sidebar) so the launch page is just the imperfect
+   circle → whitepaper scroll. The DOM + CSS + JS stay intact so we
+   can flip this off later (remove the body class) to bring the chat
+   harness back. Toggle in index.html via `body class="launch-minimal"`. */
+body.launch-minimal .iface-sidebar,
+body.launch-minimal .iface-toggle,
+body.launch-minimal .iface-show-sidebar {
+  display: none !important;
+}
+body.launch-minimal .iface-canvas {
+  margin-left: 0 !important;
 }
 
 /* Reveal zone — a 200vh spacer that hosts the sticky hero. The hero

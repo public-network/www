@@ -18,7 +18,7 @@
   <!-- Phosphor Icons — open source icon set. -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 </head>
-<body>
+<body class="launch-minimal">
   <div class="page-wrapper">
 
     <!-- Interface layer — fixed underneath, revealed when the glass slides up.
@@ -76,6 +76,14 @@
       </article>
     </main>
 
+    <!-- Subtle scroll cue pinned to the bottom-center of the glass.
+         Fades out as the glass translates up. -->
+    <div class="reveal-cue" aria-hidden="true">
+      <svg width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1.5L7 7.5L13 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
     <!-- Glass layer — the homepage. Slides up on scroll to reveal the
          interface underneath. See js/glass-scroll.js. -->
     <div class="glass-layer" id="glass-layer">
@@ -125,9 +133,9 @@
 
   </div>
 
-  <script src="js/imperfect-circle-animation.js" defer></script>
-  <script src="js/glass-scroll.js" defer></script>
-  <script src="js/type-schemas.js" defer></script>
-  <script src="js/iface-home.js" defer></script>
+  <script src="js/imperfect-circle-animation.js?v=2" defer></script>
+  <script src="js/glass-scroll.js?v=2" defer></script>
+  <script src="js/type-schemas.js?v=2" defer></script>
+  <script src="js/iface-home.js?v=2" defer></script>
 </body>
 </html>
