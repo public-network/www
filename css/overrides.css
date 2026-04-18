@@ -14,11 +14,10 @@
 html, body {
   background-color: var(--wotc-bg) !important;
   color: var(--wotc-ink) !important;
-  /* Webflow's template locks overflow on body (for its popup system).
-     Unlock so the page scrolls naturally now that home flows into the
-     whitepaper below. */
+  /* Single scroll container: the document. position:sticky on the
+     hero depends on this — having overflow:auto on body/html creates
+     a nested scrolling box that breaks sticky behaviour. */
   overflow: visible !important;
-  overflow-y: auto !important;
   height: auto !important;
   min-height: 100% !important;
   max-height: none !important;
@@ -94,27 +93,10 @@ input, textarea, select, .w-input, .w-select {
   min-height: auto !important;
   z-index: auto !important;
 }
-/* Soft gray-to-white gradient pinned to the bottom of the initial
-   viewport (y = 70svh to 100svh). Anchored to top:70svh rather than
-   bottom:0 so it doesn't drift past the fold when the home section
-   grows taller than the viewport. */
-.home_component::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 30%;
-  background: linear-gradient(
-    to top,
-    rgba(134, 134, 139, 0.28) 0%,
-    rgba(134, 134, 139, 0.16) 40%,
-    rgba(134, 134, 139, 0.06) 75%,
-    rgba(134, 134, 139, 0) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
+/* Gradient pinned to the bottom of the home removed 2026-04-18 —
+   interface behind the glass now provides the layer cue, not a painted
+   fade. Kept empty selector for diff history; delete once confirmed. */
+.home_component::after { content: none; }
 
 /* ------------------------------------------------------------------
    Glass layer + interface layer.
@@ -570,3 +552,297 @@ input, textarea, select, .w-input, .w-select {
   margin: 2.5em 0;
 }
 .whitepaper .wp-muted { color: #86868B; }
+
+/* ==================================================================
+   INTERFACE LAYER — new clean shell (2026-04-18).
+   Sits behind the glass, pinned to the viewport so it stays put while
+   the glass slides up on scroll. Sidebar on the left, blank canvas on
+   the right. Populated with real content later.
+   ================================================================== */
+
+/* Interface = fixed sidebar on the left + natural-flow canvas to its
+   right. The whole page scrolls naturally; the glass layer on top
+   reveals in the first 100vh via JS transform. */
+
+.iface-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 260px !important;
+  height: 100vh !important;
+  padding: 20px 16px !important;
+  border-right: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif !important;
+  font-size: 14px !important;
+  letter-spacing: 0.01em !important;
+  overflow: hidden !important;
+  z-index: 2;
+  box-sizing: border-box !important;
+  transform: translateX(0);
+  transition: transform 320ms cubic-bezier(0.32, 0.72, 0, 1) !important;
+  /* Soft snow — whisper of cool gray-blue. */
+  background-color: #F3F5F9 !important;
+}
+body.sidebar-collapsed .iface-sidebar {
+  transform: translateX(-260px);
+}
+
+/* Top row — PN mark alone, aligned to the left. */
+.iface-sidebar-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Nav rows — full-width, gray hover. Icon sits in a 26px slot so its
+   centre lines up with the PN mark above. */
+.iface-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.iface-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px 8px 4px;
+  border-radius: 8px;
+  color: var(--wotc-ink) !important;
+  text-decoration: none !important;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.iface-nav-link:hover {
+  background-color: rgba(60, 67, 87, 0.08);
+  color: var(--wotc-ink) !important;
+}
+.iface-nav-link.is-active {
+  background-color: rgba(60, 67, 87, 0.10);
+}
+.iface-nav-icon {
+  width: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--wotc-ink-soft);
+  /* Phosphor's book-open-text renders with optical weight pulled to
+     the right of its glyph box. Nudge left so the icon reads visually
+     centred under the PN mark above. */
+  margin-left: -3px;
+}
+
+/* Single sidebar toggle — lives outside the sidebar, fixed-positioned.
+   Its base position is the sidebar's top-right (left: 224px). When the
+   sidebar collapses, body.sidebar-collapsed translates the toggle by
+   -204px so it lands at the canvas top-left. Transform transitions
+   more reliably than left on the compositor. */
+.iface-toggle {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--wotc-ink-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  position: fixed;
+  top: 20px;
+  left: 224px;
+  z-index: 3;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+body.sidebar-collapsed .iface-toggle {
+  left: 20px;
+}
+.iface-toggle:hover {
+  color: var(--wotc-ink);
+  background-color: rgba(60, 67, 87, 0.08);
+}
+.iface-toggle i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* Home button — PN mark, top-left of the sidebar. Its inner padding
+   (4px) lines the 26px mark up with the Documentation icon's 26px
+   slot below, so the two icons stack vertically. */
+.iface-home {
+  border: none;
+  background: transparent;
+  padding: 4px;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: opacity 200ms ease, background-color 160ms ease;
+}
+.iface-home:hover { background-color: rgba(60, 67, 87, 0.06); }
+.iface-home-mark {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Bottom cluster — Treasury + Public Network wordmark, centered
+   horizontally within the panel. */
+.iface-sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.25;
+}
+.iface-treasury {
+  color: var(--wotc-ink);
+  font-weight: 500;
+  font-size: 13px;
+}
+.iface-brand-label {
+  color: var(--wotc-ink-muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.iface-canvas {
+  position: relative;
+  min-width: 0;
+  margin-left: 260px;
+  background-color: var(--wotc-bg);
+  transition: margin-left 320ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+body.sidebar-collapsed .iface-canvas {
+  margin-left: 0;
+}
+
+/* Reveal zone — a 200vh spacer that hosts the sticky hero. The hero
+   sticks to viewport-top for the first 100vh of scroll (during the
+   glass reveal), then releases as the zone scrolls past. Whitepaper
+   sits in normal flow below. */
+.iface-reveal-zone {
+  position: relative;
+  min-height: 200vh;
+}
+.iface-hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+/* Masked div so we can tint the circle. Colour is scroll-driven by
+   js/glass-scroll.js — starts at the sidebar's snow colour so the
+   circle almost blends with the panel through the glass at rest, then
+   transitions to its real navy as the glass slides up and the circle
+   becomes the focal point. */
+.iface-hero-circle {
+  width: min(50%, 520px);
+  aspect-ratio: 1 / 1;
+  background-color: var(--pn-circle-fill, #F3F5F9);
+  -webkit-mask-image: url("../images/ns-160.svg");
+          mask-image: url("../images/ns-160.svg");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  animation: ic-pulse 4.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  will-change: transform, background-color;
+}
+
+/* Whitepaper — appears below the hero once you scroll the canvas. */
+.iface-whitepaper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  color: var(--wotc-ink);
+  line-height: 1.6;
+}
+.iface-whitepaper h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 16px;
+}
+.iface-wp-lede {
+  font-size: 17px;
+  color: var(--wotc-ink-soft);
+  margin: 0 0 32px;
+}
+.iface-whitepaper p {
+  font-size: 15px;
+  margin: 0 0 16px;
+}
+
+/* Tablet / mobile — collapse the sidebar into a top bar so the canvas
+   still has room. */
+@media (max-width: 768px) {
+  .interface-layer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .iface-sidebar {
+    height: auto !important;
+    padding: 20px 20px 16px !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--wotc-hairline) !important;
+  }
+  .iface-sidebar-top { margin-bottom: 16px; }
+  .iface-nav { flex-direction: row; flex-wrap: wrap; gap: 18px; }
+  .iface-canvas { height: auto; min-height: 50vh; }
+}
+
+/* scroll-sentinel removed — the whitepaper + canvas hero provide the
+   document scroll range now that canvas flows naturally. */
+
+/* Glass layer — frosted-glass top sheet. Backdrop blur does the
+   heavy lifting; the layer's own tint is almost nothing so the
+   interface shapes read clearly through it. Drop shadow is
+   Apple-subtle — one soft diffused cast that reads more as "depth"
+   than as a shadow. */
+.glass-layer {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(26px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
+  box-shadow: 0 8px 22px -14px rgba(15, 23, 42, 0.10) !important;
+}
+
+/* For the glass to actually pass backdrop through, every wrapper
+   inside it must be transparent. Webflow's base rules set these to
+   the page bg color, which made the "glass" render as opaque white.
+   Force transparent so only the glass-layer's own tint + blur render. */
+.glass-layer,
+.glass-layer .home_component,
+.glass-layer .popup_grid,
+.glass-layer .popup_left,
+.glass-layer .popup_right,
+.glass-layer .padding,
+.glass-layer .container-s,
+.glass-layer .home_left-wrapper,
+.glass-layer .home_right-wrapper {
+  background-color: transparent !important;
+}
+/* Re-apply the glass tint to the layer itself only — the child
+   selector above would otherwise strip it. */
+.glass-layer {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Hide any lingering Webflow main-wrappers if they somehow end up in
+   the DOM (e.g. live reload remnants). New index.html doesn't use them. */
+main.main-wrapper { display: none !important; }
