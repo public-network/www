@@ -1,0 +1,11 @@
+# Local editor/tooling state
+.claude/
+.DS_Store
+
+# Historical backups — kept locally, not shipped to the repo
+_backup_iframe_approach/
+_backup_webflow_approach/
+_pre_consolidation_backup/
+
+# Node (if any tooling lands here later)
+node_modules/

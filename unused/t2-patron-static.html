@@ -1,0 +1,596 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Mar 06 2026 20:50:43 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="65b7b5a0ef84528bec2e4288" data-wf-site="656f66c51ca74f38dfc58a97">
+<head>
+  <meta charset="utf-8">
+  <title>T2 Patron Static</title>
+  <meta content="T2 Patron Static" property="og:title">
+  <meta content="T2 Patron Static" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="../css/network-state-by-patrons-dao.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Figtree:300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../images/webclip.jpg" rel="apple-touch-icon"><!--  ALL  -->
+  <style>
+/*width*/
+.nav_main::-webkit-scrollbar {
+width:3px;
+}
+/*track*/
+.nav_main::-webkit-scrollbar-track {
+background: #f5f5f7;
+border-radius: 2px;
+}
+/*thumb*/
+.nav_main::-webkit-scrollbar-thumb {
+background: #DBDBE0;
+border-radius: 2px;
+}
+</style>
+  <!--  ALL END  -->
+  <link href="https://xmj3tn.csb.app/styles.css/" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="global-styles w-embed">
+      <style>
+/* This applies only for WF designer */
+@media screen and (max-width: 991px) {
+	html.wf-design-mode .nav-flex {
+		display: none;
+}
+}
+</style>
+      <style>
+@media screen and (min-width: 992px) and (max-width: 1139px) {
+	.nav-flex {
+  	width: 244px;
+  }
+  .patron_box {
+  	max-width: 25vw;
+    padding: 3.75rem;
+  }
+  .patron_flex {
+  	grid-column-gap: 2rem;
+  }
+}
+</style>
+      <style>
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+	pointer-events: none;
+}
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+.padding-0 {
+  padding: 0rem !important;
+}
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+</style>
+    </div>
+    <div class="story_component">
+      <a aria-label="close" data-w-id="3d981e9a-2f7a-0ff9-a63d-5f0c3e9c1758" href="#" class="popup-close w-inline-block">
+        <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+          </svg></div>
+      </a>
+      <div class="popup_grid">
+        <div id="w-node-_3d981e9a-2f7a-0ff9-a63d-5f0c3e9c175b-3e9c1757" data-w-id="3d981e9a-2f7a-0ff9-a63d-5f0c3e9c175b" class="popup_blank"></div>
+        <div id="w-node-_3d981e9a-2f7a-0ff9-a63d-5f0c3e9c175c-3e9c1757" class="popup_story">
+          <div class="padding">
+            <div class="container-s is-flex">
+              <div class="home_right-wrapper">
+                <p><strong>The Perfection of the Imperfect Circle<br></strong>Feeling insecure and alienated from others, the Imperfect Circle tried to join the ranks of the perfect circles, but over time its true self started to diminish along with the traces of its imperfect shape.<br><br>After the long quest for an ideally manufactured line, the Imperfect Circle realized that perfection was an abstraction and utopia - an elusive ideal with many interpretations that was impossible to achieve. Eventually the purest form of perfection was found in its stead: authenticity with all its flaws and mistakes. The Imperfect Circle came back to its innermost being - its original form, unique, real and free - accepting the innate beauty of itself and others.<br><br>But its imperfect shape can only be seen and appreciated by those who are able to look deeper and recognize its true form.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="main-wrapper">
+      <div id="home-main" class="main">
+        <div class="patron_component is-t1-native">
+          <div class="patron_main">
+            <div class="padding">
+              <div class="container">
+                <div class="w-layout-grid patron_grid">
+                  <div id="w-node-d84770d4-691d-6ab2-5b2c-a051e5d07644-ec2e4288" class="patron_back">
+                    <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1345_25)">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0ZM13.8535 6.64737C14.0488 6.8426 14.0488 7.15919 13.8536 7.35448L9.20662 12.0015L13.8536 16.6484C14.0488 16.8437 14.0488 17.1602 13.8536 17.3555C13.6583 17.5508 13.3417 17.5508 13.1464 17.3555L8.14645 12.3555C8.04869 12.2577 7.99987 12.1296 8 12.0015C7.99988 11.8733 8.04873 11.7451 8.14656 11.6473L13.1464 6.64748C13.3416 6.45218 13.6582 6.45214 13.8535 6.64737Z" fill="#A9A9B1"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_1345_25">
+                            <rect width="24" height="24" fill="white"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                  <div class="patron_flex">
+                    <div class="patron_box">
+                      <div id="patronCircle2" class="patron_circle-wrapper">
+                        <div class="patron_circle is-t2-patron w-embed"><svg width="100%" viewbox="0 0 165 164" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M143.372 141.119C165.345 118.626 165.092 89.8999 164.982 81.4999C164.882 74.1939 164.446 40.4999 137.555 17.8219C114.598 -1.53408 87.3253 -0.22208 78.3993 0.17992C70.5723 0.53292 54.1803 1.47192 37.5073 12.0109C6.24629 31.7729 1.5113 67.8929 0.972296 72.6219C0.301296 78.5519 -3.17771 114.997 24.2203 141.534C48.0493 164.616 78.2593 163.758 86.0753 163.534C93.0603 163.334 122.475 162.501 143.364 141.116" fill="currentColor"></path>
+                          </svg></div>
+                      </div>
+                    </div>
+                    <div class="patron_details is-t2">
+                      <div class="patron_info">
+                        <div class="text-size-small text-color-darkgrey">June 30, 2022</div>
+                        <div class="text-size-xlarge">T2 Patron 01</div>
+                        <div class="patron_price">
+                          <div class="patron_price-text">Current Bid</div><img src="../images/ethereum-sign.svg" loading="lazy" alt="Ethereum sign">
+                          <div class="patron_price-number">0.025</div>
+                        </div>
+                        <div class="patron_price">
+                          <div class="patron_price-text">Auction Ends in 21h 44m 3s</div>
+                        </div>
+                        <div class="patron_price is-held">
+                          <div class="patron_price-text">Held by <span class="link">0x01e8...46cc</span></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="w-form">
+                          <form id="wf-form-Bid-2" name="wf-form-Bid-2" data-name="Bid" method="get" class="form" data-wf-page-id="65b7b5a0ef84528bec2e4288" data-wf-element-id="d84770d4-691d-6ab2-5b2c-a051e5d07660"><input class="text-field w-input" maxlength="256" name="Bid-value" data-name="Bid value" placeholder="Ξ 86.67 or more" type="text" id="bidValue2">
+                            <div class="patron_picker">
+                              <div class="patron_picker-box">
+                                <div class="patron_picker-arrow-wrapper">
+                                  <div class="patron_picker-arrow w-embed"><svg height="100%" viewbox="0 0 23 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M0 48L23 24L0 0V48Z" fill="white"></path>
+                                    </svg></div>
+                                </div>
+                                <div id="colorPicker2" class="colorpicker">
+                                  <div class="patron_picker-circle-svg w-embed"><svg width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <defs>
+                                        <g id="handle">
+                                          <circle cx="8" cy="8" r="5" stroke="white" stroke-width="2" fill-opacity="0"></circle>
+                                        </g>
+                                      </defs>
+                                    </svg></div>
+                                </div>
+                                <div class="patron_picker-hex-wrapper">
+                                  <div class="text-color-darkgrey">Hex</div>
+                                  <div id="patronHex2" class="patron_picker-hex">#EA335C</div>
+                                </div>
+                              </div><img width="88" loading="lazy" alt="Color Spectre image" src="../images/colorpicker.png" class="patron_picker-image">
+                              <div class="overlay"></div>
+                            </div>
+                          </form>
+                          <div class="w-form-done">
+                            <div>Thank you! Your submission has been received!</div>
+                          </div>
+                          <div class="w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="#" class="button w-button">Place Bid</a>
+                      <div class="patron_history-list is-active">
+                        <div class="patron_history-item">
+                          <a href="#" class="link w-inline-block">
+                            <div>0x01…46cc</div>
+                          </a>
+                          <div class="patron_history-price"><img src="../images/ethereum-sign.svg" loading="lazy" alt="Ethereum sign">
+                            <div class="patron_history-number">82.00</div>
+                          </div>
+                        </div>
+                        <div class="patron_history-item">
+                          <a href="#" class="link w-inline-block">
+                            <div>0x01…46cc</div>
+                          </a>
+                          <div class="patron_history-price"><img src="../images/ethereum-sign.svg" loading="lazy" alt="Ethereum sign">
+                            <div class="patron_history-number">76.00</div>
+                          </div>
+                        </div>
+                        <div class="patron_history-item">
+                          <a href="#" class="link w-inline-block">
+                            <div>View all bids</div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="patron_history-list is-ended">
+                        <div class="patron_history-item is-links">
+                          <a href="#" class="link w-inline-block">
+                            <div>Bid History</div>
+                          </a>
+                          <a href="#" class="link w-inline-block">
+                            <div>Etherscan</div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="w-node-d84770d4-691d-6ab2-5b2c-a051e5d07692-ec2e4288" class="patron_next">
+                    <div class="icon-1x1-medium w-embed"><svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_1345_57)">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0ZM10.1465 17.3556C9.95121 17.1603 9.95116 16.8437 10.1464 16.6485L14.7934 12.0015L10.1464 7.35453C9.95119 7.15927 9.95119 6.84269 10.1464 6.64742C10.3417 6.45216 10.6583 6.45216 10.8536 6.64742L15.8536 11.6474C15.9513 11.7452 16.0001 11.8733 16 12.0015C16.0001 12.1296 15.9513 12.2579 15.8534 12.3556L10.8536 17.3555C10.6584 17.5507 10.3418 17.5508 10.1465 17.3556Z" fill="#A9A9B1"></path>
+                        </g>
+                        <defs>
+                          <clippath id="clip0_1345_57">
+                            <rect width="24" height="24" fill="white"></rect>
+                          </clippath>
+                        </defs>
+                      </svg></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="patron_history">
+            <div class="padding">
+              <div class="container">
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Waiting for <span class="vote_info-link">Certificate of Authentication Application</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-time">Starts in 4 hours</div>
+                    <div class="vote_info-status is-active">Pending</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Waiting for <span class="vote_info-link">Equal Access to Education</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-time">Ends in 5 minutes</div>
+                    <div class="vote_info-status is-active">Active</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">T1 Patron 01 sent to <span class="vote_info-link">x0c233…56tf</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-link">0x008u7</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Absent for <span class="vote_info-link">Art AI Tool</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-defeated">Defeated</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text"><span class="vote_info-link">0x032f33…23cc</span> voted for <span class="vote_info-link">AI Tool for Archiving Art and Collectibles</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-black">Executed</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text"><span class="vote_info-link">0x032f33…23cc</span> voted for <span class="vote_info-link">Interoperable Logistics Software</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-black">Executed</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text"><span class="vote_info-link">0x032f33…23cc</span> voted for <span class="vote_info-link">Patron&#x27;s News</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-black">Executed</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Absent for <span class="vote_info-link">Private Art Database</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-canceled">Canceled</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text"><span class="vote_info-link">0x41cd…f82a</span> voted for <span class="vote_info-link">Royalty Free Platform</span> reason Artist royalties are important because they ensure that artists are fairly compensated for the use of their work, which helps to support the livelihoods and sustainability of artistic careers.</div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-defeated">Defeated</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Delegate changed from <span class="vote_info-link">0x0c96…36cc</span> to <span class="vote_info-link">0xc233…56tf</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-link">0x007f7</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">Holder changed from <span class="vote_info-link">0x0ffa…c920</span> to <span class="vote_info-link">0x032f33…23cc</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-link">0x002a5</div>
+                  </div>
+                </div>
+                <div class="vote_info-item">
+                  <div class="vote_info-left">
+                    <div class="vote_info-text">T2 Patron 02 won by <span class="vote_info-link">0xc233…56tf</span></div>
+                  </div>
+                  <div class="vote_right">
+                    <div class="vote_info-status is-link">0x001c4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=656f66c51ca74f38dfc58a97" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="../js/webflow.js" type="text/javascript"></script>
+  <script defer="" src="https://xmj3tn.csb.app/script.js/"></script>
+  <!--  PLYR VIDEO PLAYER  -->
+  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+  <script>
+$(".plyr_component").each(function (index) {
+  let thisComponent = $(this);
+  // create plyr settings
+  let player = new Plyr(thisComponent.find(".plyr_video")[0], {
+    controls: ["play", "progress", "current-time", "mute", "fullscreen"],
+    resetOnEnd: true,
+  });
+  // custom video cover
+  thisComponent.find(".plyr_cover").on("click", function () {
+    player.play();
+  });
+  player.on("ended", (event) => {
+    thisComponent.removeClass("hide-cover");
+  });
+  // pause other playing videos when this one starts playing
+  player.on("play", (event) => {
+    $(".plyr_component").removeClass("hide-cover");
+    thisComponent.addClass("hide-cover");
+    let prevPlayingComponent = $(".plyr--playing")
+      .closest(".plyr_component")
+      .not(thisComponent);
+    if (prevPlayingComponent.length > 0) {
+      prevPlayingComponent.find(".plyr_pause-trigger")[0].click();
+    }
+  });
+  thisComponent.find(".plyr_pause-trigger").on("click", function () {
+    player.pause();
+  });
+  // exit full screen when video ends
+  player.on("ended", (event) => {
+    if (player.fullscreen.active) {
+      player.fullscreen.exit();
+    }
+  });
+  // set video to contain instead of cover when in full screen mode
+  player.on("enterfullscreen", (event) => {
+    thisComponent.addClass("contain-video");
+  });
+  player.on("exitfullscreen", (event) => {
+    thisComponent.removeClass("contain-video");
+  });
+});
+</script>
+  <!--  IRO COLOR PICKER  -->
+  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+  <script>
+var colorPicker1 = new iro.ColorPicker("#colorPicker1", {
+  width: 164,
+  color: "rgb(5, 5, 5)",
+  layoutDirection: "horizontal",
+  handleSvg: "#handle",
+  layout: [
+    {
+      component: iro.ui.Box,
+    },
+    {
+      component: iro.ui.Slider,
+      options: {
+        id: "hue-slider",
+        sliderType: "hue",
+      },
+    },
+  ],
+});
+const circleColor1 = document.getElementById("patronCircle1");
+/* const activeHex = document.getElementById("activeColor"); */
+const patronHex1 = document.getElementById("patronHex1");
+colorPicker1.on(["mount", "color:setActive", "color:change"], function () {
+  // colorPicker.color is always the active color
+  const hexString = colorPicker1.color.hexString;
+  circleColor1.style.color = `${hexString}`;
+  patronHex1.textContent = `${hexString}`;
+});
+</script>
+  <script>
+var colorPicker2 = new iro.ColorPicker("#colorPicker2", {
+  width: 164,
+  color: "rgb(5, 5, 5)",
+  layoutDirection: "horizontal",
+  handleSvg: "#handle",
+  layout: [
+    {
+      component: iro.ui.Box,
+    },
+    {
+      component: iro.ui.Slider,
+      options: {
+        id: "hue-slider",
+        sliderType: "hue",
+      },
+    },
+  ],
+});
+const circleColor2 = document.getElementById("patronCircle2");
+/* const activeHex = document.getElementById("activeColor"); */
+const patronHex2 = document.getElementById("patronHex2");
+colorPicker2.on(["mount", "color:setActive", "color:change"], function () {
+  // colorPicker.color is always the active color
+  const hexString = colorPicker2.color.hexString;
+  circleColor2.style.color = `${hexString}`;
+  patronHex2.textContent = `${hexString}`;
+});
+</script>
+</body>
+</html>

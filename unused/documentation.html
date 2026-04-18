@@ -1,0 +1,923 @@
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Mar 06 2026 20:50:43 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="659a8778866cbd0097fed074" data-wf-site="656f66c51ca74f38dfc58a97">
+<head>
+  <meta charset="utf-8">
+  <title>Documentation</title>
+  <meta content="Documentation" property="og:title">
+  <meta content="Documentation" property="twitter:title">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="../css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="../css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="../css/network-state-by-patrons-dao.webflow.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">WebFont.load({  google: {    families: ["Figtree:300,400,500,600,700"]  }});</script>
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../images/webclip.jpg" rel="apple-touch-icon"><!--  ALL  -->
+  <style>
+/*width*/
+.nav_main::-webkit-scrollbar {
+width:3px;
+}
+/*track*/
+.nav_main::-webkit-scrollbar-track {
+background: #f5f5f7;
+border-radius: 2px;
+}
+/*thumb*/
+.nav_main::-webkit-scrollbar-thumb {
+background: #DBDBE0;
+border-radius: 2px;
+}
+</style>
+  <!--  ALL END  --><!--  DOCUMENTATION ONLY  -->
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
+  <style>
+html {
+  --plyr-color-main: white;
+  --plyr-tab-focus-color: transparent;
+  --plyr-video-control-color-hover: black;
+  --plyr-control-icon-size: 1.5em;
+  --plyr-range-thumb-height: 0px;
+  --plyr-range-track-height: 0.6em;
+}
+.plyr__control--overlaid {
+  color: black;
+}
+.plyr__volume {
+  width: auto;
+  min-width: auto;
+  max-width: auto;
+}
+.plyr {
+  width: 100%;
+  height: 100%;
+}
+.plyr video {
+  object-fit: cover;
+}
+.contain-video video {
+  object-fit: contain;
+}
+.hide-cover .plyr_cover {
+  opacity: 0;
+  pointer-events: none;
+}
+.hide-cover .plyr_cover-img {
+  transform: scale(1.4);
+}
+</style>
+  <!--  DOCUMENTATION ONLY END  -->
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="global-styles w-embed">
+      <style>
+/* This applies only for WF designer */
+@media screen and (max-width: 991px) {
+	html.wf-design-mode .nav-flex {
+		display: none;
+}
+}
+</style>
+      <style>
+@media screen and (min-width: 992px) and (max-width: 1139px) {
+	.nav-flex {
+  	width: 244px;
+  }
+  .patron_box {
+  	max-width: 25vw;
+    padding: 3.75rem;
+  }
+  .patron_flex {
+  	grid-column-gap: 2rem;
+  }
+}
+</style>
+      <style>
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+	pointer-events: none;
+}
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+.padding-0 {
+  padding: 0rem !important;
+}
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+</style>
+    </div>
+    <main class="main-wrapper">
+      <div class="connect_component">
+        <div id="w-node-_5b81d8d2-d929-5822-0e7a-668e320e140c-320e140b" class="popup-close">
+          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+            </svg></div>
+        </div>
+        <div class="connect_centered">
+          <div class="connect_list">
+            <div class="connect_item">
+              <div>Metamask</div>
+              <a href="#" class="link w-inline-block">
+                <div>Connect</div>
+              </a>
+            </div>
+            <div class="connect_item">
+              <div>Wallet Connect</div>
+              <a href="#" class="link w-inline-block">
+                <div>Connect</div>
+              </a>
+            </div>
+            <div class="connect_item">
+              <div>Coinbase Wallet</div>
+              <a href="#" class="link w-inline-block">
+                <div>Connect</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="nav_open-wrapper">
+          <a href="#" class="nav_open w-inline-block">
+            <div class="nav_close-line"></div>
+            <div class="nav_close-line"></div>
+          </a>
+        </div>
+        <div class="nav-flex">
+          <div class="nav_info">
+            <div class="nav_info-flex"><img src="../images/ns-logo-small.svg" loading="lazy" alt="Network State circle" class="nav_info-logo">
+              <a href="#" class="nav_info-wallet is-connected w-inline-block">
+                <div class="text-weight-medium text-color-blue">0x34c7...e5c8</div>
+              </a>
+              <a href="#" class="nav_info-wallet is-connect w-inline-block">
+                <div class="text-weight-medium text-color-blue">Connect</div>
+              </a>
+              <a href="#" class="nav_close w-inline-block">
+                <div class="nav_close-line"></div>
+                <div class="nav_close-line"></div>
+              </a>
+            </div>
+          </div>
+          <div class="nav_main">
+            <a href="../index.html" class="nav_link is-home w-inline-block"><img src="../images/⌂.svg" loading="lazy" alt="Home icon"></a>
+            <div class="nav_link-wrapper">
+              <a href="#" class="nav_link w-inline-block">
+                <div>Patrons</div>
+              </a>
+              <div class="nav_link-folder is-patrons">
+                <a href="../unused/t1-patron.html" class="nav_link is-nested w-inline-block">
+                  <div>T1 Patron</div>
+                </a>
+                <a href="../unused/t2-patron.html" class="nav_link is-nested w-inline-block">
+                  <div>T2 Patron</div>
+                </a>
+                <a href="../unused/patron.html" class="nav_link is-nested w-inline-block">
+                  <div>Patron</div>
+                </a>
+              </div>
+            </div>
+            <div class="nav_link-wrapper">
+              <a href="../unused/initiatives.html" class="nav_link w-inline-block">
+                <div>Initiatives</div>
+              </a>
+              <div class="nav_link-folder is-initiatives">
+                <a href="#" class="nav_link is-nested is-all w-inline-block">
+                  <div>All</div>
+                </a>
+                <a href="#" class="nav_link is-nested is-t1-initiative w-inline-block">
+                  <div>T1 Initiatives</div>
+                </a>
+                <a href="#" class="nav_link is-nested is-t2-initiative w-inline-block">
+                  <div>T2 Initiatives</div>
+                </a>
+              </div>
+            </div>
+            <div class="nav_link-wrapper">
+              <a href="https://network-state-by-patrons-dao.webflow.io/#home-main" class="nav_link w-inline-block">
+                <div>Documentation</div>
+              </a>
+              <div class="nav_link-folder is-documentation">
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Preface</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Patrons</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Initiatives</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Governance</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Treasury</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Network State</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>The Perfection of the Imperfect Circle</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Timeline</div>
+                </a>
+                <a href="#" class="nav_link is-nested w-inline-block">
+                  <div>Weekly Schedule</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="nav_bottom">
+            <a href="https://etherscan.io/" target="_blank" class="treasury_component w-inline-block">
+              <div class="text-size-small">Treasury</div>
+              <div class="treasury_price-flex"><img src="../images/ethereum-sign.svg" loading="lazy" alt="Ethereum sign">
+                <div class="treasury_price">33,243</div>
+              </div>
+            </a>
+            <div class="nav_bottom-ns text-weight-light">Network State</div>
+          </div>
+          <div class="current-tag-hidden">
+            <a href="#" class="nav_link is-nested is-t1-initiative current w-inline-block"></a>
+            <a href="#" class="nav_link is-nested is-t2-initiative current w-inline-block"></a>
+            <a href="#" class="nav_link is-nested is-all current w-inline-block"></a>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="documentation_component">
+          <div class="documentation_top">
+            <div class="padding">
+              <div class="container">
+                <div class="plyr_component is-top">
+                  <div class="plyr_embed w-embed"><video style="width: 100%; height: 100%;" class="plyr_video" playsinline="" data-poster="">
+                      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                    </video></div>
+                  <div class="plyr_cover"><img src="../images/cover.jpg" loading="lazy" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/cover-p-500.jpg 500w, ../images/cover-p-800.jpg 800w, ../images/cover-p-1080.jpg 1080w, ../images/cover.jpg 1920w" alt="Image cover" class="plyr_cover-img">
+                    <div class="plyr_cover-button">
+                      <div class="plyr_cover-icon w-embed"><svg width="100%" viewbox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20 12L0 0V24L20 12Z" fill="currentColor"></path>
+                        </svg></div>
+                    </div>
+                  </div>
+                  <div class="plyr_pause-trigger"></div>
+                </div>
+                <div id="documentation-preface" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Preface</div>
+                  </div>
+                  <p>We, as Patrons, present “Patrons,” a Decentralized Autonomous Organization (DAO) with the purpose to protect, support, and evolve the living phenomena of Art and Humanity, one Initiative at a time. We are diverse individuals and entities ranging from Artists, Technologists, Humanitarians, Scientists, Museums, Non-Profits, DAOs and many other forms. We push Art and Humanity forward by starting and forming a consensus around Initiatives and funding them through the Treasury generated from various sources, such as auctions and contributions. Each Initiative serves as a pillar for Art and Humanity.<br><br>We, as Patrons, also present “Network State”, the living phenomena of Art and Humanity, a highly aligned decentralized ecosystem and permanent neutral ground in which to reside, formed and governed by Patrons. Through collective intellect and resources, Patrons work towards self-sustainment in disciplines ranging, from blockchain, artificial intelligence, virtual and augmented reality, quantum computing, synthetic biology, nanotechnology, and other means to transition from centralized structures into an advanced Network State.<br><br>If you, as an individual or entity, believe that your true form is to protect, support, and evolve the living phenomena of Art and Humanity and want to determine the future of the Network State, become a Patron.</p>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-patrons" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Patrons</div>
+                  </div>
+                  <p>Patrons protect, support, and evolve the living phenomena of Art and Humanity, one Initiative at a time.<br>Individuals and entities can become Patrons by minting a Patron soulbound Non-Fungible Token (NFT).<br>Patron NFTs grant residence to Patrons DAO within the Network State.<br>Patrons are diverse individuals and entities.</p>
+                  <div class="w-layout-grid documentation_patrons-grid">
+                    <div id="w-node-_8d4d1593-c925-b4fe-4113-57a82660b367-97fed074">Artists</div>
+                    <div id="w-node-a7d9f04e-8bce-1905-60dd-72f807a02320-97fed074">Universities</div>
+                    <div id="w-node-_4d1d5fb9-5514-886f-60a2-e00c3cddc6e5-97fed074">Visionaries</div>
+                    <div id="w-node-_314856e5-a15c-e1ec-62d7-18ccf2629b94-97fed074">Educators</div>
+                    <div id="w-node-d9cacdb5-3ffb-7324-8536-9b54d5977a64-97fed074">Technologists</div>
+                    <div id="w-node-d23b3d71-e1fb-c881-0d3e-114aba0a6d02-97fed074">Entrepreneurs</div>
+                    <div id="w-node-_41c68da2-7fef-3f54-7871-4ab6f439d216-97fed074">Museums</div>
+                    <div id="w-node-_9d0c95d0-c4dd-c64d-cecb-e0e1226f54a8-97fed074">Illustrators</div>
+                    <div id="w-node-_0cf895c0-e378-212d-8102-8c9f03be891a-97fed074">Creators</div>
+                    <div id="w-node-f296a53a-0891-b8d2-545c-acc163cbff46-97fed074">Musicians</div>
+                    <div id="w-node-e06ed207-7605-367f-898c-db65d6325981-97fed074">Researchers</div>
+                    <div id="w-node-a2272b40-cdf3-4779-0d95-3fef9ab3b71a-97fed074">Producers</div>
+                    <div id="w-node-_7e81f73b-a740-bb01-13c3-cb680acfded2-97fed074">DAOs</div>
+                    <div id="w-node-_2461d915-37d9-70df-b737-61c73ff2cf91-97fed074">Composers</div>
+                    <div id="w-node-_71fe5452-766c-9258-3331-fb2ad91033ff-97fed074">Engineers</div>
+                    <div id="w-node-_6c85a198-c3a2-6ee1-277c-d631b0773b27-97fed074">Non-Profits</div>
+                    <div id="w-node-_39da4063-0461-e6a3-e01d-cb0a51fcc2d0-97fed074">Foundations</div>
+                    <div id="w-node-e71b9c8c-753c-222a-d3c6-1612dd7e0d98-97fed074">Hospitals</div>
+                    <div id="w-node-_3668d520-979b-2fce-4918-0e4af64675b9-97fed074">Curators</div>
+                    <div id="w-node-_41aac59b-dd2b-1f49-91a4-00a999adcf20-97fed074">Doctors</div>
+                    <div id="w-node-_372f98f8-e6b7-b832-bcab-4cc75e76003e-97fed074">Strategists</div>
+                    <div id="w-node-_3b4cbf44-bec4-7804-34a9-27f7ba444d07-97fed074">Lawyers</div>
+                    <div id="w-node-_3f6c4dfa-75a0-ca67-e6bf-986a35c94e97-97fed074">Institutions</div>
+                    <div id="w-node-_82fec17b-8037-6dc8-5fbd-df2cdbb7efd9-97fed074">Libraries</div>
+                    <div id="w-node-_9ac03933-68a9-6da5-657d-980da13f7e47-97fed074">Humanitarians</div>
+                    <div id="w-node-_6f91dc62-075c-b0e4-310e-20d842dad379-97fed074">Architects</div>
+                    <div id="w-node-_006450f7-b3f7-e2a2-9bb9-d4c1e205403f-97fed074">Activists</div>
+                    <div id="w-node-_5ce3a872-1563-63e0-4983-60eede5c71b3-97fed074">Directors</div>
+                    <div id="w-node-_19c88d4d-1206-acc9-4a12-d158899ba5bc-97fed074">Cultural Centers</div>
+                    <div id="w-node-_5b632e60-10f5-3122-4ce3-cd477ccf5d18-97fed074">Public Media</div>
+                    <div id="w-node-_4a348d92-4ade-a62a-bf4b-4daa8a04bfdf-97fed074">Developers</div>
+                    <div id="w-node-f07b9cc6-4423-902e-2271-4f8d25260f04-97fed074">Filmmakers</div>
+                    <div id="w-node-cbe2147d-aecb-707b-d9d1-c6ca391a9aa3-97fed074">Designers</div>
+                    <div id="w-node-_0410694e-53de-840f-b71c-7c4fd3e54b6c-97fed074">Photographers</div>
+                    <div id="w-node-_9bb11b04-41e4-3e0e-6ba9-5f27294ead8d-97fed074">Philosophers</div>
+                    <div id="w-node-_36dd18ab-28b0-6e8a-b8ef-7f8dbf17f239-97fed074">Journalists</div>
+                    <div id="w-node-_2c422fe9-0535-f9ed-e86c-af81db89ccb9-97fed074">Scientists</div>
+                    <div id="w-node-c0ee0224-c230-eb9d-366c-3d79f5c13275-97fed074">Writers<br></div>
+                    <div id="w-node-_854bcdcf-bfed-5ae4-a9a1-31cdcfbdc606-97fed074">Environmentalists</div>
+                    <div id="w-node-_4fee70fa-f4bf-f2b8-1040-9be8c9aff7e0-97fed074">etc…</div>
+                  </div>
+                  <div class="w-layout-grid documentation_lightbox-grid is-0-bottom">
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/initiatives.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/initiatives-p-500.jpg 500w, ../images/initiatives-p-800.jpg 800w, ../images/initiatives-p-1080.jpg 1080w, ../images/initiatives-p-1600.jpg 1600w, ../images/initiatives-p-2000.jpg 2000w, ../images/initiatives.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/initiatives.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/initiatives-p-500.jpg 500w, ../images/initiatives-p-800.jpg 800w, ../images/initiatives-p-1080.jpg 1080w, ../images/initiatives-p-1600.jpg 1600w, ../images/initiatives-p-2000.jpg 2000w, ../images/initiatives.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-initiatives" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Initiatives</div>
+                  </div>
+                  <p>All Patrons can take action by starting an Initiative. <br>Initiatives protect, support, and evolve Art and Humanity.<br>There are three types of Initiative funding tiers: Tier 1 (T1), Tier 2 (T2), and Grants.<br>For both T1 and T2 Initiatives to pass, a minimum quorum of participating T1 and T2 Patrons is required, with the specific percentage determined on a per-Initiative basis.<br>Initiatives require a majority consensus to pass, with the specific threshold determined on a per-Initiative basis.</p>
+                  <div class="w-layout-grid documentation_lightbox-grid">
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p><strong>T1 Initiative</strong><br>T1 Initiatives have a maximum funding limit of Ξ500-2,000. <br>Two T1 Patron Endorsements are needed to be taken to Vote.<br><br><strong>T2 Initiative<br></strong>T2 Initiatives have a maximum funding limit of Ξ2-500. <br>Four T1 Patron or T2 Patron Endorsements are needed to be taken to Vote.<br><br><strong>Grants</strong><br>An Initiative with a maximum funding limit of Ξ0.1-25 that does not go through the voting process. <br>An Initiative that is time sensitive or needs retroactive funding.<br><br><strong>Guidlines</strong></p>
+                  <div>
+                    <ul role="list" class="this-is-a-webflow-component-paste-it-into-webflow-syncing-powered-by-the-relume-chrome-extension-accordion_list-wrapper w-list-unstyled">
+                      <li class="accordion_item-wrapper">
+                        <div data-click="accordion" role="region" data-w-id="a22bbcad-9880-bd24-14e1-1bae1bf01f37" class="accordion_item">
+                          <a aria-expanded="false" role="button" href="#" class="accordion_title-wrapper w-inline-block">
+                            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0)" class="accordion_arrow w-embed"><svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3.5L4.438 5.062L4.338 5.162L1 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M6 3.5L10.999 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                              </svg></div>
+                            <div class="accordion_title">Example of Initiatives</div>
+                          </a>
+                          <div aria-hidden="true" style="height:0px" class="accordion_description-wrapper">
+                            <p class="accordion_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="accordion_item-wrapper">
+                        <div data-click="accordion" role="region" data-w-id="a22bbcad-9880-bd24-14e1-1bae1bf01f40" class="accordion_item">
+                          <a aria-expanded="false" role="button" href="#" class="accordion_title-wrapper w-inline-block">
+                            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0)" class="accordion_arrow w-embed"><svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3.5L4.438 5.062L4.338 5.162L1 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M6 3.5L10.999 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                              </svg></div>
+                            <div class="accordion_title">How to Start an Initiative</div>
+                          </a>
+                          <div aria-hidden="true" style="height:0px" class="accordion_description-wrapper">
+                            <p class="accordion_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="accordion_item-wrapper">
+                        <div data-click="accordion" role="region" data-w-id="a22bbcad-9880-bd24-14e1-1bae1bf01f49" class="accordion_item">
+                          <a aria-expanded="false" role="button" href="#" class="accordion_title-wrapper w-inline-block">
+                            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0)" class="accordion_arrow w-embed"><svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3.5L4.438 5.062L4.338 5.162L1 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M6 3.5L10.999 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                              </svg></div>
+                            <div class="accordion_title">Recommended Initiative Structure</div>
+                          </a>
+                          <div aria-hidden="true" style="height:0px" class="accordion_description-wrapper">
+                            <p class="accordion_description">1. Title/Tagline - Provide a name for the Initiative. Summarize the Initiative in one sentence.<br>2. Problem/Opportunity - Describe the problem or the opportunity?  Why should Patrons be excited about this?<br>3. Value Proposition - Explain the value of the pain relieved or the value of fulfillment it provides.<br>4. Underlying Magic - Describe the technology, secret sauce, or magic behind this Initiative. Although words are fine, visuals are recommended.<br>5. Revenue Model (recommended if proposing a business) - Explain how the Initiative will make revenue or possibly fund the Treasury.<br>6. Go To Market Plan - What steps are required to reach the Initiative’s target audience? Define actual steps and actions that will be taken.<br>7. Competitive Analysis - Provide a view of the competitive landscape.<br>8. Team - Describe any key team members including advisors. If this team is not fully formed, describe what is still required.<br>9. Financial Projections and Key Metrics (recommended if proposing a business) - Provide a three-year forecast containing not only revenue but key metrics such as the number of users and conversion rate.<br>10. Current Status/Accomplishments to Date/Timeline/Use of Funds - Explain the current status of this Initiative. What does the future look like? Detail how the funding requested will help achieve success.<br>*Note - Initiatives should drive awareness back to the Network State.</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-governance" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Governance</div>
+                  </div>
+                  <p>Patrons take part in Patrons DAO and the Network State by joining Governance.<br>There are two types of Governance Tiers: Tier 1 (T1) Patron and Tier 2 (T2) Patron.<br>Patrons attain Governance by winning a T1 Patron NFT auction or minting a T2 Patron NFT, both limited per quarter.  <br>T1 Patrons and T2 Patrons are granted additional rights to Endorse and Vote on Initiatives.<br>*Note - It is recommended to only hold one Governance T1 or T2.<br><br><strong>Tier 1 Patron<br></strong>One Tier 1 Patron NFT auction each week on Sunday alternating times 12PM EST and 12AM EST Forever.<br>Two highest bidders receive Tier 1 Patron NFT.<br>• Generative Imperfect Circle, with color of choice (including exclusive T1 Gold or T1 Platinum)<br>• Grants the rights to endorse a T1 and T2 Initiative and vote.<br>• One T1 Patron NFT grants one vote in T1 and T2 Initiatives.<br>• Access to the T1 Patrons and T2 Patron privates Discord channel.</p>
+                  <div id="w-node-cf1ad9d5-e00d-1b00-81f4-248b11076111-97fed074" class="w-layout-grid documentation_lightbox-grid">
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p><strong>Tier 2 Patron<br></strong>T2 Patron NFTs are auctioned off to the highest bidder every 36 hours.<br>An auction begins every 36 hours at either 12 PM EST or 12 AM EST, alternating each time.<br>• Generative Imperfect Circle with a selected color choice.<br>• Grants the Rights to Endorse a T2 Initiative and Vote.<br>• One T2 Patron NFT grants one vote in T2 Initiatives.<br>• Access to the T2 Patron private Discord channel.</p>
+                  <div class="w-layout-grid documentation_lightbox-grid">
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p><strong>Governance Rights</strong> </p>
+                  <div>
+                    <ul role="list" class="this-is-a-webflow-component-paste-it-into-webflow-syncing-powered-by-the-relume-chrome-extension-accordion_list-wrapper w-list-unstyled">
+                      <li class="accordion_item-wrapper">
+                        <div data-click="accordion" role="region" data-w-id="51622dd5-295e-24c0-bebc-bc5a0bab94b7" class="accordion_item">
+                          <a aria-expanded="false" role="button" href="#" class="accordion_title-wrapper w-inline-block">
+                            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0)" class="accordion_arrow w-embed"><svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3.5L4.438 5.062L4.338 5.162L1 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M6 3.5L10.999 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                              </svg></div>
+                            <div class="accordion_title">Delegation, Endorsing an Initiative, and Voting.</div>
+                          </a>
+                          <div aria-hidden="true" style="height:0px" class="accordion_description-wrapper">
+                            <p class="accordion_description">● Delegation enables T1 Patrons and T2 Patrons to lend their Rights to another wallet without transferring NFT ownership.<br>    ○ Governance Rights are assigned through the Patrons DAO Smart Contract.<br>    ○ Once an Initiative is endorsed and becomes “Active,” T1 Patrons and T2 Patrons can reassign Governance Rights back to themselves.<br>● Patrons can take an Initiative to a vote using any wallet that holds the required amount of Endorsement Rights.<br>● Voting involves selecting “For,” “Against,” or “Abstain” with respect to an Active Initiative.</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="margin-top-20">
+                    <p><strong>Operators Governance</strong></p>
+                  </div>
+                  <div>
+                    <ul role="list" class="this-is-a-webflow-component-paste-it-into-webflow-syncing-powered-by-the-relume-chrome-extension-accordion_list-wrapper w-list-unstyled">
+                      <li class="accordion_item-wrapper">
+                        <div data-click="accordion" role="region" data-w-id="8855e50f-eb11-f8a6-682b-20f268b4723b" class="accordion_item">
+                          <a aria-expanded="false" role="button" href="#" class="accordion_title-wrapper w-inline-block">
+                            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(90deg) skew(0, 0)" class="accordion_arrow w-embed"><svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 3.5L4.438 5.062L4.338 5.162L1 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                                <path d="M6 3.5L10.999 8.5" stroke="currentColor" stroke-linecap="round"></path>
+                              </svg></div>
+                            <div class="accordion_title">Governance Slow Start</div>
+                          </a>
+                          <div aria-hidden="true" style="height:0px" class="accordion_description-wrapper">
+                            <p class="accordion_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-treasury" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Treasury</div>
+                  </div>
+                  <p>The Treasury, housed in the Network State, is generated from various sources, such as auctions, funding, and contributions, to support Initiatives.<br>100% of T1 Patron NFTs sales fund the Treasury forever.<br>100% of T2 Patron NFT sales fund the Treasury forever. <br>90% of Patron NFT sales fund the Treasury for 5 years.<br>• After 5 years, 100% of Patron NFT sales fund the Treasury forever.<br>10% of T1 Patrons, T2 Patrons, and Patrons secondary sales (royalties) fund Treasury.<br>Treasury funds Initiatives.<br>Initiatives can fund Treasury.<br>• 10% of Initiative revenue is recommended.<br>*Note - Royalties are set at 10% to provide ongoing funding for the Treasury in the event of a sale.</p>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-networkstate" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Network State</div>
+                  </div>
+                  <p>Network State, the living phenomena of Art and Humanity, a highly aligned decentralized ecosystem and permanent neutral ground in which to reside, formed and governed by Patrons.<br>Through collective intellect and resources, Patrons work towards self-sustainment in fields ranging, from blockchain, artificial intelligence, virtual and augmented reality, quantum computing, synthetic biology, nanotechnology, and other means to transition from centralized structures into an advanced Network State.<br>To participate in the Network State, individuals and entities will require a T1 Patron, T2 Patron, or Patron NFT. <br>The Network State Infrastructure is funded through Initiatives.</p>
+                  <div class="div-block-17">
+                    <div><img src="../images/flag.jpg" loading="lazy" width="960" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" alt="Network State flag" srcset="../images/flag-p-500.jpg 500w, ../images/flag-p-800.jpg 800w, ../images/flag-p-1080.jpg 1080w, ../images/flag-p-1600.jpg 1600w, ../images/flag-p-2000.jpg 2000w, ../images/flag-p-2600.jpg 2600w, ../images/flag.jpg 3840w">
+                      <div class="margin-top-4">
+                        <div class="text-size-small">Network State Flag</div>
+                      </div>
+                    </div>
+                  </div>
+                  <p><strong>Components</strong><br>The core building blocks of the Network State, components work in synergy to create an interconnected and decentralized environment that pushes Art and Humanity forward.<br>• <strong>Patrons</strong>: The individuals or entities who protect, support, and evolve Art and Humanity through their active engagement and contributions in the Network State.<br>• <strong>Identity</strong>: The unique digital representation of individuals or entities within the Network State, ensuring privacy and security while encouraging creative expression.<br>• <strong>Assets</strong>: The resources, both tangible and intangible, that are managed, utilized, and exchanged within the Network State to create value and drive Artistic and Humanitarian initiatives.<br>• <strong>Governance</strong>: The decision-making processes and structures that direct the operations, development, and evolution of the Network State, balancing transparency, accountability, and inclusiveness.<br>• <strong>Communication</strong>: The channels, platforms, and tools that facilitate information exchange, collaboration, and dialogue within the Network State, promoting openness and respect among creative minds.<br>• <strong>Education</strong>: The systems and resources designed to provide learning opportunities, encourage growth, and share knowledge among members of the Network State in the realms of Art and Humanity.<br>• <strong>Environments</strong>: The physical and virtual spaces within the Network State that are designed to be inclusive, engaging, and supportive of diverse Artistic and Humanitarian activities and experiences.<br>• <strong>Transaction</strong>: The methods and systems employed within the Network State to securely and efficiently facilitate exchanges, transfers, and interactions of value in support of creative projects and initiatives.<br>• <strong>Dapps</strong>: Decentralized applications built on the underlying blockchain infrastructure of the Network State, designed to be innovative and user-centric, addressing various Artistic and Humanitarian needs and functionalities.<br>• <strong>Sustainability</strong>: The commitment to the long-term stability and growth of the Network State as a hyperstructure, emphasizing responsible resource management, resilient infrastructure, adaptive processes, and the integration of eco-friendly practices in support of Art and Humanity.</p>
+                  <div class="margin-top-20">
+                    <p><strong>Pillars<br></strong>The Pillars provide a framework for decision-making and maintaining a shared vision for an efficient Network State.<strong><br>• Access: </strong>Ensuring that opportunities, resources, and information within the Network State are available to all, regardless of their background or circumstances, promoting inclusivity and equal opportunity for everyone.<strong><br>• Permanence:</strong> Establishing a stable and enduring foundation for the Network State that guarantees the long-term availability, preservation, and integrity of its resources, assets, and information.<strong><br>• Trust: </strong>Establishing an environment of reliability, honesty, and transparency within the Network State, enabling participants to confidently engage with one another and the ecosystem as a whole.<strong><br>• Accountability: </strong>Ensuring that all actions and decisions within the Network State are clearly communicated, transparent, and held to a high standard of responsibility and ethics.<strong><br>• Innovation: </strong>Encouraging and supporting the development of new ideas, technologies, and approaches within the Network State that challenge conventional norms and push the boundaries of Art and Humanity.<strong><br>• Neutral: </strong>Providing a balanced and impartial environment within the Network State that supports open dialogue, collaboration, and mutual understanding among diverse individuals and entities.<strong><br>• Collaboration: </strong>Facilitating cooperation and joint efforts among participants within the Network State to achieve common goals and create shared value.<strong><br>• Sustainability: </strong>Promoting responsible resource management, resilient infrastructure, adaptive processes, and eco-friendly practices within the Network State to ensure its long-term stability and growth.<strong><br>• Diversity: </strong>Celebrating and embracing the unique perspectives, backgrounds, and experiences of individuals and entities within the Network State, creating a culture of inclusivity and mutual respect.<strong><br>• Education: </strong>Providing opportunities for learning, growth, and knowledge-sharing within the Network State, empowering participants to develop their skills and understanding in the realms of Art and Humanity.<strong><br>• Community: </strong>Cultivating a sense of belonging and interconnectedness among participants within the Network State, ensuring a supportive and collaborative environment that enables everyone to thrive.</p>
+                  </div>
+                  <div class="margin-top-20">
+                    <p><strong>Operators</strong><br>Operators are Patrons dedicated to building and maintaining the infrastructure and components that support the Network State growth and functionality.<br>Patrons who are passionate about contributing their skills and expertise to the development of the Network State can join one of these Operator groups.<br>• <strong>Strategy</strong>: Strategists focus on shaping the vision and direction of the Network State, working closely with other Operators to ensure alignment with its core values and objectives.<br>• <strong>Wireframe</strong>: Wireframe specialists contribute to the user interfaces and experiences within the Network State, ensuring they are intuitive, user-friendly, and aligned with the overall design vision.<br>• <strong>Design</strong>: Designers are responsible for the visual aesthetics of the Network Statement, creating engaging and visually appealing experiences for Patrons and other participants.<br>• <strong>Copywriting</strong>: Copywriters craft compelling written content that communicates the Network State values, goals, and initiatives to various audiences.<br>• <strong>Development</strong>: Developers build and maintain the technical infrastructure of the Network State, working closely with other Operators to ensure alignment with goals and objectives.<br>• <strong>Community</strong>: Community-focused operators promote engagement and facilitate communication and collaboration within the Network State, fostering a positive and collaborative environment among participants.<br>• <strong>Operations</strong>: Operations specialists oversee the day-to-day management and smooth functioning of the Network State, coordinating activities across different areas to maintain performance, productivity, and overall success.<br>• <strong>Finance</strong>: Financial Operators ensure the Network State finances are sourced, allocated, and managed effectively to support various initiatives.<br>• <strong>Legal</strong>: Legal Operators provide legal guidance and ensure compliance with relevant laws and regulations for the Network State.</p>
+                  </div>
+                  <div class="margin-top-20">
+                    <p><strong>Interface</strong><br>The Network State Interface is designed as a blank canvas and is the entry point for Patrons to build, connect, collaborate, and contribute to Art and Humanity.</p>
+                  </div>
+                  <div class="w-layout-grid documentation_lightbox-grid is-single">
+                    <div id="w-node-_31dba20e-6c7f-335c-9499-50c85c5d1f52-5c5d1f52" class="lightbox-main"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="image">
+                      <div class="lightbox-overlay">
+                        <a data-w-id="6599cca6-9603-2062-012a-e9651e503b71" href="#" class="overlay-close w-inline-block">
+                          <div class="icon-1x1-medium w-embed"><svg width="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.451 11.9081C11.372 12.0015 11.3327 12.1171 11.3332 12.2325L1.35348 22.2122C1.15822 22.4075 1.15822 22.724 1.35348 22.9193C1.54874 23.1146 1.86532 23.1146 2.06058 22.9193L12.2874 12.6925C12.349 12.7184 12.4148 12.7315 12.4806 12.7316L22.2503 22.5013C22.4456 22.6966 22.7621 22.6966 22.9574 22.5013C23.1527 22.3061 23.1527 21.9895 22.9574 21.7942L12.967 11.8039L22.7113 2.05961C22.9066 1.86435 22.9066 1.54776 22.7113 1.3525C22.516 1.15724 22.1995 1.15724 22.0042 1.3525L12.2148 11.1419C12.1709 11.1295 12.1256 11.1233 12.0803 11.1232L2.31058 1.35348C2.11532 1.15822 1.79874 1.15822 1.60348 1.35348C1.40822 1.54874 1.40822 1.86532 1.60348 2.06058L11.451 11.9081Z" fill="currentColor"></path>
+                            </svg></div>
+                        </a>
+                        <div class="padding is-overlay">
+                          <div class="container is-overlay">
+                            <div class="lightbox-flex"><img src="../images/image.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 92vw, (max-width: 991px) 94vw, 66vw" srcset="../images/image-p-500.jpg 500w, ../images/image-p-800.jpg 800w, ../images/image-p-1080.jpg 1080w, ../images/image-p-1600.jpg 1600w, ../images/image-p-2000.jpg 2000w, ../images/image-p-2600.jpg 2600w, ../images/image.jpg 3840w" class="lightbox-image"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <p><strong>Backend</strong><br>The Network State backend is the core, providing a robust and secure foundation, supporting the seamless functioning of the Components. <br>Designed with the future in mind, the backend infrastructure is crafted to enable Patrons to create, innovate, and enhance the core systems as the Network State scales.</p>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Design Docs<br></strong></div>
+                    <div><span class="link"><strong>Imperfect Circle_SVG</strong></span></div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Patrons<br></strong></div>
+                    <div><span class="link"><strong>Imperfect Circle_SVG</strong></span></div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Network State Flag<br></strong></div>
+                    <div><span class="link"><strong>Network State_Flag.svg</strong></span></div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div>*Note - To maintain the clarity and integrity of the shapes, it is recommended to resize the image using the attached SVG file before exporting it as a PNG or JPEG.</div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Fonts<br></strong></div>
+                    <div><span class="link">Figtree-VariableFont_wght.ttf</span></div>
+                    <div><span class="link">Figtree-Italic-VariableFont_wght.ttf</span></div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Icons<br></strong></div>
+                    <div><span class="link">Network State_Black Arrow.svg</span></div>
+                    <div><span class="link">Network State_Blue Arrow.svg</span></div>
+                    <div><span class="link">Network State_Gray Circle Arrow_Active.svg</span></div>
+                    <div><span class="link">Network State_Gray Circle Arrow_Inactive.svg</span></div>
+                    <div><span class="link">Network State_Large Gray Arrow.svg</span></div>
+                    <div><span class="link">Network State_Large Gray X.svg</span></div>
+                    <div><span class="link">Network State_Nav.svg<br></span></div>
+                    <div><span class="link">Network State_Search.svg<br></span></div>
+                  </div>
+                  <div class="margin-bottom-24">
+                    <div><strong>Style Guide<br></strong></div>
+                    <a href="#" class="link">Network State_Style Guide.pdf</a>
+                  </div>
+                  <div>*Note -  To maintain clarity and integrity of the shapes, it is recommended to open in Illustrator.</div>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-perfection" class="documentation_section">
+                  <div class="margin-bottom-40"><img src="../images/ns-160.svg" loading="lazy" alt="Network state circle"></div>
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">The Perfection of the Imperfect Circle<br></div>
+                  </div>
+                  <p>Feeling insecure and alienated from others, the Imperfect Circle tried to join the ranks of the perfect circles, but over time its true self started to diminish along with the traces of its imperfect shape.<br><br>After the long quest for an ideally manufactured line, the Imperfect Circle realized that perfection was an abstraction and utopia - an elusive ideal with many interpretations that was impossible to achieve. Eventually, the purest form of perfection was found in its stead: authenticity with all its flaws and mistakes. The Imperfect Circle came back to its innermost being - its original form, unique, real, and free - accepting the innate beauty of itself and others.<br><br>But its imperfect shape can only be seen and appreciated by those who are able to look deeper and recognize its true form.<br><br><strong>Core Values <br></strong>Protect, Support and Evolve the living phenomena of Art and Humanity, one Initiative at a time.<br>• <strong>Professional</strong>: Uphold ethical standards and demonstrate responsibility in all actions.<br>• <strong>Neutral</strong>: Ensure impartiality, factual accuracy, and trustworthiness in all aspects.<br>• <strong>Authentic</strong>: Nurture genuine expression and uniqueness.<br>• <strong>Empathetic</strong>: Cultivate understanding and support.<br>• <strong>Collaborative</strong>: Work together for the betterment of Art and Humanity.<br>• <strong>Innovative</strong>: Embrace new ideas and technologies.<br>• <strong>Exceptional</strong>: Pursue the highest standards in all endeavors.<br>• <strong>Adaptive</strong>: Embrace change and accommodate new circumstances.<br>• <strong>Educational</strong>: Encourage learning, growth, and shared knowledge.<br>• <strong>Sustainable</strong>: Prioritize responsible resource management.</p>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-timeline" class="documentation_section">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Timeline<br></div>
+                  </div>
+                  <p>A high-level overview of important dates and milestones for Patrons and Network State.<br>As the project evolves, more detailed plans and dates will be provided to accomplish specific objectives.<br>*Note - This initial framework is adaptable and subject to change based on Patron feedback and needs.<br><br><strong>Phase 1 - Become a Patron<br></strong>T1 Patron NFTs 7-day auctions will commence on Sunday, May 14th, 2023, at 12:00 PM EST and will occur every Sunday thereafter, starting at alternating times (12 PM EST or 12 AM EST) each week, indefinitely.<br><br>Patron NFTs will be made available starting on Sunday, May 14th, 2023, at 12:00 PM EST indefinitely.<br><br>T2 Patron NFTs 36-hour auctions will commence on Wednesday, June 14th, 2023, at 12:00 PM EST and will occur every 36 hours thereafter, indefinitely.<br><br><strong>Phase 2 - Initiatives<br></strong>T1 and T2 Initiatives will be made available starting on Sunday, July 3rd, 2023, at 12:00 PM EST.<br><br><strong>Phase 3 - Network State - Patrons<br></strong>Network State will be made available to all Patrons starting on Sunday, July 3rd, 2023, at 12:00 PM.<br><br><strong>Phase 4 - Network State - All Users<br></strong>Network State will be made available to all users (TBD)</p>
+                </div>
+                <div class="divider is-0-gap"></div>
+                <div id="documentation-schedule" class="documentation_section is-last">
+                  <div class="margin-bottom-8">
+                    <div class="text-size-xlarge">Weekly Schedule <br></div>
+                  </div>
+                  <p>Designed to encourage Patrons to get involved and contribute to group building efforts, in addition to working on their own initiatives.<br>As Patrons and Network State grow and scale, it is anticipated that additional events and activities will be introduced to the weekly schedule, taking into consideration more timezones with more Patrons leading these initiatives.<br>*Note - This initial framework is adaptable and subject to change based on Patron feedback and needs.<br><br><strong>Monday - Office Hours (1 PM-3 PM EST)<br></strong>• Open forum for Patrons to ask questions, discuss ideas, and collaborate on projects.<br>• Opportunity for new Patrons to introduce themselves and get acquainted with the community.<br><br><strong>Tuesday - Infrastructure Development Discussions (6 PM - 8 PM EST)<br></strong>• Focused sessions to brainstorm and collaborate on ways to improve the Network State infrastructure, such as interface, backend systems, Dapps, sustainability practices, and more.<br>• Encourages the sharing of ideas, resources, and expertise to enhance the overall Network State.<br><br><strong>Wednesday - Initiative Pitches (1 PM - 3 PM EST) (10 AM - 12 PM CST)<br></strong>• Platform for Patrons to present and pitch their T1 and T2 Initiatives to the community.<br>• Opportunity to gather feedback, refine proposals, and build support for projects.<br><br><strong>Thursday - Infrastructure Development Discussions (6 PM - 8 PM EST)<br></strong>• Focused sessions to brainstorm and collaborate on ways to improve the Network State infrastructure, such as interface, backend systems, Dapps, sustainability practices, and more.<br>• Encourages the sharing of ideas, resources, and expertise to enhance the overall Network State.<br><br><strong>Friday - Art and Humanity Showcase (1 PM - 3 PM EST)<br></strong>• Weekly event highlighting the artistic and humanitarian projects and accomplishments of Patrons within the community.<br>• Offers a platform for creative expression, inspiration, and constructive feedback.<br><br><strong>Friday - Weekly Recap and Planning (4 PM - 5 PM EST)<br></strong>• Summary of the week’s accomplishments, challenges, and lessons learned.<br>• Opportunity to recognize and celebrate the achievements of Patrons.<br>• Planning for the upcoming week, including setting goals and objectives for continued progress.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="documentation_note">
+            <div>
+              <div class="padding">
+                <div class="container">
+                  <div class="text-size-small">*Note - Information regarding Patrons and Network State is subject to change.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=656f66c51ca74f38dfc58a97" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="../js/webflow.js" type="text/javascript"></script>
+  <script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
+  <script>
+$(".plyr_component").each(function (index) {
+  let thisComponent = $(this);
+  // create plyr settings
+  let player = new Plyr(thisComponent.find(".plyr_video")[0], {
+    controls: ["play", "progress", "current-time", "mute", "fullscreen"],
+    resetOnEnd: true
+  });
+  // custom video cover
+  thisComponent.find(".plyr_cover").on("click", function () {
+    player.play();
+  });
+  player.on("ended", (event) => {
+    thisComponent.removeClass("hide-cover");
+  });
+  // pause other playing videos when this one starts playing
+  player.on("play", (event) => {
+		$(".plyr_component").removeClass("hide-cover");
+    thisComponent.addClass("hide-cover");
+    let prevPlayingComponent = $(".plyr--playing").closest(".plyr_component").not(thisComponent);
+    if (prevPlayingComponent.length > 0) {
+      prevPlayingComponent.find(".plyr_pause-trigger")[0].click();
+    }
+  });
+  thisComponent.find(".plyr_pause-trigger").on("click", function () {
+    player.pause();
+  });
+  // exit full screen when video ends
+  player.on("ended", (event) => {
+    if (player.fullscreen.active) {
+      player.fullscreen.exit();
+    }
+  });
+  // set video to contain instead of cover when in full screen mode
+  player.on("enterfullscreen", (event) => {
+    thisComponent.addClass("contain-video");
+  });
+  player.on("exitfullscreen", (event) => {
+    thisComponent.removeClass("contain-video");
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+/* Apple marketing palette — apple.com system colors.
+   Imperfect circle keeps its original dark navy (#060c22). */
+
+:root {
+  --wotc-bg: #FBFBFD;
+  --wotc-ink: #1D1D1F;
+  --wotc-ink-soft: #515154;
+  --wotc-ink-muted: #86868B;
+  --wotc-hairline: #D2D2D7;
+  --wotc-accent: #0071E3;
+  --wotc-navy: #060c22;
+}
+
+html, body {
+  background-color: var(--wotc-bg) !important;
+  color: var(--wotc-ink) !important;
+  /* Webflow's template locks overflow on body (for its popup system).
+     Unlock so the page scrolls naturally now that home flows into the
+     whitepaper below. */
+  overflow: visible !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  max-height: none !important;
+}
+
+.main-wrapper,
+.home_component,
+.popup_grid,
+.popup_left,
+.popup_right,
+.popup_blank,
+.popup_story,
+.documentation_component,
+.documentation_top,
+.documentation_note,
+.nav_component,
+.nav_main,
+.nav_bottom,
+.nav_search,
+.navigation,
+.main {
+  background-color: var(--wotc-bg) !important;
+  color: var(--wotc-ink) !important;
+}
+
+.background-color-black,
+.background-color-grey,
+.background-color-white {
+  background-color: var(--wotc-bg) !important;
+  color: var(--wotc-ink) !important;
+}
+
+.text-color-darkgrey { color: var(--wotc-ink-muted) !important; }
+.text-color-blueishgrey { color: var(--wotc-ink-muted) !important; }
+.text-color-white { color: var(--wotc-ink) !important; }
+
+a, .link, .nav_link { color: var(--wotc-ink) !important; }
+a:hover, .link:hover, .nav_link:hover { color: var(--wotc-accent) !important; }
+
+.home_component .link-group .link { color: var(--wotc-accent) !important; }
+.home_component .link-group .link:hover { color: #0077ED !important; }
+
+.divider, [class*="divider"] { background-color: var(--wotc-hairline) !important; border-color: var(--wotc-hairline) !important; }
+hr { border-color: var(--wotc-hairline) !important; }
+
+.button, .w-button {
+  background-color: var(--wotc-accent) !important;
+  color: #FFFFFF !important;
+  border-color: var(--wotc-accent) !important;
+  border-radius: 980px !important;
+}
+.button:hover, .w-button:hover {
+  background-color: #0077ED !important;
+  color: #FFFFFF !important;
+}
+
+input, textarea, select, .w-input, .w-select {
+  background-color: transparent !important;
+  color: var(--wotc-ink) !important;
+  border-color: var(--wotc-hairline) !important;
+}
+::placeholder { color: var(--wotc-ink-muted) !important; }
+
+/* ------------------------------------------------------------------
+   HOME — always stacked. Circle fills a 50svh top section, definition
+   flows from the very top of the next section with no background color
+   and no top padding. Below, the whitepaper flows.
+   ------------------------------------------------------------------ */
+
+.home_component {
+  position: relative !important;
+  height: auto !important;
+  min-height: auto !important;
+  z-index: auto !important;
+}
+/* Soft gray-to-white gradient pinned to the bottom of the initial
+   viewport (y = 70svh to 100svh). Anchored to top:70svh rather than
+   bottom:0 so it doesn't drift past the fold when the home section
+   grows taller than the viewport. */
+.home_component::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  background: linear-gradient(
+    to top,
+    rgba(134, 134, 139, 0.28) 0%,
+    rgba(134, 134, 139, 0.16) 40%,
+    rgba(134, 134, 139, 0.06) 75%,
+    rgba(134, 134, 139, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ------------------------------------------------------------------
+   Glass layer + interface layer.
+   Glass holds home (circle + def + bottom nav) on top, with a blurred
+   transparent background so the interface (schemas + whitepaper) shows
+   through softly. On scroll, JS translates the glass up proportional to
+   scrollY so it slides away to reveal the interface.
+   ------------------------------------------------------------------ */
+.glass-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 50;
+  /* Glass tint: slightly more transparent so the sidebar + docs behind
+     are faintly visible through the blur. */
+  background-color: rgba(251, 251, 253, 0.45);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.glass-layer .home_component {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+.glass-layer .popup_grid {
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+/* Interface layer — sidebar (5 schemas) + main docs area. Sits behind
+   the glass so the blur softly hints at it. */
+.interface-layer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+  background-color: var(--wotc-bg);
+}
+.iface-sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  padding: 100px 30px;
+  border-right: 1px solid var(--wotc-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+.iface-sidebar-link {
+  color: var(--wotc-ink-muted) !important;
+  text-decoration: none !important;
+  padding: 4px 0;
+  transition: color 180ms ease;
+}
+.iface-sidebar-link:hover {
+  color: var(--wotc-ink) !important;
+}
+.iface-docs {
+  padding: 80px 48px 120px;
+  min-width: 0;
+}
+.iface-docs .whitepaper {
+  margin: 0;
+  padding: 0;
+  max-width: 720px;
+}
+@media (max-width: 768px) {
+  .interface-layer {
+    grid-template-columns: 1fr;
+  }
+  .iface-sidebar {
+    position: relative;
+    height: auto;
+    padding: 40px 30px 24px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid var(--wotc-hairline);
+    gap: 20px;
+  }
+  .iface-docs {
+    padding: 40px 30px 80px;
+  }
+}
+
+/* Schemas section — second full-viewport page. Navy background (same
+   color as the imperfect circle) with soft white text. Large typography
+   for impact. */
+.schemas-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Padding-bottom is 10svh larger than padding-top so the content
+     sits 5% above the viewport horizon center line when centered.
+     30px left gutter matches the home section for vertical alignment. */
+  padding: 120px 48px calc(120px + 10svh) 30px;
+  box-sizing: border-box;
+  background-color: var(--wotc-navy) !important;
+  color: rgba(245, 245, 247, 0.92);
+}
+.schemas-inner {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.55;
+  color: rgba(245, 245, 247, 0.92);
+}
+.schemas-inner p {
+  margin: 0 0 1.25em;
+}
+.schemas-inner p:last-child {
+  margin-bottom: 0;
+}
+.schemas-inner strong {
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.01em;
+}
+
+/* Whitepaper scroll affordance at the bottom of the initial viewport —
+   label + down arrow that gently bounces. */
+.whitepaper-link {
+  position: absolute;
+  left: 50%;
+  top: calc(100svh - 64px);
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none !important;
+  color: var(--wotc-ink-muted) !important;
+  font-family: "Figtree Variablefont Wght", -apple-system, system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  z-index: 2;
+  transition: color 200ms ease;
+}
+.whitepaper-link:hover {
+  color: var(--wotc-ink) !important;
+}
+.wp-link-arrow {
+  animation: wp-arrow-bounce 2.6s ease-in-out infinite;
+  display: block;
+}
+@keyframes wp-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+/* The first main-wrapper IS the interface behind the glass (Webflow's
+   original sidebar + documentation). Only hide the DUPLICATE second
+   main-wrapper (second home_component's sibling). */
+.page-wrapper > main.main-wrapper:nth-of-type(2) {
+  display: none !important;
+}
+/* Give the first (visible) main-wrapper z-index 1 so glass sits above. */
+.page-wrapper > main.main-wrapper:first-of-type {
+  position: relative;
+  z-index: 1;
+}
+
+/* One flex column that stacks circle and definition together as a
+   single centered group, with 80px between them. Fills 100svh so the
+   whitepaper below stays out of view on initial load. `safe center`
+   means: when the combined group is shorter than the viewport, center
+   it; when it's taller (short or narrow viewports), anchor to the top
+   instead — the circle is always in view, and the definition pushes
+   down past the fold rather than clipping off the top. */
+.home_component {
+  height: 100vh !important;
+  position: relative !important;
+}
+.home_component .popup_grid {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  min-height: 100vh !important;
+  height: 100vh !important;
+  /* Symmetric 50px gutters — same breathing room on both sides at any
+     viewport (desktop, tablet, mobile). */
+  padding: 40px 50px !important;
+  grid-template-rows: none !important;
+  grid-template-columns: none !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Circle column — width matches the definition column, content is
+   left-aligned so the circle sits above the "Public Network" heading at
+   the same left edge. */
+.home_component .popup_left {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  background-color: transparent !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  flex-direction: column !important;
+}
+.home_component .popup_left .padding,
+.home_component .popup_left .container-s,
+.home_component .popup_left .container-s.is-flex,
+.home_component .popup_left .home_left-wrapper {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+.home_component .popup_left .home_left-wrapper > a {
+  display: block !important;
+  width: auto;
+  height: auto;
+  margin: 0 !important;
+}
+.home_component .home_left-wrapper,
+.home_component .home_left-wrapper > a.margin-bottom-40 {
+  margin-bottom: 0 !important;
+}
+
+/* Lock "Public Network" heading size — don't shrink on tablet/mobile. */
+.home_component .text-size-xlarge {
+  font-size: 24px !important;
+}
+
+/* Circle: small (82px) above the heading, left-aligned with it. */
+.home_component img[src*="ns-logo.png"] {
+  width: 82px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  display: block !important;
+  visibility: visible !important;
+  margin: 0 !important;
+  animation: ic-pulse 4.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+/* Pulse — ±0.4% scale. Almost unnoticeable; only catches the eye if
+   you watch closely. */
+@keyframes ic-pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.004); }
+  100% { transform: scale(1); }
+}
+
+/* Definition group — left-aligned, max 640px wide. */
+.home_component .popup_right {
+  width: 100% !important;
+  max-width: 640px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 0 0 auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: transparent !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}
+.home_component .popup_right,
+.home_component .popup_right * {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Keep the popup_right's .padding as block (no flex) on narrow viewports
+   so flex-item min-content sizing doesn't push container-s wider than
+   its parent. */
+@media (max-width: 991px) {
+  .home_component .popup_right .padding {
+    display: block !important;
+  }
+}
+/* Mobile: 20px gutters on both sides. Tablet inherits the desktop 50px
+   from .home_component .popup_grid. */
+@media (max-width: 600px) {
+  .home_component .popup_grid {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+/* Prevent long inline-block code lines from forcing their parent wider
+   than the viewport — the schema list can break anywhere if needed. */
+.home_component .pn-code {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+.home_component .popup_right > .padding {
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  width: 100% !important;
+  height: auto !important;
+}
+.home_component .popup_right .container-s,
+.home_component .popup_right .container-s.is-flex {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+.home_component .popup_right .home_right-wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Schema list — monospace, terminal-style, no container. Gets typed
+   out character-by-character by js/type-schemas.js with a blinking
+   cursor at the end. */
+.home_component .pn-code {
+  display: inline-block;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  /* Extra line-height so wrapped lines (on mobile especially) breathe. */
+  line-height: 1.75;
+  color: var(--wotc-ink-soft);
+  background: none;
+  border: none;
+  padding: 0;
+  /* Sit apart from the definition — same gap the imperfect circle has
+     from the Public Network heading (24px). Reads as a branded signature
+     rather than a line of the definition. */
+  margin-top: 24px;
+  white-space: normal;
+}
+.home_component .pn-code-line {
+  display: inline;
+}
+.home_component .pn-code-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--wotc-ink);
+  animation: pn-cursor-blink 1s steps(2, start) infinite;
+}
+@keyframes pn-cursor-blink {
+  to { visibility: hidden; }
+}
+
+/* Hide the scroll chevron and legacy hamburger on the home. */
+.home_component .home_scroll { display: none !important; }
+.home_component .nav_open,
+.home_component .nav_open-wrapper,
+.nav_open,
+.nav_open-wrapper { display: none !important; }
+
+/* On very narrow mobile, let the definition column breathe a bit
+   horizontally so text doesn't hug the edges. */
+@media (max-width: 600px) {
+  .home_component .popup_right .container-s,
+  .home_component .popup_right .container-s.is-flex {
+    max-width: calc(100vw - 48px) !important;
+    width: calc(100vw - 48px) !important;
+  }
+}
+
+/* Treasury / scroll leftovers */
+.treasury_component, .treasury_price, .treasury_price-flex { color: var(--wotc-ink) !important; }
+.home_scroll-icon svg path { fill: var(--wotc-ink-muted) !important; }
+
+.nav_link.current,
+.nav_link.w--current { color: var(--wotc-navy) !important; }
+
+/* ------------------------------------------------------------------
+   WHITEPAPER — minimal, Bitcoin-paper-style. Narrow centered column,
+   plain text, no decoration.
+   ------------------------------------------------------------------ */
+
+/* Markdown-preview style — GitHub-flavored: system-ui font stack, clear
+   heading hierarchy with hairlines under h1 & h2, comfortable reading
+   width, subtle spacing. */
+.whitepaper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 96px 24px 120px;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  text-align: left;
+}
+.whitepaper h1 {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 2em 0 0.6em;
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid #d2d2d7;
+  line-height: 1.25;
+}
+.whitepaper h1:first-child { margin-top: 0; }
+.whitepaper h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 1.75em 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #eaecef;
+  line-height: 1.3;
+}
+.whitepaper h3 {
+  font-size: 1.25em;
+  font-weight: 600;
+  margin: 1.5em 0 0.4em;
+  line-height: 1.35;
+}
+.whitepaper p { margin: 0 0 1em; }
+.whitepaper em { font-style: italic; }
+.whitepaper strong { font-weight: 600; }
+.whitepaper ul { margin: 0 0 1em 2em; padding: 0; }
+.whitepaper li { margin: 0 0 0.25em; }
+.whitepaper hr {
+  border: none;
+  border-top: 1px solid #d2d2d7;
+  margin: 2.5em 0;
+}
+.whitepaper .wp-muted { color: #86868B; }
