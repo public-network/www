@@ -982,7 +982,7 @@ main.main-wrapper { display: none !important; }
   to   { opacity: 1; }
 }
 .pn-theme-row.is-visible {
-  animation: pn-toggle-fade 600ms ease forwards;
+  animation: pn-toggle-fade 1200ms ease forwards;
   pointer-events: auto;
 }
 .pn-theme-toggle {
