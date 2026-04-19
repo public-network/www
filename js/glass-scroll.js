@@ -53,24 +53,25 @@
       // Scroll cue fade.
       if (cue) cue.style.opacity = String(Math.max(0, 0.55 * (1 - (y / h) * 2.5)));
 
-      // Circle zoom: two-phase continuous motion, always moving.
-      // Phase 1 (reveal): glass exposes circle top → glass fully off.
-      //   scale 1.0 → 1.08. Uses raw scrollY, not clamped.
-      // Phase 2 (exit): hero unsticks and scrolls off screen.
-      //   scale 1.08 → 0.80. Ends when circle is off viewport.
+      // Circle zoom: two-phase continuous motion, always moving once revealed.
+      // Glass slides UP, so the circle's bottom edge is exposed first.
+      // zoomStart = scrollY when glass bottom hits circle bottom edge:
+      //   glass bottom = h - rawY = h/2 + circleH/2  →  rawY = (h - circleH) / 2
+      // Phase 1: first pixel revealed → glass fully off  (scale 1.0 → 1.03)
+      // Phase 2: glass off → circle exits top of viewport (scale 1.03 → 0.97)
       if (circle) {
-        const rawY     = window.scrollY;
-        const zoomStart = (h + circleH) / 2; // first pixel of circle exposed
-        const revealEnd = h;                  // glass fully off
-        const exitEnd   = h + (h + circleH) / 2; // circle centre reaches top
+        const rawY    = window.scrollY;
+        const zoomStart = (h - circleH) / 2;          // first pixel of circle exposed
+        const revealEnd = h;                            // glass fully off
+        const exitEnd   = h + (h + circleH) / 2;       // circle scrolls off top
 
         let scale = 1;
         if (rawY >= zoomStart && rawY <= revealEnd) {
           const t = (rawY - zoomStart) / (revealEnd - zoomStart);
-          scale = 1 + 0.015 * t;        // 1.000 → 1.015
+          scale = 1 + 0.03 * t;          // 1.000 → 1.030
         } else if (rawY > revealEnd) {
           const t = Math.min(1, (rawY - revealEnd) / (exitEnd - revealEnd));
-          scale = 1.015 - 0.03 * t;     // 1.015 → 0.985
+          scale = 1.03 - 0.06 * t;       // 1.030 → 0.970
         }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }
