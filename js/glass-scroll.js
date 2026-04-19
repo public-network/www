@@ -71,6 +71,11 @@
       circleH = circle ? circle.offsetHeight : 0;
       apply();
     });
+    // Re-run immediately when theme toggles so --pn-circle-fill snaps to
+    // the correct ghost colour without waiting for the next scroll event.
+    new MutationObserver(apply).observe(document.documentElement, {
+      attributes: true, attributeFilter: ['data-theme'],
+    });
     apply();
   }
 
