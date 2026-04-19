@@ -8,7 +8,7 @@
   <link href="css/normalize.css?v=20260420" rel="stylesheet" type="text/css">
   <link href="css/webflow.css?v=20260420" rel="stylesheet" type="text/css">
   <link href="css/network-state-by-patrons-dao.webflow.css?v=20260420" rel="stylesheet" type="text/css">
-  <link href="css/overrides.css?v=20260420-wp" rel="stylesheet" type="text/css">
+  <link href="css/overrides.css?v=20260420-wp3" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -17,6 +17,18 @@
   <link href="images/webclip.jpg" rel="apple-touch-icon">
   <!-- Phosphor Icons — open source icon set. -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
+  <!-- Theme init (pre-paint, no FOUC). Reads saved preference and
+       sets data-theme on <html> before stylesheets render. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('pn-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body class="launch-minimal">
   <div class="page-wrapper">
@@ -96,18 +108,17 @@
         </nav>
 
         <article class="wp">
-          <!-- Title block — mirrors the home definition exactly so
-               the reader lands in familiar water. -->
+          <!-- Title bar — heading on the left, theme toggle on the right.
+               Definition is deliberately omitted here so the reader
+               doesn't re-read what's on the home page; jumps straight
+               into the Preface. -->
           <header class="wp-title">
-            <h1>Public Network</h1>
-            <p class="wp-dt">pub·lic net·work</p>
-            <p class="wp-pos">noun</p>
-            <ol class="wp-defn">
-              <li>the Interstate of Humanity.</li>
-              <li>a decentralized, open source network and permanent neutral ground in which to reside onchain.</li>
-            </ol>
-            <p class="wp-quote">&ldquo;Public Network is humanity&rsquo;s source of truth for art, science, technology, philosophy, and culture, ownerless, forever.&rdquo;</p>
-            <code class="wp-chip">identity · asset · information · transaction · authentication</code>
+            <div class="wp-title-bar">
+              <h1>Public Network</h1>
+              <button type="button" class="wp-theme-toggle" id="wp-theme-toggle" aria-label="Switch to dark mode">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+              </button>
+            </div>
           </header>
 
           <!-- PREFACE -->
@@ -575,5 +586,6 @@ PUBLIC_NETWORK_DELEGATION</pre>
   <script src="js/type-schemas.js?v=2" defer></script>
   <script src="js/iface-home.js?v=2" defer></script>
   <script src="js/wp-scroll-spy.js?v=1" defer></script>
+  <script src="js/theme-toggle.js?v=1" defer></script>
 </body>
 </html>

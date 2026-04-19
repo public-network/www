@@ -765,13 +765,13 @@ body.launch-minimal .iface-canvas {
   margin-left: 0 !important;
 }
 
-/* Reveal zone — a 200vh spacer that hosts the sticky hero. The hero
-   sticks to viewport-top for the first 100vh of scroll (during the
-   glass reveal), then releases as the zone scrolls past. Whitepaper
-   sits in normal flow below. */
+/* Reveal zone — a 100vh spacer that hosts the sticky hero. The glass
+   translates away over the same 100vh range, so by the time the zone
+   ends the glass is gone and the whitepaper flows in right behind the
+   imperfect circle with no dead scroll in between. */
 .iface-reveal-zone {
   position: relative;
-  min-height: 200vh;
+  min-height: 100vh;
 }
 .iface-hero {
   position: sticky;
@@ -789,7 +789,7 @@ body.launch-minimal .iface-canvas {
    transitions to its real navy as the glass slides up and the circle
    becomes the focal point. */
 .iface-hero-circle {
-  width: min(50%, 520px);
+  width: min(35%, 364px);
   aspect-ratio: 1 / 1;
   background-color: var(--pn-circle-fill, #F3F5F9);
   -webkit-mask-image: url("../images/ns-160.svg");
@@ -967,18 +967,49 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink);
 }
 
-/* Title block — mirrors the home definition verbatim. */
+/* Title block — heading only (definition lives on the home page;
+   don't make the reader read it twice). */
 .wp-title {
   border-bottom: 1px solid var(--wotc-hairline);
-  padding-bottom: 36px;
-  margin-bottom: 48px;
+  padding-bottom: 28px;
+  margin-bottom: 40px;
+}
+.wp-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 .wp-title h1 {
   font-size: 34px;
   font-weight: 600;
   letter-spacing: -0.01em;
-  margin: 0 0 20px;
+  margin: 0;
   line-height: 1.15;
+}
+.wp-theme-toggle {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--wotc-ink-soft);
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.wp-theme-toggle:hover {
+  background-color: rgba(60, 67, 87, 0.08);
+  color: var(--wotc-ink);
+}
+.wp-theme-toggle:active { transform: scale(0.94); }
+.wp-theme-toggle i {
+  font-size: 20px;
+  line-height: 1;
 }
 .wp-dt {
   font-size: 13px;
@@ -1257,4 +1288,80 @@ main.main-wrapper { display: none !important; }
   .wp-terminal-body { font-size: 12px; padding: 14px 14px; }
   .wp-resources li { flex-direction: column; gap: 2px; }
   .wp-res-k { flex: 0 0 auto; }
+}
+
+/* ==================================================================
+   DARK MODE — toggled by the moon/sun button in the whitepaper
+   title. Flips the palette tokens and overrides element-level fills
+   that were hard-coded in light-mode colours. Terminal blocks keep
+   their own dark palette in both modes. The imperfect circle keeps
+   its navy signature; only its panel-blend resting colour changes.
+   ================================================================== */
+
+html[data-theme="dark"] {
+  --wotc-bg: #0A0E1A;
+  --wotc-ink: #F2F3F7;
+  --wotc-ink-soft: #B8BCC6;
+  --wotc-ink-muted: #737A8C;
+  --wotc-hairline: #1F2634;
+  color-scheme: dark;
+}
+
+/* Sidebar panel — soft dark navy, sibling shade of the bg. */
+html[data-theme="dark"] .iface-sidebar {
+  background-color: #12172A !important;
+}
+
+/* Glass layer — darker tint on dark bg so the frost still reads as
+   a sheet of glass rather than a bright wash. */
+html[data-theme="dark"] .glass-layer {
+  background-color: rgba(10, 14, 26, 0.40) !important;
+  box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Hover backgrounds — flip from dark-ink-on-light to light-ink-on-dark. */
+html[data-theme="dark"] .iface-nav-link:hover,
+html[data-theme="dark"] .iface-nav-link.is-active,
+html[data-theme="dark"] .iface-home:hover,
+html[data-theme="dark"] .iface-toggle:hover,
+html[data-theme="dark"] .wp-theme-toggle:hover {
+  background-color: rgba(185, 192, 210, 0.08);
+}
+
+/* Whitepaper surfaces */
+html[data-theme="dark"] .wp-pillar {
+  background-color: #0F1424;
+  border-color: #1F2634;
+}
+html[data-theme="dark"] .wp-pillar:hover {
+  border-color: var(--wotc-ink-soft);
+}
+html[data-theme="dark"] .wp-stack-layer {
+  background-color: #0F1424;
+  border-color: #1F2634;
+}
+html[data-theme="dark"] .wp-stack-apps     { background-color: #0C1120; }
+html[data-theme="dark"] .wp-stack-protocol { background-color: #0F1424; border-color: var(--wotc-ink-soft); }
+html[data-theme="dark"] .wp-stack-eas      { background-color: #0B1028; }
+html[data-theme="dark"] .wp-stack-op       { background-color: #1A0E10; border-color: #3A1A1A; }
+html[data-theme="dark"] .wp-stack-eth      { background-color: #0D1028; border-color: #26305A; }
+
+/* Terminal border flips slightly — keep interior dark regardless. */
+html[data-theme="dark"] .wp-terminal {
+  border-color: #1F2634;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* Inline <code> chips */
+html[data-theme="dark"] .wp code {
+  background-color: rgba(180, 188, 198, 0.10);
+}
+
+/* The hero circle's resting colour should blend with the dark sidebar
+   panel, not snow. Update the var's fallback via an override that
+   wins when the scroll is at y=0 (glass-scroll.js still interpolates
+   beyond that; the interpolated colour at y=0 is snow, so we paint
+   over it with the dark panel colour via a CSS layer). */
+html[data-theme="dark"] .iface-hero-circle {
+  --pn-circle-fill-dark-start: #12172A;
 }
