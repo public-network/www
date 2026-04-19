@@ -971,7 +971,7 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink);
 }
 
-/* Home-page theme segment — fades in once typing finishes. */
+/* Home-page theme toggle — fades in once typing finishes. */
 .pn-theme-row {
   margin-top: 2.5rem;
   opacity: 0;
@@ -982,57 +982,28 @@ main.main-wrapper { display: none !important; }
   to   { opacity: 1; }
 }
 .pn-theme-row.is-visible {
-  animation: pn-toggle-fade 280ms ease forwards;
+  animation: pn-toggle-fade 600ms ease forwards;
   pointer-events: auto;
 }
-.pn-theme-seg {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 3px;
-  border-radius: 100px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-}
-.pn-seg-btn {
+.pn-theme-toggle {
   appearance: none;
   border: none;
   background: transparent;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #86868b;
-  transition: background-color 150ms ease, color 150ms ease;
+  color: #78787a;
+  transition: color 160ms ease;
 }
-.pn-seg-btn.is-selected {
-  background: #1d1d1f;
-  color: #ffffff;
-}
-.pn-seg-btn:hover:not(.is-selected) {
-  background: rgba(0, 0, 0, 0.06);
-  color: #1d1d1f;
-}
-.pn-seg-btn i { font-size: 15px; line-height: 1; }
-
-html[data-theme="dark"] .pn-theme-seg {
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(10, 14, 26, 0.65);
-}
-html[data-theme="dark"] .pn-seg-btn.is-selected {
-  background: #f2f3f7;
-  color: #0a0e1a;
-}
-html[data-theme="dark"] .pn-seg-btn:hover:not(.is-selected) {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f2f3f7;
-}
+.pn-theme-toggle:hover { color: #1d1d1f; }
+.pn-theme-toggle i { font-size: 17px; line-height: 1; }
+html[data-theme="dark"] .pn-theme-toggle { color: #86868b; }
+html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
 .wp-dt {
   font-size: 13px;
   color: var(--wotc-ink-muted);
