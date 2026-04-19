@@ -1146,12 +1146,12 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   white-space: pre;
   overflow-x: auto;
 }
-.wp-t-comment { color: #8E9BB2; font-style: italic; }
-.wp-t-keyword { color: #9650C8; }
-.wp-t-string  { color: #2D7D46; }
-.wp-t-fn      { color: #0969DA; }
-.wp-t-num     { color: #953800; }
-.wp-t-prompt  { color: #0969DA; user-select: none; }
+.wp-t-comment { color: #86868B; font-style: italic; }
+.wp-t-keyword { color: #515154; }
+.wp-t-string  { color: #1D1D1F; }
+.wp-t-fn      { color: #515154; }
+.wp-t-num     { color: #515154; }
+.wp-t-prompt  { color: #86868B; user-select: none; }
 
 /* Architecture stack diagram — five labelled layers, subtle hairlines. */
 .wp-stack {
@@ -1170,11 +1170,11 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   border-radius: 10px;
   background-color: #FFFFFF;
 }
-.wp-stack-apps     { background-color: #F5F5F7; }
-.wp-stack-protocol { background-color: #FFFFFF; border-color: var(--wotc-ink-soft); }
-.wp-stack-eas      { background-color: #FAFAFA; }
-.wp-stack-op       { background-color: #F2F2F5; border-color: #D2D2D7; }
-.wp-stack-eth      { background-color: #EBEBED; border-color: #C8C8CC; }
+.wp-stack-apps,
+.wp-stack-protocol,
+.wp-stack-eas,
+.wp-stack-op,
+.wp-stack-eth      { background-color: #FFFFFF; }
 .wp-stack-label {
   font-size: 13px;
   font-weight: 600;
@@ -1332,11 +1332,11 @@ html[data-theme="dark"] .wp-stack-layer {
   background-color: #0F1424;
   border-color: #1F2634;
 }
-html[data-theme="dark"] .wp-stack-apps     { background-color: #12151F; }
-html[data-theme="dark"] .wp-stack-protocol { background-color: #0F1424; border-color: var(--wotc-ink-soft); }
-html[data-theme="dark"] .wp-stack-eas      { background-color: #0E1220; }
-html[data-theme="dark"] .wp-stack-op       { background-color: #0C1018; border-color: #1F2634; }
-html[data-theme="dark"] .wp-stack-eth      { background-color: #0A0E1A; border-color: #1A1F2E; }
+html[data-theme="dark"] .wp-stack-apps,
+html[data-theme="dark"] .wp-stack-protocol,
+html[data-theme="dark"] .wp-stack-eas,
+html[data-theme="dark"] .wp-stack-op,
+html[data-theme="dark"] .wp-stack-eth      { background-color: #0F1424; border-color: #1F2634; }
 
 /* Terminal — restore dark palette in dark mode. */
 html[data-theme="dark"] .wp-terminal {
@@ -1351,12 +1351,12 @@ html[data-theme="dark"] .wp-terminal-bar {
 html[data-theme="dark"] .wp-terminal-dot { background-color: #2a3145; }
 html[data-theme="dark"] .wp-terminal-path { color: #6b778f; }
 html[data-theme="dark"] .wp-terminal-body { color: #c6cbdb; }
-html[data-theme="dark"] .wp-t-comment { color: #5c6684; }
-html[data-theme="dark"] .wp-t-keyword { color: #c98afc; }
-html[data-theme="dark"] .wp-t-string  { color: #8fd694; }
-html[data-theme="dark"] .wp-t-fn      { color: #7fb8ff; }
-html[data-theme="dark"] .wp-t-num     { color: #f5b76f; }
-html[data-theme="dark"] .wp-t-prompt  { color: #7fb8ff; }
+html[data-theme="dark"] .wp-t-comment { color: #5C6684; }
+html[data-theme="dark"] .wp-t-keyword { color: #8E9BB2; }
+html[data-theme="dark"] .wp-t-string  { color: #C6CBDB; }
+html[data-theme="dark"] .wp-t-fn      { color: #8E9BB2; }
+html[data-theme="dark"] .wp-t-num     { color: #8E9BB2; }
+html[data-theme="dark"] .wp-t-prompt  { color: #5C6684; }
 
 /* Inline <code> chips */
 html[data-theme="dark"] .wp code {
