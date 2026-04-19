@@ -92,7 +92,6 @@
         <nav class="wp-nav" aria-label="Whitepaper sections">
           <div class="wp-nav-head">Public Network</div>
           <ol class="wp-nav-list">
-            <li><a href="#wp-preface" class="wp-nav-link">preface</a></li>
             <li><a href="#wp-introduction" class="wp-nav-link">introduction</a></li>
             <li><a href="#wp-pillars" class="wp-nav-link">five&nbsp;pillars</a></li>
             <li class="wp-nav-sub"><a href="#wp-identity" class="wp-nav-link">identity</a></li>
@@ -112,25 +111,17 @@
 
         <article class="wp">
 
-          <!-- PREFACE -->
-          <section id="wp-preface" class="wp-section">
-            <h2>Preface</h2>
-            <p class="wp-lede"><em>Decentralize and open source Humanity.</em></p>
-            <p>In a centralized world where power and control are abused and access is limited, the urgency to decentralize and open source Humanity has never been greater. Not another platform. Not another company. Something closer to a road, an electrical grid, or the postal system. Built to be used, not owned.</p>
-            <p>We, as Patrons, present <strong>Public Network</strong>, the Interstate of Humanity. A decentralized, open source network and permanent neutral ground in which to reside onchain.</p>
-            <p>What follows is the case for why it must exist, how it works, and what anyone can build on it.</p>
-          </section>
-
           <!-- INTRODUCTION -->
           <section id="wp-introduction" class="wp-section">
             <h2>Introduction</h2>
-            <p>Public Network is a protocol for recording five kinds of facts on Ethereum: identity, asset, information, transaction, and authentication. It is built on the Ethereum Attestation Service (EAS) and deployed on Optimism. It does not run its own chain, operate its own consensus, or issue its own currency.</p>
-            <p><strong>Identity</strong> is an onchain record of an entity that holds a cryptographic key. Identities on Public Network are ERC-721 tokens (<code>PNI</code>), bound to the keys that created them, each carrying a primary handle, linked wallets, and an avatar. An identity may represent an individual, group, institution, or autonomous agent.</p>
-            <p><strong>Asset</strong> is an onchain record of ownership over a real-world, virtual, or intellectual resource. Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. Assets may be composed of other assets; each compositional link is attested, producing a complete provenance graph.</p>
-            <p><strong>Information</strong> is an onchain record of content signed by an identity: posts, articles, messages, research, provenance claims. Information lives inside Spaces (<code>PNS</code>), addressable containers that anyone can create.</p>
-            <p><strong>Transaction</strong> is an onchain record of value exchange between identities: sales, coin launches, cross-chain settlements. A fixed 1% protocol fee on transaction value flows to the Public Network treasury. Applications may layer additional fees; the creator retains the remainder.</p>
-            <p><strong>Authentication</strong> is an onchain record of authorized action: a sign-in, a delegation, an approval. An identity may delegate scoped, time-bound authority to another key. Every delegation and revocation is recorded on the network.</p>
-            <p>Public Network records these five facts and nothing else. The minimalism is deliberate: a public good should be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open-source SDK.</p>
+            <p>Five categories of fact underpin any functioning society: identity, ownership, information, transactions, and authorization. In the digital world, all five have been captured by a small number of private companies. Who you are, what you own, what you say, what you trade, and what you authorize are recorded on corporate servers that can change the rules, restrict access, or remove records at any time. There is no public ledger for these facts. There is no common infrastructure that any application can read from and write to without permission.</p>
+            <p>Public Network is a protocol that records these five facts onchain. Identity, asset, information, transaction, and authentication. It is an open set of schemas that anyone can read, that a curated set of writers can attest to, and that no participant can modify, remove, or gate. Applications are built on top of Public Network; the protocol itself holds no position on what they do.</p>
+            <p><strong>Identity</strong> is a record of an entity that holds a cryptographic key: an individual, a group, an institution, or an autonomous agent. Today, identity is rented from platforms. A social account, an email login, a government handle. Each can be revoked, suspended, or deleted. On Public Network, an identity is bound to the keys that created it and works across every application on the protocol. It cannot be taken away.</p>
+            <p><strong>Asset</strong> is a record of ownership over a resource: property, art, data, intellectual work. Value in these resources depends on provable origin. Where did it come from, who made it, what is it composed of. Most digital assets today carry no such record. Generative systems produce artifacts in seconds with no origin trail. On Public Network, every asset is attested at creation and every transfer is recorded. Composition is tracked. Royalties route automatically.</p>
+            <p><strong>Information</strong> is a record of content signed by an identity: a post, an article, a claim, a piece of research. Where it is published today determines whether it survives, whether it can be found, and whether it can be attributed. When the platform disappears or changes policy, the record is lost. On Public Network, information carries a cryptographic signature and is stored inside addressable Spaces that anyone can host. Content is portable across applications.</p>
+            <p><strong>Transaction</strong> is a record of value exchange between identities: a sale, a listing, a coin launch, a cross-chain settlement. The digital economy today runs through intermediaries that take twenty to thirty percent of every sale and can deny service at any time. On Public Network, transactions are recorded at the protocol layer. A fixed 1% fee funds the network. Applications may add their own fee on top; the creator keeps the remainder.</p>
+            <p><strong>Authentication</strong> is a record of an authorized action: a sign-in, a delegation, an approval. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs a scoped authorization directly. It may delegate scoped authority to another key and revoke it at any time. Every delegation and revocation is recorded.</p>
+            <p>Public Network records these five facts and nothing else. The minimalism is deliberate: a public good must be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open-source SDK. The protocol itself is ownerless, permanent, and built on Ethereum.</p>
           </section>
 
           <!-- FIVE PILLARS -->
@@ -449,8 +440,9 @@ PUBLIC_NETWORK_DELEGATION</pre>
           <!-- PATRONS -->
           <section id="wp-patrons" class="wp-section">
             <h2>Patrons</h2>
-            <p>Patrons protect, support, and evolve Humanity, one initiative at a time.</p>
-            <p>Any individual, group, or institution can become a Patron by contributing to Public Network by writing code, designing, translating, moderating, documenting, running infrastructure, or starting an initiative.</p>
+            <p class="wp-lede"><em>Decentralize and open source Humanity.</em></p>
+            <p>Public Network is a permanent neutral ground in which to reside onchain. Patrons protect, support, and evolve it, one initiative at a time.</p>
+            <p>Any individual, group, or institution can become a Patron by contributing to Public Network: writing code, designing, translating, moderating, documenting, running infrastructure, or starting an initiative.</p>
             <p>Autonomous agents acting on behalf of Patrons contribute alongside them.</p>
             <p class="wp-patron-list">Artists &middot; Scientists &middot; Visionaries &middot; Technologists &middot; Museums &middot; Creators &middot; Researchers &middot; DAOs &middot; Engineers &middot; Foundations &middot; Curators &middot; Strategists &middot; Institutions &middot; Humanitarians &middot; Activists &middot; Cultural Centers &middot; Developers &middot; Designers &middot; Philosophers &middot; Environmentalists &middot; Universities &middot; Educators &middot; Entrepreneurs &middot; Illustrators &middot; Musicians &middot; Producers &middot; Composers &middot; Non-Profits &middot; Hospitals &middot; Doctors &middot; Lawyers &middot; Libraries &middot; Architects &middot; Directors &middot; Public Media &middot; Filmmakers &middot; Photographers &middot; Journalists &middot; Writers &hellip;</p>
           </section>
