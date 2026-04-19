@@ -115,19 +115,13 @@
           <section id="wp-introduction" class="wp-section">
             <h2>Introduction</h2>
             <p>Five categories of fact underpin any functioning society: identity, ownership, information, transactions, and authorization. In the digital world, all five have been captured by a small number of private companies. Who you are, what you own, what you say, what you trade, and what you authorize are recorded on corporate servers that can change the rules, restrict access, or remove records at any time. There is no public ledger for these facts. There is no common infrastructure that any application can read from and write to without permission.</p>
-            <p>Public Network is a protocol that records these five facts onchain. Identity, asset, information, transaction, and authentication. It is an open set of schemas that anyone can read, that a curated set of writers can attest to, and that no participant can modify, remove, or gate. Applications are built on top of Public Network; the protocol itself holds no position on what they do.</p>
-            <p><strong>Identity</strong> is a record of an entity that holds a cryptographic key: an individual, a group, an institution, or an autonomous agent. Today, identity is rented from platforms. A social account, an email login, a government handle. Each can be revoked, suspended, or deleted. On Public Network, an identity is bound to the keys that created it and works across every application on the protocol. It cannot be taken away.</p>
-            <p><strong>Asset</strong> is a record of ownership over a resource: property, art, data, intellectual work. Value in these resources depends on provable origin. Where did it come from, who made it, what is it composed of. Most digital assets today carry no such record. Generative systems produce artifacts in seconds with no origin trail. On Public Network, every asset is attested at creation and every transfer is recorded. Composition is tracked. Royalties route automatically.</p>
-            <p><strong>Information</strong> is a record of content signed by an identity: a post, an article, a claim, a piece of research. Where it is published today determines whether it survives, whether it can be found, and whether it can be attributed. When the platform disappears or changes policy, the record is lost. On Public Network, information carries a cryptographic signature and is stored inside addressable Spaces that anyone can host. Content is portable across applications.</p>
-            <p><strong>Transaction</strong> is a record of value exchange between identities: a sale, a listing, a coin launch, a cross-chain settlement. The digital economy today runs through intermediaries that take twenty to thirty percent of every sale and can deny service at any time. On Public Network, transactions are recorded at the protocol layer. A fixed 1% fee funds the network. Applications may add their own fee on top; the creator keeps the remainder.</p>
-            <p><strong>Authentication</strong> is a record of an authorized action: a sign-in, a delegation, an approval. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs a scoped authorization directly. It may delegate scoped authority to another key and revoke it at any time. Every delegation and revocation is recorded.</p>
-            <p>Public Network records these five facts and nothing else. The minimalism is deliberate: a public good must be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open-source SDK. The protocol itself is ownerless, permanent, and built on Ethereum.</p>
+            <p>Public Network is a protocol that records these five facts onchain: identity, asset, information, transaction, and authentication. It is an open set of schemas that anyone can read, that a curated set of writers can attest to, and that no participant can modify, remove, or gate. Applications are built on top; the protocol itself holds no position on what they do.</p>
+            <p>The minimalism is deliberate. A public good must be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open-source SDK. The protocol itself is ownerless, permanent, and built on Ethereum.</p>
           </section>
 
           <!-- FIVE PILLARS -->
           <section id="wp-pillars" class="wp-section">
             <h2>The Foundation</h2>
-            <p>Public Network records five kinds of facts. Nothing else. Everything builds on these five primitives.</p>
             <div class="wp-pillars">
               <a href="#wp-identity" class="wp-pillar">
                 <div class="wp-pillar-label">01 &middot; identity</div>
@@ -156,7 +150,7 @@
           <section id="wp-identity" class="wp-section">
             <h2>Identity</h2>
             <p class="wp-pillar-lede">Who they are.</p>
-            <p>An onchain identity bound to the keys that created it, usable across every application on Public Network. An identity may represent an individual, group, institution, or autonomous agent. Any entity capable of holding a cryptographic key can hold an identity.</p>
+            <p>A record of an entity that holds a cryptographic key: an individual, a group, an institution, or an autonomous agent. Today, identity is rented from platforms. A social account, an email login, a government handle. Each can be revoked, suspended, or deleted. On Public Network, an identity is bound to the keys that created it and works across every application on the protocol. It cannot be taken away.</p>
             <p>Identities are ERC-721 tokens (<code>PNI</code>). Each identity owns a primary handle, a set of linked wallets, and an avatar. External accounts (Google, X, GitHub, email) may be linked to extend reputation across systems.</p>
 
             <div class="wp-terminal" aria-label="Claim an identity on Public Network">
@@ -182,7 +176,7 @@
           <section id="wp-asset" class="wp-section">
             <h2>Asset</h2>
             <p class="wp-pillar-lede">What they own.</p>
-            <p>An onchain record of ownership over a real-world, virtual, or intellectual resource: property, art, collectibles, digital creations, intellectual property. Each asset carries full ownership, transparent provenance, and composition. An asset may be composed of other assets; every link is attested onchain.</p>
+            <p>A record of ownership over a resource: property, art, data, intellectual work. Value in these resources depends on provable origin. Where did it come from, who made it, what is it composed of. Most digital assets today carry no such record. Generative systems produce artifacts in seconds with no origin trail. On Public Network, every asset is attested at creation and every transfer is recorded. Composition is tracked. Royalties route automatically.</p>
             <p>Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. The 1% protocol fee on secondary sales routes to the Public Network treasury automatically.</p>
 
             <div class="wp-terminal" aria-label="Tokenize an asset">
@@ -209,7 +203,7 @@
           <section id="wp-information" class="wp-section">
             <h2>Information</h2>
             <p class="wp-pillar-lede">What they say.</p>
-            <p>An onchain record of content signed by an identity: posts, articles, research, news, provenance claims. Each record carries a cryptographic signature, a timestamp, and an immutable reference to its author.</p>
+            <p>A record of content signed by an identity: a post, an article, a claim, a piece of research. Where it is published today determines whether it survives, whether it can be found, and whether it can be attributed. When the platform disappears or changes policy, the record is lost. On Public Network, information carries a cryptographic signature, a timestamp, and an immutable reference to its author.</p>
             <p>Information lives inside Spaces (<code>PNS</code>), addressable containers for threads, publications, or communities. Anyone can create a Space.</p>
 
             <div class="wp-terminal" aria-label="Create a signed post">
@@ -237,7 +231,7 @@
           <section id="wp-transaction" class="wp-section">
             <h2>Transaction</h2>
             <p class="wp-pillar-lede">What they did.</p>
-            <p>An onchain record of value exchange between identities: sales, listings, coin launches, cross-chain settlements. Each transaction carries the signatures of its participants and routes fees at the protocol layer.</p>
+            <p>A record of value exchange between identities: a sale, a listing, a coin launch, a cross-chain settlement. The digital economy today runs through intermediaries that take twenty to thirty percent of every sale and can deny service at any time. On Public Network, transactions are recorded at the protocol layer. Each transaction carries the signatures of its participants; fees route at the protocol layer.</p>
             <p>The protocol fee is fixed at <strong>1%</strong> of transaction value. Hard-coded, non-configurable. It flows to the Public Network treasury and funds ongoing development, audits, and infrastructure. Applications may layer additional fees; the creator retains the remainder.</p>
 
             <div class="wp-terminal" aria-label="Launch a coin">
@@ -265,7 +259,7 @@
           <section id="wp-authentication" class="wp-section">
             <h2>Authentication</h2>
             <p class="wp-pillar-lede">What they authorized.</p>
-            <p>An onchain record of an authorized action: a sign-in, a delegation to an agent, an approval of a third-party application. Each authentication is a cryptographic signature from an identity attached to a scoped permission.</p>
+            <p>A record of an authorized action: a sign-in, a delegation to an agent, an approval of a third-party application. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs a scoped authorization directly. Each authentication is a cryptographic signature from an identity attached to a scoped permission.</p>
             <p>An identity may delegate scoped, time-bound authority to another key and revoke it at any time. Every delegation and revocation is recorded; the chain of authority is always walkable.</p>
 
             <div class="wp-terminal" aria-label="Delegate to an agent">
