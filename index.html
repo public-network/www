@@ -104,7 +104,6 @@
             <li><a href="#wp-schemas" class="wp-nav-link">schemas</a></li>
             <li><a href="#wp-build" class="wp-nav-link">build</a></li>
             <li><a href="#wp-sso" class="wp-nav-link">sign&nbsp;in</a></li>
-            <li><a href="#wp-values" class="wp-nav-link">core&nbsp;values</a></li>
             <li><a href="#wp-patrons" class="wp-nav-link">patrons</a></li>
             <li><a href="#wp-circle" class="wp-nav-link">imperfect&nbsp;circle</a></li>
             <li><a href="#wp-resources" class="wp-nav-link">resources</a></li>
@@ -125,13 +124,13 @@
           <!-- INTRODUCTION -->
           <section id="wp-introduction" class="wp-section">
             <h2>Introduction</h2>
-            <p>The twenty-first century runs on infrastructure that no one owns and everyone can trust. Roads, electricity, the internet, the postal system, basic science. These exist as common goods that enable civilization itself. Yet the digital infrastructure humanity now depends on for identity, ownership, speech, commerce, and authorization has been captured by a handful of corporations that decide who exists online, who can transact, what can be said, and which agents can act on whose behalf. Public Network is the public infrastructure layer this era requires. Ownerless, permanent, and neutral. It records five kinds of facts for Humanity: identity, asset, information, transaction, and authentication.</p>
-            <p><strong>Identity</strong> is the foundation of every human and institutional interaction. It determines who you are, what you own, what you say, and what you can do. Today, identity is rented from platforms that can suspend, sell, or delete it at will. An entire generation's social graph, professional history, and creative output lives on servers controlled by a handful of companies. With artificial intelligence now generating content indistinguishable from human work, the question of whose hand or agent made something has become existential. Public Network gives every person, institution, and autonomous agent a self-owned identity cryptographically bound to keys they control. It cannot be taken away. It works across every application built on the protocol. It is the root of every other fact recorded on the network.</p>
-            <p><strong>Asset</strong> ownership is meaningless without provable provenance. A painting, a song, a dataset, a patent, a deed to a home. Each carries value only because its chain of custody can be traced. The digital age made creation trivial and copying infinite, which has made authenticity rare. Generative AI has accelerated this collapse by producing convincing artifacts in seconds with no record of origin. Public Network records every asset at its source and attests every transfer thereafter. One asset can compose of many others, with each link cryptographically verified. Ownership is clear. Royalties route automatically. Provenance is permanent.</p>
-            <p><strong>Information</strong> shapes what societies believe, buy, build, and vote on. When information cannot be traced to its source, truth itself becomes negotiable. We already live in an environment saturated with synthetic media, algorithmic amplification, and platform moderation that decides which voices reach which audiences. Every post, article, and message should carry the cryptographic signature of its author, permanently, without dependence on any platform. Public Network records information as attestations signed by identities inside spaces that anyone can host. Content is portable across applications. Authorship is provable. Moderation becomes a decision made by each reader and each space, not a single gatekeeper.</p>
-            <p><strong>Transaction</strong> is how civilization coordinates. Yet every meaningful transaction today flows through intermediaries that extract rent, impose policy, and can refuse service at any moment. Payment processors, app stores, and walled marketplaces take twenty to thirty percent of every sale and wield the right to expel participants without explanation. The coming wave of machine-to-machine commerce between autonomous agents cannot run on infrastructure that requires platform approval for every transfer. Public Network records transactions at the protocol layer with a single, fixed one percent fee that funds the network itself. Apps built on top may layer their own economics; the creator keeps the remainder. Value moves directly between identities. The network does not take sides.</p>
-            <p><strong>Authentication</strong> is the permission layer of the digital world. Who can sign in, who can act, and who can speak on whose behalf. Today it is controlled by the same corporations that gatekeep identity, which means the same companies decide which applications get access to which users. The rise of autonomous agents has made this infrastructure dangerously inadequate. An AI assistant, a trading bot, or a personal agent acting for you needs scoped, revocable, verifiable delegation. Not a shared password. Not an OAuth token owned by a third party. Public Network issues signed attestations that name the identity, the scopes, and the expiration. Sign in once with your wallet. Delegate limited authority to any agent. Revoke it at any time. No authentication server. No middleman.</p>
-            <p>These five primitives are all Public Network records. Nothing else. The minimalism is deliberate. A public good must be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Together these five facts form the substrate on which every application, institution, and individual can build without asking permission. Public Network is not a product to adopt or a company to trust. It is infrastructure to use. Ownerless. Permanent. Neutral. Written by Patrons. Signed onchain.</p>
+            <p>Public Network is a protocol for recording five kinds of facts on Ethereum: identity, asset, information, transaction, and authentication. It is built on the Ethereum Attestation Service (EAS) and deployed on Optimism. It does not run its own chain, operate its own consensus, or issue its own currency.</p>
+            <p><strong>Identity</strong> is an onchain record of an entity that holds a cryptographic key. Identities on Public Network are ERC-721 tokens (<code>PNI</code>), bound to the keys that created them, each carrying a primary handle, linked wallets, and an avatar. An identity may represent an individual, group, institution, or autonomous agent.</p>
+            <p><strong>Asset</strong> is an onchain record of ownership over a real-world, virtual, or intellectual resource. Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. Assets may be composed of other assets; each compositional link is attested, producing a complete provenance graph.</p>
+            <p><strong>Information</strong> is an onchain record of content signed by an identity: posts, articles, messages, research, provenance claims. Information lives inside Spaces (<code>PNS</code>), addressable containers that anyone can create.</p>
+            <p><strong>Transaction</strong> is an onchain record of value exchange between identities: sales, coin launches, cross-chain settlements. A fixed 1% protocol fee on transaction value flows to the Public Network treasury. Applications may layer additional fees; the creator retains the remainder.</p>
+            <p><strong>Authentication</strong> is an onchain record of authorized action: a sign-in, a delegation, an approval. An identity may delegate scoped, time-bound authority to another key. Every delegation and revocation is recorded on the network.</p>
+            <p>Public Network records these five facts and nothing else. The minimalism is deliberate: a public good should be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open-source SDK.</p>
           </section>
 
           <!-- FIVE PILLARS -->
@@ -166,8 +165,8 @@
           <section id="wp-identity" class="wp-section">
             <h2>Identity</h2>
             <p class="wp-pillar-lede">Who someone is.</p>
-            <p>A self-owned identity that exists independently of any centralized authority. Cryptographically verifiable, permanently linked to the keys that created it, and usable anywhere on Public Network. An identity may represent an individual, group, institution, or autonomous agent. Any entity capable of holding a cryptographic key can hold an identity.</p>
-            <p>Identities on Public Network are ERC-721 tokens (<code>PNI</code>). Each identity owns a primary handle, a set of linked wallets, and an avatar. External accounts like Google, X, GitHub, and email can be linked to extend reputation across systems.</p>
+            <p>An onchain identity bound to the keys that created it, usable across every application on Public Network. An identity may represent an individual, group, institution, or autonomous agent. Any entity capable of holding a cryptographic key can hold an identity.</p>
+            <p>Identities are ERC-721 tokens (<code>PNI</code>). Each identity owns a primary handle, a set of linked wallets, and an avatar. External accounts (Google, X, GitHub, email) may be linked to extend reputation across systems.</p>
 
             <div class="wp-terminal" aria-label="Claim an identity on Public Network">
               <div class="wp-terminal-bar">
@@ -192,8 +191,8 @@
           <section id="wp-asset" class="wp-section">
             <h2>Asset</h2>
             <p class="wp-pillar-lede">What someone owns.</p>
-            <p>Digital representations of real-world, virtual, and intellectual resources: property, art, collectibles, digital creations, intellectual property. Assets on Public Network carry full ownership, transparent provenance, and composition. One asset can be composed of many others; every link is attested onchain.</p>
-            <p>Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. Secondary sales route the protocol fee to the Public Network treasury automatically.</p>
+            <p>An onchain record of ownership over a real-world, virtual, or intellectual resource: property, art, collectibles, digital creations, intellectual property. Each asset carries full ownership, transparent provenance, and composition. An asset may be composed of other assets; every link is attested onchain.</p>
+            <p>Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. The 1% protocol fee on secondary sales routes to the Public Network treasury automatically.</p>
 
             <div class="wp-terminal" aria-label="Tokenize an asset">
               <div class="wp-terminal-bar">
@@ -219,8 +218,8 @@
           <section id="wp-information" class="wp-section">
             <h2>Information</h2>
             <p class="wp-pillar-lede">What someone says.</p>
-            <p>A decentralized knowledge layer: posts, articles, scientific discoveries, news, provenance claims. Every piece of information is signed by its author's identity and recorded permanently. Signed, timestamped, and unforgeable.</p>
-            <p>Information lives inside Spaces (<code>PNS</code>), containers for threads, publications, or communities. A Space is addressable by name. Anyone can create one.</p>
+            <p>An onchain record of content signed by an identity: posts, articles, research, news, provenance claims. Each record carries a cryptographic signature, a timestamp, and an immutable reference to its author.</p>
+            <p>Information lives inside Spaces (<code>PNS</code>), addressable containers for threads, publications, or communities. Anyone can create a Space.</p>
 
             <div class="wp-terminal" aria-label="Create a signed post">
               <div class="wp-terminal-bar">
@@ -247,8 +246,8 @@
           <section id="wp-transaction" class="wp-section">
             <h2>Transaction</h2>
             <p class="wp-pillar-lede">What someone did.</p>
-            <p>A secure, decentralized record of value exchange: sales, listings, coin launches, cross-chain settlements. Every transaction carries the signatures of its participants and is recorded transparently, with fees routed at the protocol layer.</p>
-            <p>The protocol fee is fixed at <strong>1%</strong> of transaction value. Hard-coded, non-configurable. It flows to the Public Network treasury and funds ongoing development, audits, and infrastructure. Apps built on top of Public Network can layer their own fee on top; the creator keeps the remainder.</p>
+            <p>An onchain record of value exchange between identities: sales, listings, coin launches, cross-chain settlements. Each transaction carries the signatures of its participants and routes fees at the protocol layer.</p>
+            <p>The protocol fee is fixed at <strong>1%</strong> of transaction value. Hard-coded, non-configurable. It flows to the Public Network treasury and funds ongoing development, audits, and infrastructure. Applications may layer additional fees; the creator retains the remainder.</p>
 
             <div class="wp-terminal" aria-label="Launch a coin">
               <div class="wp-terminal-bar">
@@ -275,8 +274,8 @@
           <section id="wp-authentication" class="wp-section">
             <h2>Authentication</h2>
             <p class="wp-pillar-lede">What someone authorized.</p>
-            <p>A decentralized system where identities attach cryptographic signatures to approve actions, transactions, and information. Authentication turns a raw signature into a durable permission record: a sign-in, a delegation to an agent, an approval of a third-party app.</p>
-            <p>Delegation is first-class: an identity can authorize an autonomous agent to act on its behalf, revocable at any time. Every delegation is recorded; every revocation is recorded; the chain of authority is always walkable.</p>
+            <p>An onchain record of an authorized action: a sign-in, a delegation to an agent, an approval of a third-party application. Each authentication is a cryptographic signature from an identity attached to a scoped permission.</p>
+            <p>An identity may delegate scoped, time-bound authority to another key and revoke it at any time. Every delegation and revocation is recorded; the chain of authority is always walkable.</p>
 
             <div class="wp-terminal" aria-label="Delegate to an agent">
               <div class="wp-terminal-bar">
@@ -303,8 +302,8 @@
           <!-- ARCHITECTURE -->
           <section id="wp-architecture" class="wp-section">
             <h2>Architecture</h2>
-            <p>Public Network is built on Ethereum, the most neutral and decentralized programmable ledger in existence. It settles on Optimism, an Ethereum layer that provides fast, low-cost, permanent records.</p>
-            <p>Public Network does not run its own chain, does not require its own consensus, and does not issue its own currency. It inherits the security and neutrality of Ethereum itself.</p>
+            <p>Public Network is built on Ethereum and settles on Optimism, an Ethereum L2 that provides fast, low-cost, permanent records.</p>
+            <p>Public Network does not run its own chain, does not operate its own consensus, and does not issue its own currency. It inherits the security and neutrality of Ethereum.</p>
 
             <div class="wp-stack">
               <div class="wp-stack-row">
@@ -334,12 +333,12 @@
               <div class="wp-stack-row">
                 <div class="wp-stack-layer wp-stack-eth">
                   <div class="wp-stack-label">Ethereum</div>
-                  <div class="wp-stack-sub">The neutral ground.</div>
+                  <div class="wp-stack-sub">Base layer.</div>
                 </div>
               </div>
             </div>
 
-            <p>Settlement is in <strong>USDC</strong> on Optimism. No native token at launch. No treasury grab. The protocol fee is 1% of transaction value, flowing to a multisig treasury governed with progressive decentralization in mind.</p>
+            <p>Settlement is in <strong>USDC</strong> on Optimism. The protocol has no native token at launch. The 1% protocol fee flows to a multisig treasury governed with progressive decentralization.</p>
           </section>
 
           <!-- SCHEMAS -->
@@ -385,14 +384,14 @@ PUBLIC_NETWORK_AUTHENTICATION
 PUBLIC_NETWORK_DELEGATION</pre>
             </div>
 
-            <p>Schemas compose. An asset can carry unlimited information. A space is a container of information. A transaction attests value exchange across identities. An authentication binds them all.</p>
-            <p>No participant can modify, remove, or gate these schemas. They are registered on Optimism and belong to Humanity.</p>
+            <p>Schemas compose. An asset can carry information. A space contains information. A transaction attests value exchange between identities. An authentication records the authority behind each.</p>
+            <p>Schemas are immutable once registered. No participant can modify, remove, or gate them.</p>
           </section>
 
           <!-- BUILD -->
           <section id="wp-build" class="wp-section">
             <h2>Build on Public Network</h2>
-            <p>Applications read and write the five pillars directly via the SDK. No permission, no registration, no endorsement. They are simply built.</p>
+            <p>Applications read and write the five pillars directly via the SDK. No permission, registration, or endorsement is required.</p>
 
             <div class="wp-terminal" aria-label="Install the SDK">
               <div class="wp-terminal-bar">
@@ -425,8 +424,8 @@ PUBLIC_NETWORK_DELEGATION</pre>
           <!-- SIGN IN -->
           <section id="wp-sso" class="wp-section">
             <h2>Sign in with Public Network</h2>
-            <p>A decentralized single sign-on primitive. An identity that works across every app built on Public Network. Wallet-first, portable, revocable.</p>
-            <p>The flow is simple: the user&rsquo;s wallet signs a scoped authorization payload; the app receives a signed attestation that names the identity, the requested scopes, and the expiration. No OAuth server. No Facebook. No Google.</p>
+            <p>A decentralized single sign-on primitive. An identity that works across every application built on Public Network. Wallet-first, portable, revocable.</p>
+            <p>The user&rsquo;s wallet signs a scoped authorization payload. The application receives a signed attestation naming the identity, the requested scopes, and the expiration. No central authentication server is required.</p>
 
             <div class="wp-terminal" aria-label="Sign in with Public Network">
               <div class="wp-terminal-bar">
@@ -445,40 +444,6 @@ PUBLIC_NETWORK_DELEGATION</pre>
 
 <span class="wp-t-comment">// session.identity · session.expires · session.signature</span></pre>
             </div>
-          </section>
-
-          <!-- CORE VALUES -->
-          <section id="wp-values" class="wp-section">
-            <h2>Core Values</h2>
-            <p><em>Public Network&rsquo;s mission is to decentralize and open source Humanity.</em></p>
-            <dl class="wp-values">
-              <dt>Decentralization</dt>
-              <dd>Redistributing power from centralized entities to the people, ensuring that no single entity can dominate or restrict access.</dd>
-
-              <dt>Open Source</dt>
-              <dd>A transparent, interoperable system where anyone can contribute and benefit, enhancing accessibility, collaboration, and innovation.</dd>
-
-              <dt>Permanence</dt>
-              <dd>A stable and enduring foundation that guarantees long-term availability, preservation, and integrity of every record.</dd>
-
-              <dt>Neutrality</dt>
-              <dd>A balanced, impartial environment supporting open dialogue and collaboration across diverse individuals, groups, and institutions.</dd>
-
-              <dt>Trust</dt>
-              <dd>Reliability and honesty built into the protocol. Every record carries its source.</dd>
-
-              <dt>Accountability</dt>
-              <dd>All actions and decisions are transparent and held to a high standard of responsibility.</dd>
-
-              <dt>Privacy &amp; Security</dt>
-              <dd>Robust cryptographic protections, user-controlled privacy settings, and decentralized infrastructure that reduces single points of failure.</dd>
-
-              <dt>Sustainability</dt>
-              <dd>Responsible resource management, resilient infrastructure, and adaptive processes ensuring long-term stability and growth.</dd>
-
-              <dt>Provenance</dt>
-              <dd>Every identity, asset, information, transaction, and authentication is permanently and verifiably tied to its source.</dd>
-            </dl>
           </section>
 
           <!-- PATRONS -->
