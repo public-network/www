@@ -802,7 +802,6 @@ body.launch-minimal .iface-canvas {
           mask-position: center;
   -webkit-mask-size: contain;
           mask-size: contain;
-  animation: ic-pulse 4.5s ease-in-out infinite;
   transform-origin: 50% 50%;
   will-change: transform, background-color;
 }
@@ -927,12 +926,11 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink-muted);
 }
 .wp-nav-head {
-  color: var(--wotc-ink);
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  color: var(--wotc-ink-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
   text-transform: none;
-  text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
   margin-bottom: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--wotc-hairline);
@@ -1172,11 +1170,11 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   border-radius: 10px;
   background-color: #FFFFFF;
 }
-.wp-stack-apps { background-color: #F7F8FC; }
+.wp-stack-apps     { background-color: #F5F5F7; }
 .wp-stack-protocol { background-color: #FFFFFF; border-color: var(--wotc-ink-soft); }
-.wp-stack-eas { background-color: #FAFBFF; }
-.wp-stack-op { background-color: #FFF5F5; border-color: #F3C9C9; }
-.wp-stack-eth { background-color: #F5F7FF; border-color: #C9D0F3; }
+.wp-stack-eas      { background-color: #FAFAFA; }
+.wp-stack-op       { background-color: #F2F2F5; border-color: #D2D2D7; }
+.wp-stack-eth      { background-color: #EBEBED; border-color: #C8C8CC; }
 .wp-stack-label {
   font-size: 13px;
   font-weight: 600;
@@ -1334,11 +1332,11 @@ html[data-theme="dark"] .wp-stack-layer {
   background-color: #0F1424;
   border-color: #1F2634;
 }
-html[data-theme="dark"] .wp-stack-apps     { background-color: #0C1120; }
+html[data-theme="dark"] .wp-stack-apps     { background-color: #12151F; }
 html[data-theme="dark"] .wp-stack-protocol { background-color: #0F1424; border-color: var(--wotc-ink-soft); }
-html[data-theme="dark"] .wp-stack-eas      { background-color: #0B1028; }
-html[data-theme="dark"] .wp-stack-op       { background-color: #1A0E10; border-color: #3A1A1A; }
-html[data-theme="dark"] .wp-stack-eth      { background-color: #0D1028; border-color: #26305A; }
+html[data-theme="dark"] .wp-stack-eas      { background-color: #0E1220; }
+html[data-theme="dark"] .wp-stack-op       { background-color: #0C1018; border-color: #1F2634; }
+html[data-theme="dark"] .wp-stack-eth      { background-color: #0A0E1A; border-color: #1A1F2E; }
 
 /* Terminal — restore dark palette in dark mode. */
 html[data-theme="dark"] .wp-terminal {
