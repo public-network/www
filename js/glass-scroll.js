@@ -8,15 +8,19 @@
 (function () {
   'use strict';
 
-  // Panel snow → real imperfect-circle navy.
-  const START = [0xF3, 0xF5, 0xF9];
-  const END   = [0x06, 0x0C, 0x22];
+  // Light start: panel snow (matches white glass). Dark start: near-black
+  // (matches dark glass). Both ghost the circle until it's revealed.
+  const LIGHT_START = [0xF3, 0xF5, 0xF9];
+  const DARK_START  = [0x0A, 0x0E, 0x1A];
+  const END         = [0x06, 0x0C, 0x22];
 
   function lerp(a, b, t) { return Math.round(a + (b - a) * t); }
   function mixRgb(t) {
-    return 'rgb(' + lerp(START[0], END[0], t) + ',' +
-                    lerp(START[1], END[1], t) + ',' +
-                    lerp(START[2], END[2], t) + ')';
+    const s = document.documentElement.getAttribute('data-theme') === 'dark'
+      ? DARK_START : LIGHT_START;
+    return 'rgb(' + lerp(s[0], END[0], t) + ',' +
+                    lerp(s[1], END[1], t) + ',' +
+                    lerp(s[2], END[2], t) + ')';
   }
 
   function init() {
