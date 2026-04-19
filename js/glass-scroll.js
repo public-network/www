@@ -66,10 +66,10 @@
 
         let scale;
         if (rawY <= h) {
-          scale = 1 + 0.01 * (rawY / h);
+          scale = 1 + 0.025 * (rawY / h);
         } else {
           const t = Math.min(1, (rawY - h) / (exitEnd - h));
-          scale = 1.01 - 0.01 * t;
+          scale = 1.025 - 0.025 * t;
         }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }
