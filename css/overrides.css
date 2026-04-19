@@ -1074,10 +1074,14 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
 
 /* Pillar grid — five cards hinting at the five sections below. */
 .wp-pillars {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin: 20px 0 8px;
+}
+.wp-pillars .wp-pillar { max-width: 50%; }
+@media (max-width: 600px) {
+  .wp-pillars .wp-pillar { max-width: 100%; }
 }
 .wp-pillar {
   display: block;
