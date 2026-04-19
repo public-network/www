@@ -1075,22 +1075,9 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
 /* Pillar grid — five cards hinting at the five sections below. */
 .wp-pillars {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
   margin: 20px 0 8px;
-}
-/* Identity sits on top spanning both columns; the remaining four
-   primitives fill a 2x2 grid below. */
-.wp-pillars > .wp-pillar:first-child {
-  grid-column: 1 / -1;
-  padding: 22px 18px;
-}
-.wp-pillars > .wp-pillar:first-child .wp-pillar-copy {
-  font-size: 15px;
-}
-@media (max-width: 520px) {
-  .wp-pillars { grid-template-columns: 1fr; }
-  .wp-pillars > .wp-pillar:first-child { grid-column: auto; }
 }
 .wp-pillar {
   display: block;
