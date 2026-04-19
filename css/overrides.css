@@ -1108,34 +1108,34 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   color: var(--wotc-ink);
 }
 
-/* Terminal blocks — academic + serious. Dark, quiet, unshowy. */
+/* Terminal blocks — light by default, dark in dark mode. */
 .wp-terminal {
   margin: 20px 0 28px;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid #1e2432;
-  background-color: #0e1320;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  border: 1px solid #D2D2D7;
+  background-color: #FAFAFA;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 .wp-terminal-bar {
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 9px 12px;
-  background-color: #161b29;
-  border-bottom: 1px solid #1e2432;
+  background-color: #F2F2F5;
+  border-bottom: 1px solid #D2D2D7;
 }
 .wp-terminal-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #2a3145;
+  background-color: #C8C8CC;
 }
 .wp-terminal-path {
   margin-left: 10px;
   font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
   font-size: 11px;
-  color: #6b778f;
+  color: #86868B;
   letter-spacing: 0.02em;
 }
 .wp-terminal-body {
@@ -1144,16 +1144,16 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
   font-size: 12.5px;
   line-height: 1.65;
-  color: #c6cbdb;
+  color: #1D1D1F;
   white-space: pre;
   overflow-x: auto;
 }
-.wp-t-comment { color: #5c6684; font-style: italic; }
-.wp-t-keyword { color: #c98afc; }
-.wp-t-string  { color: #8fd694; }
-.wp-t-fn      { color: #7fb8ff; }
-.wp-t-num     { color: #f5b76f; }
-.wp-t-prompt  { color: #7fb8ff; user-select: none; }
+.wp-t-comment { color: #8E9BB2; font-style: italic; }
+.wp-t-keyword { color: #9650C8; }
+.wp-t-string  { color: #2D7D46; }
+.wp-t-fn      { color: #0969DA; }
+.wp-t-num     { color: #953800; }
+.wp-t-prompt  { color: #0969DA; user-select: none; }
 
 /* Architecture stack diagram — five labelled layers, subtle hairlines. */
 .wp-stack {
@@ -1340,11 +1340,25 @@ html[data-theme="dark"] .wp-stack-eas      { background-color: #0B1028; }
 html[data-theme="dark"] .wp-stack-op       { background-color: #1A0E10; border-color: #3A1A1A; }
 html[data-theme="dark"] .wp-stack-eth      { background-color: #0D1028; border-color: #26305A; }
 
-/* Terminal border flips slightly — keep interior dark regardless. */
+/* Terminal — restore dark palette in dark mode. */
 html[data-theme="dark"] .wp-terminal {
-  border-color: #1F2634;
+  border-color: #1e2432;
+  background-color: #0e1320;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
+html[data-theme="dark"] .wp-terminal-bar {
+  background-color: #161b29;
+  border-bottom-color: #1e2432;
+}
+html[data-theme="dark"] .wp-terminal-dot { background-color: #2a3145; }
+html[data-theme="dark"] .wp-terminal-path { color: #6b778f; }
+html[data-theme="dark"] .wp-terminal-body { color: #c6cbdb; }
+html[data-theme="dark"] .wp-t-comment { color: #5c6684; }
+html[data-theme="dark"] .wp-t-keyword { color: #c98afc; }
+html[data-theme="dark"] .wp-t-string  { color: #8fd694; }
+html[data-theme="dark"] .wp-t-fn      { color: #7fb8ff; }
+html[data-theme="dark"] .wp-t-num     { color: #f5b76f; }
+html[data-theme="dark"] .wp-t-prompt  { color: #7fb8ff; }
 
 /* Inline <code> chips */
 html[data-theme="dark"] .wp code {
