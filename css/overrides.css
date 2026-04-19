@@ -887,3 +887,374 @@ body.launch-minimal .iface-canvas {
 /* Hide any lingering Webflow main-wrappers if they somehow end up in
    the DOM (e.g. live reload remnants). New index.html doesn't use them. */
 main.main-wrapper { display: none !important; }
+
+/* ==================================================================
+   WHITEPAPER / DOCUMENTATION (2026-04-20)
+   A single long-form article (whitepaper + docs fused) with a
+   floating left nav in the monospace/terminal style that mirrors the
+   typing animation on the home. Academic tone, subtle terminals for
+   every code example. Narrow reading column. Heavy whitespace.
+   ================================================================== */
+
+.wp-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 64px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 120px 48px 160px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  color: var(--wotc-ink);
+}
+
+/* Floating nav — sticks inside the shell's left column, matches the
+   terminal typography of the home's typing chip. */
+.wp-nav {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--wotc-ink-muted);
+}
+.wp-nav-head {
+  color: var(--wotc-ink);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--wotc-hairline);
+}
+.wp-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wp-nav-list li { margin: 0; }
+.wp-nav-sub { padding-left: 14px; }
+.wp-nav-link {
+  color: var(--wotc-ink-muted) !important;
+  text-decoration: none !important;
+  display: inline-block;
+  padding: 1px 0;
+  transition: color 160ms ease;
+  border-left: 1px solid transparent;
+  padding-left: 8px;
+  margin-left: -9px;
+}
+.wp-nav-link:hover {
+  color: var(--wotc-ink) !important;
+}
+.wp-nav-link.is-active {
+  color: var(--wotc-ink) !important;
+  border-left-color: var(--wotc-ink);
+}
+
+/* Article column — narrow for reading comfort. */
+.wp {
+  min-width: 0;
+  max-width: 720px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--wotc-ink);
+}
+
+/* Title block — mirrors the home definition verbatim. */
+.wp-title {
+  border-bottom: 1px solid var(--wotc-hairline);
+  padding-bottom: 36px;
+  margin-bottom: 48px;
+}
+.wp-title h1 {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px;
+  line-height: 1.15;
+}
+.wp-dt {
+  font-size: 13px;
+  color: var(--wotc-ink-muted);
+  margin: 0 0 2px;
+  letter-spacing: 0.01em;
+}
+.wp-pos {
+  font-size: 14px;
+  margin: 0 0 4px;
+}
+.wp-defn {
+  margin: 4px 0 16px;
+  padding-left: 20px;
+  font-size: 15px;
+  color: var(--wotc-ink);
+}
+.wp-defn li { margin: 0 0 2px; }
+.wp-quote {
+  font-size: 14px;
+  color: var(--wotc-ink-muted);
+  margin: 10px 0 16px;
+  line-height: 1.55;
+}
+.wp-chip {
+  display: inline-block;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  color: var(--wotc-ink-soft);
+  letter-spacing: 0.02em;
+}
+
+/* Sections */
+.wp-section {
+  scroll-margin-top: 80px;
+  padding: 40px 0 8px;
+}
+.wp-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+.wp p { margin: 0 0 14px; }
+.wp em { font-style: italic; }
+.wp strong { font-weight: 600; color: var(--wotc-ink); }
+.wp code {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 0.9em;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background-color: rgba(60, 67, 87, 0.07);
+  color: var(--wotc-ink);
+}
+.wp-lede {
+  font-size: 16px;
+  color: var(--wotc-ink-soft);
+  margin-bottom: 16px;
+}
+.wp-pillar-lede {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 13px;
+  color: var(--wotc-ink-muted);
+  letter-spacing: 0.01em;
+  margin: 0 0 14px;
+}
+
+/* Pillar grid — five cards hinting at the five sections below. */
+.wp-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 20px 0 8px;
+}
+.wp-pillar {
+  display: block;
+  padding: 16px 14px;
+  border: 1px solid var(--wotc-hairline);
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  color: var(--wotc-ink) !important;
+  text-decoration: none !important;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.wp-pillar:hover {
+  border-color: var(--wotc-ink-soft);
+  transform: translateY(-1px);
+}
+.wp-pillar-label {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  color: var(--wotc-ink-soft);
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  margin-bottom: 4px;
+}
+.wp-pillar-copy {
+  font-size: 14px;
+  color: var(--wotc-ink);
+}
+
+/* Terminal blocks — academic + serious. Dark, quiet, unshowy. */
+.wp-terminal {
+  margin: 20px 0 28px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #1e2432;
+  background-color: #0e1320;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+}
+.wp-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  background-color: #161b29;
+  border-bottom: 1px solid #1e2432;
+}
+.wp-terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #2a3145;
+}
+.wp-terminal-path {
+  margin-left: 10px;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  color: #6b778f;
+  letter-spacing: 0.02em;
+}
+.wp-terminal-body {
+  margin: 0;
+  padding: 16px 18px;
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #c6cbdb;
+  white-space: pre;
+  overflow-x: auto;
+}
+.wp-t-comment { color: #5c6684; font-style: italic; }
+.wp-t-keyword { color: #c98afc; }
+.wp-t-string  { color: #8fd694; }
+.wp-t-fn      { color: #7fb8ff; }
+.wp-t-num     { color: #f5b76f; }
+.wp-t-prompt  { color: #7fb8ff; user-select: none; }
+
+/* Architecture stack diagram — five labelled layers, subtle hairlines. */
+.wp-stack {
+  margin: 24px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wp-stack-row {
+  display: flex;
+}
+.wp-stack-layer {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid var(--wotc-hairline);
+  border-radius: 10px;
+  background-color: #FFFFFF;
+}
+.wp-stack-apps { background-color: #F7F8FC; }
+.wp-stack-protocol { background-color: #FFFFFF; border-color: var(--wotc-ink-soft); }
+.wp-stack-eas { background-color: #FAFBFF; }
+.wp-stack-op { background-color: #FFF5F5; border-color: #F3C9C9; }
+.wp-stack-eth { background-color: #F5F7FF; border-color: #C9D0F3; }
+.wp-stack-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wotc-ink);
+  letter-spacing: -0.005em;
+}
+.wp-stack-sub {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 11px;
+  color: var(--wotc-ink-muted);
+  letter-spacing: 0.01em;
+  margin-top: 3px;
+}
+
+/* Values list — dt/dd pairs. */
+.wp-values {
+  margin: 16px 0 0;
+}
+.wp-values dt {
+  font-weight: 600;
+  color: var(--wotc-ink);
+  font-size: 15px;
+  margin-top: 16px;
+}
+.wp-values dt:first-child { margin-top: 0; }
+.wp-values dd {
+  margin: 4px 0 0;
+  color: var(--wotc-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* Patron list — terminal-style runout. */
+.wp-patron-list {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--wotc-ink-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Resources */
+.wp-resources {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  border-top: 1px solid var(--wotc-hairline);
+}
+.wp-resources li {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--wotc-hairline);
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, "Courier New", monospace;
+  font-size: 12.5px;
+}
+.wp-res-k {
+  flex: 0 0 130px;
+  color: var(--wotc-ink-muted);
+  letter-spacing: 0.02em;
+}
+.wp-res-v {
+  color: var(--wotc-ink);
+}
+
+/* Footer — quiet sign-off. */
+.wp-footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--wotc-hairline);
+  color: var(--wotc-ink-muted);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* Tablet — nav folds under */
+@media (max-width: 900px) {
+  .wp-shell {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 80px 24px 120px;
+  }
+  .wp-nav {
+    position: relative;
+    top: 0;
+    max-height: none;
+    border: 1px solid var(--wotc-hairline);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .wp-nav-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 4px 12px;
+  }
+  .wp-nav-sub { padding-left: 0; }
+}
+
+/* Mobile — tighten padding */
+@media (max-width: 600px) {
+  .wp-shell { padding: 60px 20px 100px; }
+  .wp-title h1 { font-size: 28px; }
+  .wp-section { padding-top: 32px; }
+  .wp-terminal-body { font-size: 12px; padding: 14px 14px; }
+  .wp-resources li { flex-direction: column; gap: 2px; }
+  .wp-res-k { flex: 0 0 auto; }
+}

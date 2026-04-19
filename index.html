@@ -69,11 +69,448 @@
         </section>
       </div>
 
-      <article class="iface-whitepaper" id="documentation">
-        <h1>Public Network</h1>
-        <p class="iface-wp-lede">The Interstate of Humanity — a decentralized, open source network and permanent neutral ground in which to reside onchain.</p>
-        <p>Whitepaper content lands here.</p>
-      </article>
+      <div class="wp-shell" id="documentation">
+        <!-- Floating left nav — terminal font, same family as the
+             typing animation on the home. Appears when the whitepaper
+             is in view; scroll-spy highlights the active section. -->
+        <nav class="wp-nav" aria-label="Whitepaper sections">
+          <div class="wp-nav-head">Public Network</div>
+          <ol class="wp-nav-list">
+            <li><a href="#wp-preface" class="wp-nav-link">preface</a></li>
+            <li><a href="#wp-introduction" class="wp-nav-link">introduction</a></li>
+            <li><a href="#wp-pillars" class="wp-nav-link">five&nbsp;pillars</a></li>
+            <li class="wp-nav-sub"><a href="#wp-identity" class="wp-nav-link">identity</a></li>
+            <li class="wp-nav-sub"><a href="#wp-asset" class="wp-nav-link">asset</a></li>
+            <li class="wp-nav-sub"><a href="#wp-information" class="wp-nav-link">information</a></li>
+            <li class="wp-nav-sub"><a href="#wp-transaction" class="wp-nav-link">transaction</a></li>
+            <li class="wp-nav-sub"><a href="#wp-authentication" class="wp-nav-link">authentication</a></li>
+            <li><a href="#wp-architecture" class="wp-nav-link">architecture</a></li>
+            <li><a href="#wp-schemas" class="wp-nav-link">schemas</a></li>
+            <li><a href="#wp-build" class="wp-nav-link">build</a></li>
+            <li><a href="#wp-sso" class="wp-nav-link">sign&nbsp;in</a></li>
+            <li><a href="#wp-values" class="wp-nav-link">core&nbsp;values</a></li>
+            <li><a href="#wp-patrons" class="wp-nav-link">patrons</a></li>
+            <li><a href="#wp-circle" class="wp-nav-link">imperfect&nbsp;circle</a></li>
+            <li><a href="#wp-resources" class="wp-nav-link">resources</a></li>
+          </ol>
+        </nav>
+
+        <article class="wp">
+          <!-- Title block — mirrors the home definition exactly so
+               the reader lands in familiar water. -->
+          <header class="wp-title">
+            <h1>Public Network</h1>
+            <p class="wp-dt">pub·lic net·work</p>
+            <p class="wp-pos">noun</p>
+            <ol class="wp-defn">
+              <li>the Interstate of Humanity.</li>
+              <li>a decentralized, open source network and permanent neutral ground in which to reside onchain.</li>
+            </ol>
+            <p class="wp-quote">&ldquo;Public Network is humanity&rsquo;s source of truth for art, science, technology, philosophy, and culture, ownerless, forever.&rdquo;</p>
+            <code class="wp-chip">identity · asset · information · transaction · authentication</code>
+          </header>
+
+          <!-- PREFACE -->
+          <section id="wp-preface" class="wp-section">
+            <h2>Preface</h2>
+            <p class="wp-lede"><em>Decentralize and open source Humanity&hellip;</em></p>
+            <p>In a centralized world where power and control are abused and access is limited, the urgency to decentralize and open source Humanity has never been greater.</p>
+            <p>We, as Patrons, present <strong>Public Network</strong>, the Interstate of Humanity &mdash; a decentralized, open source network and permanent neutral ground in which to reside onchain.</p>
+            <p>Patrons protect, support, and evolve Humanity by contributing to initiatives that decentralize and open source identities, assets, information, transactions, and authentications.</p>
+            <p>If you, as an individual, group, or institution are committed to decentralizing and open sourcing Humanity, one initiative at a time, become a Patron.</p>
+          </section>
+
+          <!-- INTRODUCTION -->
+          <section id="wp-introduction" class="wp-section">
+            <h2>Introduction</h2>
+            <p>The world is dominated by centralized power structures that control not only digital lives but increasingly physical existence as well. A handful of platforms hold the keys to identity, assets, information, transactions, and authentication, shaping what is shared and owned while limiting access and stifling innovation.</p>
+            <p>Public Network is not an alternative but a radical reimagining of how people organize, interact, and thrive together. By redistributing power from the few to the many, Public Network creates an open, decentralized space where collaboration and transparency are the norm, and trust is restored through authentication and accountability.</p>
+            <p>In an era where artificial intelligence and autonomous agents increasingly create, act, and transact, the question of authorship becomes foundational. <em>Who made this? Who signed this? Who authorized this?</em> Public Network records the answer, permanently and neutrally. Whether a human, an institution, or an autonomous agent, every action carries the cryptographic signature of its source. Provenance becomes universal.</p>
+            <p>Public Network is a protocol, a brand, and an open source interface &mdash; nothing more. Its permanence comes from its minimalism. Its neutrality comes from its ownerlessness. Its power comes from its Patrons.</p>
+          </section>
+
+          <!-- FIVE PILLARS -->
+          <section id="wp-pillars" class="wp-section">
+            <h2>The Five Pillars</h2>
+            <p>Public Network records five kinds of facts. Nothing else. Everything builds on these five primitives.</p>
+            <div class="wp-pillars">
+              <a href="#wp-identity" class="wp-pillar">
+                <div class="wp-pillar-label">01 &middot; identity</div>
+                <div class="wp-pillar-copy">who someone is</div>
+              </a>
+              <a href="#wp-asset" class="wp-pillar">
+                <div class="wp-pillar-label">02 &middot; asset</div>
+                <div class="wp-pillar-copy">what someone owns</div>
+              </a>
+              <a href="#wp-information" class="wp-pillar">
+                <div class="wp-pillar-label">03 &middot; information</div>
+                <div class="wp-pillar-copy">what someone says</div>
+              </a>
+              <a href="#wp-transaction" class="wp-pillar">
+                <div class="wp-pillar-label">04 &middot; transaction</div>
+                <div class="wp-pillar-copy">what someone did</div>
+              </a>
+              <a href="#wp-authentication" class="wp-pillar">
+                <div class="wp-pillar-label">05 &middot; authentication</div>
+                <div class="wp-pillar-copy">what someone authorized</div>
+              </a>
+            </div>
+          </section>
+
+          <!-- IDENTITY -->
+          <section id="wp-identity" class="wp-section">
+            <h2>Identity</h2>
+            <p class="wp-pillar-lede">Who someone is.</p>
+            <p>A self-owned identity that exists independently of any centralized authority. Cryptographically verifiable, permanently linked to the keys that created it, and usable anywhere on Public Network. An identity may represent an individual, group, institution, or autonomous agent &mdash; any entity capable of holding a cryptographic key can hold an identity.</p>
+            <p>Identities on Public Network are ERC-721 tokens (<code>PNI</code>). Each identity owns a primary handle, a set of linked wallets, and an avatar. External accounts &mdash; Google, X, GitHub, email &mdash; can be linked to extend reputation across systems.</p>
+
+            <div class="wp-terminal" aria-label="Claim an identity on Public Network">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · identity</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Claim an identity handle</span>
+<span class="wp-t-keyword">import</span> { claimIdentity } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/identity'</span>;
+
+<span class="wp-t-keyword">const</span> identity = <span class="wp-t-keyword">await</span> <span class="wp-t-fn">claimIdentity</span>({
+  handle: <span class="wp-t-string">'alice'</span>,
+  wallet: signer,
+});
+
+<span class="wp-t-comment">// → PublicNetworkIdentity #1024 · 0xAlice…</span></pre>
+            </div>
+          </section>
+
+          <!-- ASSET -->
+          <section id="wp-asset" class="wp-section">
+            <h2>Asset</h2>
+            <p class="wp-pillar-lede">What someone owns.</p>
+            <p>Digital representations of real-world, virtual, and intellectual resources &mdash; property, art, collectibles, digital creations, intellectual property. Assets on Public Network carry full ownership, transparent provenance, and composition. One asset can be composed of many others; every link is attested onchain.</p>
+            <p>Assets are ERC-721 tokens (<code>PNA</code>) with optional royalty routing via ERC-2981. Secondary sales route the protocol fee to the Public Network treasury automatically.</p>
+
+            <div class="wp-terminal" aria-label="Tokenize an asset">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · asset</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Tokenize an asset with provenance</span>
+<span class="wp-t-keyword">import</span> { tokenizeAsset } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/asset'</span>;
+
+<span class="wp-t-keyword">const</span> asset = <span class="wp-t-keyword">await</span> <span class="wp-t-fn">tokenizeAsset</span>({
+  identity,
+  mediaUri: <span class="wp-t-string">'ar://bafy…'</span>,
+  composedOf: [parentAssetId],
+});
+
+<span class="wp-t-comment">// → PublicNetworkAsset #4271 · composed</span></pre>
+            </div>
+          </section>
+
+          <!-- INFORMATION -->
+          <section id="wp-information" class="wp-section">
+            <h2>Information</h2>
+            <p class="wp-pillar-lede">What someone says.</p>
+            <p>A decentralized knowledge layer &mdash; posts, articles, scientific discoveries, news, provenance claims. Every piece of information is signed by its author's identity and recorded permanently. Signed, timestamped, and unforgeable.</p>
+            <p>Information lives inside Spaces (<code>PNS</code>) &mdash; containers for threads, publications, or communities. A Space is addressable by name. Anyone can create one.</p>
+
+            <div class="wp-terminal" aria-label="Create a signed post">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · information</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Create a signed post</span>
+<span class="wp-t-keyword">import</span> { post } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/information'</span>;
+
+<span class="wp-t-keyword">const</span> signed = <span class="wp-t-keyword">await</span> post.<span class="wp-t-fn">sign</span>({
+  identity,
+  body: <span class="wp-t-string">'Hello, Public Network.'</span>,
+  space: <span class="wp-t-string">'announcements'</span>,
+});
+
+<span class="wp-t-keyword">const</span> pending = <span class="wp-t-keyword">await</span> post.<span class="wp-t-fn">createDirect</span>(signed);
+<span class="wp-t-keyword">await</span> pending.<span class="wp-t-fn">awaitConfirmation</span>();</pre>
+            </div>
+          </section>
+
+          <!-- TRANSACTION -->
+          <section id="wp-transaction" class="wp-section">
+            <h2>Transaction</h2>
+            <p class="wp-pillar-lede">What someone did.</p>
+            <p>A secure, decentralized record of value exchange &mdash; sales, listings, coin launches, cross-chain settlements. Every transaction carries the signatures of its participants and is recorded transparently, with fees routed at the protocol layer.</p>
+            <p>The protocol fee is fixed at <strong>1%</strong> of transaction value. Hard-coded, non-configurable. It flows to the Public Network treasury and funds ongoing development, audits, and infrastructure. Apps built on top of Public Network can layer their own fee on top; the creator keeps the remainder.</p>
+
+            <div class="wp-terminal" aria-label="Launch a coin">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · transaction</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Launch a coin with a 3-way fee split</span>
+<span class="wp-t-keyword">import</span> { launchCoin } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/transaction'</span>;
+
+<span class="wp-t-keyword">const</span> coin = <span class="wp-t-keyword">await</span> <span class="wp-t-fn">launchCoin</span>({
+  identity,
+  name: <span class="wp-t-string">'Example'</span>,
+  symbol: <span class="wp-t-string">'EXMPL'</span>,
+  totalFeeBps: <span class="wp-t-num">250</span>,    <span class="wp-t-comment">// 2.50% total</span>
+  appCutBps: <span class="wp-t-num">50</span>,        <span class="wp-t-comment">// 0.50% to the app</span>
+  <span class="wp-t-comment">// protocol takes 1.00% (fixed), creator keeps 1.00%</span>
+});</pre>
+            </div>
+          </section>
+
+          <!-- AUTHENTICATION -->
+          <section id="wp-authentication" class="wp-section">
+            <h2>Authentication</h2>
+            <p class="wp-pillar-lede">What someone authorized.</p>
+            <p>A decentralized system where identities attach cryptographic signatures to approve actions, transactions, and information. Authentication turns a raw signature into a durable permission record &mdash; a sign-in, a delegation to an agent, an approval of a third-party app.</p>
+            <p>Delegation is first-class: an identity can authorize an autonomous agent to act on its behalf, revocable at any time. Every delegation is recorded; every revocation is recorded; the chain of authority is always walkable.</p>
+
+            <div class="wp-terminal" aria-label="Delegate to an agent">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · authentication</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Delegate limited authority to an agent</span>
+<span class="wp-t-keyword">import</span> { delegation } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/authentication'</span>;
+
+<span class="wp-t-keyword">const</span> d = <span class="wp-t-keyword">await</span> delegation.<span class="wp-t-fn">create</span>({
+  from: identity,
+  to: agentKey,
+  scope: [<span class="wp-t-string">'post.create'</span>],
+  expires: <span class="wp-t-string">'2026-12-31'</span>,
+});
+
+<span class="wp-t-comment">// Revoke any time</span>
+<span class="wp-t-keyword">await</span> delegation.<span class="wp-t-fn">revoke</span>(d.uid);</pre>
+            </div>
+          </section>
+
+          <!-- ARCHITECTURE -->
+          <section id="wp-architecture" class="wp-section">
+            <h2>Architecture</h2>
+            <p>Public Network is built on Ethereum, the most neutral and decentralized programmable ledger in existence. It settles on Optimism, an Ethereum layer that provides fast, low-cost, permanent records.</p>
+            <p>Public Network does not run its own chain, does not require its own consensus, and does not issue its own currency. It inherits the security and neutrality of Ethereum itself.</p>
+
+            <div class="wp-stack">
+              <div class="wp-stack-row">
+                <div class="wp-stack-layer wp-stack-apps">
+                  <div class="wp-stack-label">Applications</div>
+                  <div class="wp-stack-sub">For Crypto. 67. XES. Divvvy. Third-party apps.</div>
+                </div>
+              </div>
+              <div class="wp-stack-row">
+                <div class="wp-stack-layer wp-stack-protocol">
+                  <div class="wp-stack-label">Public Network Protocol</div>
+                  <div class="wp-stack-sub">Identity · Asset · Information · Transaction · Authentication</div>
+                </div>
+              </div>
+              <div class="wp-stack-row">
+                <div class="wp-stack-layer wp-stack-eas">
+                  <div class="wp-stack-label">EAS (Ethereum Attestation Service)</div>
+                  <div class="wp-stack-sub">Open attestation primitive. 20 registered schemas.</div>
+                </div>
+              </div>
+              <div class="wp-stack-row">
+                <div class="wp-stack-layer wp-stack-op">
+                  <div class="wp-stack-label">Optimism</div>
+                  <div class="wp-stack-sub">Ethereum L2. Fast finality. Permanent records.</div>
+                </div>
+              </div>
+              <div class="wp-stack-row">
+                <div class="wp-stack-layer wp-stack-eth">
+                  <div class="wp-stack-label">Ethereum</div>
+                  <div class="wp-stack-sub">The neutral ground.</div>
+                </div>
+              </div>
+            </div>
+
+            <p>Settlement is in <strong>USDC</strong> on Optimism. No native token at launch. No treasury grab. The protocol fee is 1% of transaction value, flowing to a multisig treasury governed with progressive decentralization in mind.</p>
+          </section>
+
+          <!-- SCHEMAS -->
+          <section id="wp-schemas" class="wp-section">
+            <h2>Schemas</h2>
+            <p>The five pillars are realized as <strong>20 open source schemas</strong> on EAS, registered once on Optimism. Each schema is public, permissionless to read, and writable by the per-schema allowlist. Writers are curated at launch; reads are universal.</p>
+
+            <div class="wp-terminal" aria-label="The 20 Public Network schemas">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/public-network · schemas</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Identity</span>
+PUBLIC_NETWORK_IDENTITY_CREATED
+PUBLIC_NETWORK_IDENTITY_CLAIMED
+PUBLIC_NETWORK_IDENTITY_RELEASED
+PUBLIC_NETWORK_AVATAR_UPDATED
+PUBLIC_NETWORK_WALLET_ATTACHED
+PUBLIC_NETWORK_WALLET_DETACHED
+PUBLIC_NETWORK_EXTERNAL_WALLET_LINKED
+
+<span class="wp-t-comment">// Asset</span>
+PUBLIC_NETWORK_ASSET_MINTED
+PUBLIC_NETWORK_ASSET_TRANSFERRED
+PUBLIC_NETWORK_ASSET_LISTED
+PUBLIC_NETWORK_LISTING_REVOKED
+PUBLIC_NETWORK_CROSS_LIST_APPROVED
+PUBLIC_NETWORK_CROSS_LIST_REVOKED
+PUBLIC_NETWORK_COMPOSITION
+
+<span class="wp-t-comment">// Information</span>
+PUBLIC_NETWORK_POST_CREATED
+PUBLIC_NETWORK_SPACE_CREATED
+
+<span class="wp-t-comment">// Transaction</span>
+PUBLIC_NETWORK_SALE_RECORDED
+PUBLIC_NETWORK_COIN_LAUNCHED
+
+<span class="wp-t-comment">// Authentication</span>
+PUBLIC_NETWORK_AUTHENTICATION
+PUBLIC_NETWORK_DELEGATION</pre>
+            </div>
+
+            <p>Schemas compose. An asset can carry unlimited information. A space is a container of information. A transaction attests value exchange across identities. An authentication binds them all.</p>
+            <p>No participant can modify, remove, or gate these schemas. They are registered on Optimism and belong to Humanity.</p>
+          </section>
+
+          <!-- BUILD -->
+          <section id="wp-build" class="wp-section">
+            <h2>Build on Public Network</h2>
+            <p>Applications read and write the five pillars directly via the SDK. No permission, no registration, no endorsement. They are simply built.</p>
+
+            <div class="wp-terminal" aria-label="Install the SDK">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">zsh</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-prompt">$</span> pnpm add @publicnetwork/sdk
+
+<span class="wp-t-prompt">$</span> cat &gt; hello-pn.ts <span class="wp-t-string">&lt;&lt;'EOF'</span>
+<span class="wp-t-keyword">import</span> { configure } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk'</span>;
+<span class="wp-t-keyword">import</span> { claimIdentity } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/identity'</span>;
+<span class="wp-t-keyword">import</span> { post } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/information'</span>;
+
+<span class="wp-t-fn">configure</span>({ network: <span class="wp-t-string">'optimism'</span> });
+
+<span class="wp-t-keyword">const</span> id = <span class="wp-t-keyword">await</span> <span class="wp-t-fn">claimIdentity</span>({ handle: <span class="wp-t-string">'alice'</span>, wallet });
+<span class="wp-t-keyword">await</span> post.<span class="wp-t-fn">createDirect</span>(
+  <span class="wp-t-keyword">await</span> post.<span class="wp-t-fn">sign</span>({ identity: id, body: <span class="wp-t-string">'hello'</span> })
+);
+<span class="wp-t-string">EOF</span>
+
+<span class="wp-t-prompt">$</span> pnpm tsx hello-pn.ts</pre>
+            </div>
+
+            <p>Five modules mirror the five pillars: <code>identity</code>, <code>asset</code>, <code>information</code>, <code>transaction</code>, <code>authentication</code>. Core plumbing &mdash; EIP-712 signing, relay failover, pending-attestation confirmation &mdash; sits underneath.</p>
+          </section>
+
+          <!-- SIGN IN -->
+          <section id="wp-sso" class="wp-section">
+            <h2>Sign in with Public Network</h2>
+            <p>A decentralized single sign-on primitive. An identity that works across every app built on Public Network. Wallet-first, portable, revocable.</p>
+            <p>The flow is simple: the user&rsquo;s wallet signs a scoped authorization payload; the app receives a signed attestation that names the identity, the requested scopes, and the expiration. No OAuth server. No Facebook. No Google.</p>
+
+            <div class="wp-terminal" aria-label="Sign in with Public Network">
+              <div class="wp-terminal-bar">
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-dot"></span>
+                <span class="wp-terminal-path">~/my-app · sign-in</span>
+              </div>
+<pre class="wp-terminal-body"><span class="wp-t-comment">// Request sign-in from a user</span>
+<span class="wp-t-keyword">import</span> { authentication } <span class="wp-t-keyword">from</span> <span class="wp-t-string">'@publicnetwork/sdk/authentication'</span>;
+
+<span class="wp-t-keyword">const</span> session = <span class="wp-t-keyword">await</span> authentication.<span class="wp-t-fn">signIn</span>({
+  app: <span class="wp-t-string">'for-crypto.market'</span>,
+  scopes: [<span class="wp-t-string">'identity.read'</span>, <span class="wp-t-string">'post.create'</span>],
+});
+
+<span class="wp-t-comment">// session.identity · session.expires · session.signature</span></pre>
+            </div>
+          </section>
+
+          <!-- CORE VALUES -->
+          <section id="wp-values" class="wp-section">
+            <h2>Core Values</h2>
+            <p><em>Public Network&rsquo;s mission is to decentralize and open source Humanity.</em></p>
+            <dl class="wp-values">
+              <dt>Decentralization</dt>
+              <dd>Redistributing power from centralized entities to the people, ensuring that no single entity can dominate or restrict access.</dd>
+
+              <dt>Open Source</dt>
+              <dd>A transparent, interoperable system where anyone can contribute and benefit, enhancing accessibility, collaboration, and innovation.</dd>
+
+              <dt>Permanence</dt>
+              <dd>A stable and enduring foundation that guarantees long-term availability, preservation, and integrity of every record.</dd>
+
+              <dt>Neutrality</dt>
+              <dd>A balanced, impartial environment supporting open dialogue and collaboration across diverse individuals, groups, and institutions.</dd>
+
+              <dt>Trust</dt>
+              <dd>Reliability and honesty built into the protocol. Every record carries its source.</dd>
+
+              <dt>Accountability</dt>
+              <dd>All actions and decisions are transparent and held to a high standard of responsibility.</dd>
+
+              <dt>Privacy &amp; Security</dt>
+              <dd>Robust cryptographic protections, user-controlled privacy settings, and decentralized infrastructure that reduces single points of failure.</dd>
+
+              <dt>Sustainability</dt>
+              <dd>Responsible resource management, resilient infrastructure, and adaptive processes ensuring long-term stability and growth.</dd>
+
+              <dt>Provenance</dt>
+              <dd>Every identity, asset, information, transaction, and authentication is permanently and verifiably tied to its source.</dd>
+            </dl>
+          </section>
+
+          <!-- PATRONS -->
+          <section id="wp-patrons" class="wp-section">
+            <h2>Patrons</h2>
+            <p>Patrons protect, support, and evolve Humanity, one initiative at a time.</p>
+            <p>Any individual, group, or institution can become a Patron by contributing to Public Network &mdash; writing code, designing, translating, moderating, documenting, running infrastructure, or starting an initiative.</p>
+            <p>Autonomous agents acting on behalf of Patrons contribute alongside them.</p>
+            <p class="wp-patron-list">Artists &middot; Scientists &middot; Visionaries &middot; Technologists &middot; Museums &middot; Creators &middot; Researchers &middot; DAOs &middot; Engineers &middot; Foundations &middot; Curators &middot; Strategists &middot; Institutions &middot; Humanitarians &middot; Activists &middot; Cultural Centers &middot; Developers &middot; Designers &middot; Philosophers &middot; Environmentalists &middot; Universities &middot; Educators &middot; Entrepreneurs &middot; Illustrators &middot; Musicians &middot; Producers &middot; Composers &middot; Non-Profits &middot; Hospitals &middot; Doctors &middot; Lawyers &middot; Libraries &middot; Architects &middot; Directors &middot; Public Media &middot; Filmmakers &middot; Photographers &middot; Journalists &middot; Writers &hellip;</p>
+          </section>
+
+          <!-- IMPERFECT CIRCLE -->
+          <section id="wp-circle" class="wp-section">
+            <h2>The Perfection of the Imperfect Circle</h2>
+            <p>Feeling insecure and alienated from others, the Imperfect Circle tried to join the ranks of the perfect circles, but over time its true self started to diminish along with the traces of its imperfect shape.</p>
+            <p>After the long quest for an ideally manufactured line, the Imperfect Circle realized that perfection was an abstraction and utopia, an elusive ideal with many interpretations that was impossible to achieve. Eventually, the purest form of perfection was found in its stead: authenticity with all its flaws and mistakes. The Imperfect Circle came back to its innermost being, its original form &mdash; unique, real, and free &mdash; accepting the innate beauty of itself and others.</p>
+            <p>But its imperfect shape can only be seen and appreciated by those who are able to look deeper and recognize its true form.</p>
+          </section>
+
+          <!-- RESOURCES -->
+          <section id="wp-resources" class="wp-section">
+            <h2>Resources</h2>
+            <ul class="wp-resources">
+              <li><span class="wp-res-k">Contracts</span><span class="wp-res-v">github.com/publicnetwork/contracts</span></li>
+              <li><span class="wp-res-k">SDK</span><span class="wp-res-v">@publicnetwork/sdk</span></li>
+              <li><span class="wp-res-k">Settlement</span><span class="wp-res-v">USDC on Optimism</span></li>
+              <li><span class="wp-res-k">Attestations</span><span class="wp-res-v">Ethereum Attestation Service (EAS)</span></li>
+              <li><span class="wp-res-k">Fee</span><span class="wp-res-v">1% protocol fee · hard-coded</span></li>
+              <li><span class="wp-res-k">Schemas</span><span class="wp-res-v">20 registered · PUBLIC_NETWORK_*</span></li>
+            </ul>
+          </section>
+
+          <footer class="wp-footer">
+            <p>Public Network is ownerless by design. Written by Patrons. Signed onchain.</p>
+          </footer>
+        </article>
+      </div>
     </main>
 
     <!-- Subtle scroll cue pinned to the bottom-center of the glass.
@@ -137,5 +574,6 @@
   <script src="js/glass-scroll.js?v=2" defer></script>
   <script src="js/type-schemas.js?v=2" defer></script>
   <script src="js/iface-home.js?v=2" defer></script>
+  <script src="js/wp-scroll-spy.js?v=1" defer></script>
 </body>
 </html>
