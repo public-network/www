@@ -765,13 +765,15 @@ body.launch-minimal .iface-canvas {
   margin-left: 0 !important;
 }
 
-/* Reveal zone — a 100vh spacer that hosts the sticky hero. The glass
-   translates away over the same 100vh range, so by the time the zone
-   ends the glass is gone and the whitepaper flows in right behind the
-   imperfect circle with no dead scroll in between. */
+/* Reveal zone — a 200vh spacer that hosts the sticky hero. Sticky
+   needs the container to be taller than the hero to have any stick
+   range — with hero=100vh, zone must be 100vh + stick-range. During
+   scroll 0→100vh the glass slides out while the hero stays pinned
+   (circle is clearly revealed). During scroll 100vh→200vh the hero
+   unpins and the whitepaper flows up behind it. */
 .iface-reveal-zone {
   position: relative;
-  min-height: 100vh;
+  min-height: 200vh;
 }
 .iface-hero {
   position: sticky;
