@@ -886,20 +886,6 @@ body.launch-minimal .iface-canvas {
   background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Mask backdrop-filter blur bleed at the trailing bottom edge of the
-   glass as it scrolls off. Without this, the blur samples the navy
-   circle beneath and pulls a gray-black band into the last ~30px. */
-.glass-layer::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 40px;
-  background: linear-gradient(to top, rgba(251, 251, 253, 0.92), transparent);
-  pointer-events: none;
-  z-index: 1;
-}
 
 /* Hide any lingering Webflow main-wrappers if they somehow end up in
    the DOM (e.g. live reload remnants). New index.html doesn't use them. */
@@ -941,6 +927,9 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink-muted);
 }
 .wp-nav-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: var(--wotc-ink);
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -984,33 +973,13 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink);
 }
 
-/* Title block — heading only (definition lives on the home page;
-   don't make the reader read it twice). */
-.wp-title {
-  border-bottom: 1px solid var(--wotc-hairline);
-  padding-bottom: 28px;
-  margin-bottom: 40px;
-}
-.wp-title-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.wp-title h1 {
-  font-size: 34px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.15;
-}
 .wp-theme-toggle {
   appearance: none;
   border: none;
   background: transparent;
   padding: 0;
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -1018,6 +987,7 @@ main.main-wrapper { display: none !important; }
   cursor: pointer;
   color: var(--wotc-ink-soft);
   transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+  flex-shrink: 0;
 }
 .wp-theme-toggle:hover {
   background-color: rgba(60, 67, 87, 0.08);
@@ -1025,7 +995,7 @@ main.main-wrapper { display: none !important; }
 }
 .wp-theme-toggle:active { transform: scale(0.94); }
 .wp-theme-toggle i {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1;
 }
 .wp-dt {
@@ -1063,6 +1033,9 @@ main.main-wrapper { display: none !important; }
 .wp-section {
   scroll-margin-top: 80px;
   padding: 40px 0 8px;
+}
+.wp-section:first-child {
+  padding-top: 0;
 }
 .wp-section h2 {
   font-size: 22px;
@@ -1300,7 +1273,6 @@ main.main-wrapper { display: none !important; }
 /* Mobile — tighten padding */
 @media (max-width: 600px) {
   .wp-shell { padding: 60px 20px 100px; }
-  .wp-title h1 { font-size: 28px; }
   .wp-section { padding-top: 32px; }
   .wp-terminal-body { font-size: 12px; padding: 14px 14px; }
   .wp-resources li { flex-direction: column; gap: 2px; }
