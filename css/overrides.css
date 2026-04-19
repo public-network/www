@@ -1356,6 +1356,9 @@ html[data-theme="dark"] .wp code {
    wins when the scroll is at y=0 (glass-scroll.js still interpolates
    beyond that; the interpolated colour at y=0 is snow, so we paint
    over it with the dark panel colour via a CSS layer). */
-html[data-theme="dark"] .iface-hero-circle {
-  --pn-circle-fill-dark-start: #12172A;
+/* Glass-layer logo (PNG) — invert to near-white in dark mode to match
+   the text color and the revealed hero circle color (#F2F3F7). */
+html[data-theme="dark"] .home_left-wrapper img {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
 }

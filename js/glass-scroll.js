@@ -8,19 +8,21 @@
 (function () {
   'use strict';
 
-  // Light start: panel snow (matches white glass). Dark start: near-black
-  // (matches dark glass). Both ghost the circle until it's revealed.
-  const LIGHT_START = [0xF3, 0xF5, 0xF9];
-  const DARK_START  = [0x0A, 0x0E, 0x1A];
-  const END         = [0x06, 0x0C, 0x22];
+  // Start colors ghost the circle against each mode's glass.
+  // End colors are the fully-revealed circle: navy on light, near-white on dark.
+  const LIGHT_START = [0xF3, 0xF5, 0xF9]; // panel snow
+  const DARK_START  = [0x0A, 0x0E, 0x1A]; // dark bg
+  const LIGHT_END   = [0x06, 0x0C, 0x22]; // navy
+  const DARK_END    = [0xF2, 0xF3, 0xF7]; // --wotc-ink dark (matches text)
 
   function lerp(a, b, t) { return Math.round(a + (b - a) * t); }
   function mixRgb(t) {
-    const s = document.documentElement.getAttribute('data-theme') === 'dark'
-      ? DARK_START : LIGHT_START;
-    return 'rgb(' + lerp(s[0], END[0], t) + ',' +
-                    lerp(s[1], END[1], t) + ',' +
-                    lerp(s[2], END[2], t) + ')';
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const s = dark ? DARK_START : LIGHT_START;
+    const e = dark ? DARK_END   : LIGHT_END;
+    return 'rgb(' + lerp(s[0], e[0], t) + ',' +
+                    lerp(s[1], e[1], t) + ',' +
+                    lerp(s[2], e[2], t) + ')';
   }
 
   function init() {
