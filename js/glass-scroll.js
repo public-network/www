@@ -53,25 +53,19 @@
       // Scroll cue fade.
       if (cue) cue.style.opacity = String(Math.max(0, 0.55 * (1 - (y / h) * 2.5)));
 
-      // Circle zoom: two-phase continuous motion, always moving once revealed.
-      // Glass slides UP, so the circle's bottom edge is exposed first.
-      // zoomStart = scrollY when glass bottom hits circle bottom edge:
-      //   glass bottom = h - rawY = h/2 + circleH/2  →  rawY = (h - circleH) / 2
-      // Phase 1: first pixel revealed → glass fully off  (scale 1.0 → 1.03)
-      // Phase 2: glass off → circle exits top of viewport (scale 1.03 → 0.97)
+      // Circle zoom: starts the moment the user scrolls.
+      // Phase 1: scrollY 0 → h (glass slides off)  — scale 1.0 → 1.05
+      // Phase 2: scrollY h → exitEnd (circle exits) — scale 1.05 → 1.0
       if (circle) {
-        const rawY    = window.scrollY;
-        const zoomStart = (h - circleH) / 2;          // first pixel of circle exposed
-        const revealEnd = h;                            // glass fully off
-        const exitEnd   = h + (h + circleH) / 2;       // circle scrolls off top
+        const rawY   = window.scrollY;
+        const exitEnd = h + (h + circleH) / 2;
 
-        let scale = 1;
-        if (rawY >= zoomStart && rawY <= revealEnd) {
-          const t = (rawY - zoomStart) / (revealEnd - zoomStart);
-          scale = 1 + 0.05 * t;          // 1.000 → 1.050
-        } else if (rawY > revealEnd) {
-          const t = Math.min(1, (rawY - revealEnd) / (exitEnd - revealEnd));
-          scale = 1.05 - 0.05 * t;       // 1.050 → 1.000
+        let scale;
+        if (rawY <= h) {
+          scale = 1 + 0.05 * (rawY / h);
+        } else {
+          const t = Math.min(1, (rawY - h) / (exitEnd - h));
+          scale = 1.05 - 0.05 * t;
         }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }
