@@ -40,10 +40,14 @@
       const h = window.innerHeight;
       const y = Math.min(Math.max(window.scrollY, 0), h);
 
-      // Slide glass off.
-      glass.style.transform   = 'translate3d(0,' + (-y) + 'px,0)';
+      // Slide glass off. Fade opacity over the last 60px so the
+      // backdrop-filter edge artifact exits cleanly rather than leaving
+      // a visible blur stripe at the top of the viewport.
+      const FADE = 60;
+      glass.style.transform     = 'translate3d(0,' + (-y) + 'px,0)';
+      glass.style.opacity       = y < h - FADE ? '1' : String(Math.max(0, (h - y) / FADE));
       glass.style.pointerEvents = y >= h - 1 ? 'none' : 'auto';
-      glass.style.visibility    = y >= h - 1 ? 'hidden' : 'visible';
+      glass.style.visibility    = y >= h ? 'hidden' : 'visible';
 
       // Circle colour: ghost → revealed over first 20% of scroll.
       const colorT   = Math.min(1, (y / h) / 0.2);
@@ -62,10 +66,10 @@
 
         let scale;
         if (rawY <= h) {
-          scale = 1 + 0.05 * (rawY / h);
+          scale = 1 + 0.10 * (rawY / h);
         } else {
           const t = Math.min(1, (rawY - h) / (exitEnd - h));
-          scale = 1.05 - 0.05 * t;
+          scale = 1.10 - 0.10 * t;
         }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }

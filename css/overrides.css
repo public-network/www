@@ -861,7 +861,7 @@ body.launch-minimal .iface-canvas {
   background-color: rgba(255, 255, 255, 0.08) !important;
   backdrop-filter: blur(26px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(26px) saturate(180%) !important;
-  box-shadow: none !important;
+  box-shadow: 0 4px 20px -6px rgba(15, 23, 42, 0.12) !important;
 }
 
 /* For the glass to actually pass backdrop through, every wrapper
@@ -1309,7 +1309,7 @@ html[data-theme="dark"] .iface-sidebar {
    a sheet of glass rather than a bright wash. */
 html[data-theme="dark"] .glass-layer {
   background-color: rgba(10, 14, 26, 0.40) !important;
-  box-shadow: none !important;
+  box-shadow: 0 4px 20px -6px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Hover backgrounds — flip from dark-ink-on-light to light-ink-on-dark. */
