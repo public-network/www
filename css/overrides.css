@@ -1084,7 +1084,7 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   padding: 16px 14px;
   border: 1px solid var(--wotc-hairline);
   border-radius: 10px;
-  background-color: #FFFFFF;
+  background-color: #FAFAFA;
   color: var(--wotc-ink) !important;
   text-decoration: none !important;
   transition: border-color 160ms ease, transform 160ms ease;
@@ -1174,7 +1174,7 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
 .wp-stack-protocol,
 .wp-stack-eas,
 .wp-stack-op,
-.wp-stack-eth      { background-color: #FFFFFF; }
+.wp-stack-eth      { background-color: #FAFAFA; }
 .wp-stack-label {
   font-size: 13px;
   font-weight: 600;
@@ -1322,8 +1322,8 @@ html[data-theme="dark"] .iface-toggle:hover {
 
 /* Whitepaper surfaces */
 html[data-theme="dark"] .wp-pillar {
-  background-color: #0F1424;
-  border-color: #1F2634;
+  background-color: #0e1320;
+  border-color: #1e2432;
 }
 html[data-theme="dark"] .wp-pillar:hover {
   border-color: var(--wotc-ink-soft);
@@ -1336,7 +1336,7 @@ html[data-theme="dark"] .wp-stack-apps,
 html[data-theme="dark"] .wp-stack-protocol,
 html[data-theme="dark"] .wp-stack-eas,
 html[data-theme="dark"] .wp-stack-op,
-html[data-theme="dark"] .wp-stack-eth      { background-color: #0F1424; border-color: #1F2634; }
+html[data-theme="dark"] .wp-stack-eth      { background-color: #0e1320; border-color: #1e2432; }
 
 /* Terminal — restore dark palette in dark mode. */
 html[data-theme="dark"] .wp-terminal {

@@ -53,15 +53,25 @@
       // Scroll cue fade.
       if (cue) cue.style.opacity = String(Math.max(0, 0.55 * (1 - (y / h) * 2.5)));
 
-      // Circle zoom: sin(π·t) gives 0 → 1 → 0 smoothly.
-      // zoomStart = scrollY at which the glass bottom first exposes the
-      // circle's top edge. Circle is vertically centred in 100vh hero,
-      // so circleTop = (h − circleH) / 2, and glass bottom = h − y,
-      // therefore exposure begins when y = (h + circleH) / 2.
+      // Circle zoom: two-phase continuous motion, always moving.
+      // Phase 1 (reveal): glass exposes circle top → glass fully off.
+      //   scale 1.0 → 1.08. Uses raw scrollY, not clamped.
+      // Phase 2 (exit): hero unsticks and scrolls off screen.
+      //   scale 1.08 → 0.80. Ends when circle is off viewport.
       if (circle) {
-        const zoomStart = (h + circleH) / 2;
-        const t = Math.max(0, Math.min(1, (y - zoomStart) / (h - zoomStart)));
-        const scale = 1 + 0.02 * Math.sin(Math.PI * t);
+        const rawY     = window.scrollY;
+        const zoomStart = (h + circleH) / 2; // first pixel of circle exposed
+        const revealEnd = h;                  // glass fully off
+        const exitEnd   = h + (h + circleH) / 2; // circle centre reaches top
+
+        let scale = 1;
+        if (rawY >= zoomStart && rawY <= revealEnd) {
+          const t = (rawY - zoomStart) / (revealEnd - zoomStart);
+          scale = 1 + 0.08 * t;
+        } else if (rawY > revealEnd) {
+          const t = Math.min(1, (rawY - revealEnd) / (exitEnd - revealEnd));
+          scale = 1.08 - 0.28 * t; // 1.08 → 0.80
+        }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }
     }
