@@ -927,12 +927,10 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink-muted);
 }
 .wp-nav-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   color: var(--wotc-ink);
   font-weight: 500;
   letter-spacing: 0.04em;
+  text-transform: none;
   text-transform: uppercase;
   font-size: 11px;
   margin-bottom: 14px;
@@ -973,29 +971,44 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink);
 }
 
-.wp-theme-toggle {
+/* Home-page theme toggle — appears below the typing chip after typing
+   finishes. Starts invisible; JS adds .is-visible to pop it in. */
+.pn-theme-row {
+  margin-top: 10px;
+  opacity: 0;
+  pointer-events: none;
+}
+@keyframes pn-toggle-pop {
+  0%   { opacity: 0; transform: scale(0.6); }
+  65%  { opacity: 1; transform: scale(1.12); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.pn-theme-row.is-visible {
+  animation: pn-toggle-pop 260ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  pointer-events: auto;
+}
+.pn-theme-toggle {
   appearance: none;
   border: none;
   background: transparent;
   padding: 0;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--wotc-ink-soft);
+  color: #78787a;
   transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
-  flex-shrink: 0;
 }
-.wp-theme-toggle:hover {
-  background-color: rgba(60, 67, 87, 0.08);
-  color: var(--wotc-ink);
+.pn-theme-toggle:hover {
+  background-color: rgba(60, 67, 87, 0.10);
+  color: #1d1d1f;
 }
-.wp-theme-toggle:active { transform: scale(0.94); }
-.wp-theme-toggle i {
-  font-size: 15px;
+.pn-theme-toggle:active { transform: scale(0.90); }
+.pn-theme-toggle i {
+  font-size: 16px;
   line-height: 1;
 }
 .wp-dt {

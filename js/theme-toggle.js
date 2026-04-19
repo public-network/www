@@ -25,7 +25,7 @@
   }
 
   function init() {
-    const btn = document.getElementById('wp-theme-toggle');
+    const btn = document.getElementById('pn-theme-toggle');
     if (!btn) return;
 
     // Sync icon to whatever the pre-paint script decided.

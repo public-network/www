@@ -61,6 +61,11 @@
         await sleep(PAUSE_BETWEEN_LINES);
       }
     }
+
+    // Typing done — let the cursor blink for a beat, then reveal the toggle.
+    await sleep(900);
+    const row = document.querySelector('.pn-theme-row');
+    if (row) row.classList.add('is-visible');
   }
 
   if (document.readyState === 'loading') {
