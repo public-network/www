@@ -926,7 +926,7 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink-muted);
 }
 .wp-nav-head {
-  color: var(--wotc-ink-muted);
+  color: var(--wotc-ink);
   font-weight: 400;
   letter-spacing: 0.01em;
   text-transform: none;
