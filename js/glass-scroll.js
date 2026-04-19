@@ -67,10 +67,10 @@
         let scale = 1;
         if (rawY >= zoomStart && rawY <= revealEnd) {
           const t = (rawY - zoomStart) / (revealEnd - zoomStart);
-          scale = 1 + 0.08 * t;
+          scale = 1 + 0.015 * t;        // 1.000 → 1.015
         } else if (rawY > revealEnd) {
           const t = Math.min(1, (rawY - revealEnd) / (exitEnd - revealEnd));
-          scale = 1.08 - 0.28 * t; // 1.08 → 0.80
+          scale = 1.015 - 0.03 * t;     // 1.015 → 0.985
         }
         circle.style.transform = 'scale(' + scale.toFixed(4) + ')';
       }
