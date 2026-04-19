@@ -971,45 +971,67 @@ main.main-wrapper { display: none !important; }
   color: var(--wotc-ink);
 }
 
-/* Home-page theme toggle — appears below the typing chip after typing
-   finishes. Starts invisible; JS adds .is-visible to pop it in. */
+/* Home-page theme segment — fades in once typing finishes. */
 .pn-theme-row {
   margin-top: 2.5rem;
   opacity: 0;
   pointer-events: none;
 }
-@keyframes pn-toggle-pop {
-  0%   { opacity: 0; transform: scale(0.6); }
-  65%  { opacity: 1; transform: scale(1.12); }
-  100% { opacity: 1; transform: scale(1); }
+@keyframes pn-toggle-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 .pn-theme-row.is-visible {
-  animation: pn-toggle-pop 260ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: pn-toggle-fade 280ms ease forwards;
   pointer-events: auto;
 }
-.pn-theme-toggle {
+.pn-theme-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+.pn-seg-btn {
   appearance: none;
   border: none;
   background: transparent;
   padding: 0;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #78787a;
-  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+  color: #86868b;
+  transition: background-color 150ms ease, color 150ms ease;
 }
-.pn-theme-toggle:hover {
-  background-color: rgba(60, 67, 87, 0.10);
+.pn-seg-btn.is-selected {
+  background: #1d1d1f;
+  color: #ffffff;
+}
+.pn-seg-btn:hover:not(.is-selected) {
+  background: rgba(0, 0, 0, 0.06);
   color: #1d1d1f;
 }
-.pn-theme-toggle:active { transform: scale(0.90); }
-.pn-theme-toggle i {
-  font-size: 16px;
-  line-height: 1;
+.pn-seg-btn i { font-size: 15px; line-height: 1; }
+
+html[data-theme="dark"] .pn-theme-seg {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 26, 0.65);
+}
+html[data-theme="dark"] .pn-seg-btn.is-selected {
+  background: #f2f3f7;
+  color: #0a0e1a;
+}
+html[data-theme="dark"] .pn-seg-btn:hover:not(.is-selected) {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f2f3f7;
 }
 .wp-dt {
   font-size: 13px;
@@ -1325,8 +1347,7 @@ html[data-theme="dark"] .glass-layer {
 html[data-theme="dark"] .iface-nav-link:hover,
 html[data-theme="dark"] .iface-nav-link.is-active,
 html[data-theme="dark"] .iface-home:hover,
-html[data-theme="dark"] .iface-toggle:hover,
-html[data-theme="dark"] .wp-theme-toggle:hover {
+html[data-theme="dark"] .iface-toggle:hover {
   background-color: rgba(185, 192, 210, 0.08);
 }
 

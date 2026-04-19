@@ -62,8 +62,7 @@
       }
     }
 
-    // Typing done — let the cursor blink for a beat, then reveal the toggle.
-    await sleep(900);
+    // Typing done — fade in the theme toggle immediately.
     const row = document.querySelector('.pn-theme-row');
     if (row) row.classList.add('is-visible');
   }
