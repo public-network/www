@@ -925,16 +925,6 @@ main.main-wrapper { display: none !important; }
   letter-spacing: 0.02em;
   color: var(--wotc-ink-muted);
 }
-.wp-nav-head {
-  color: var(--wotc-ink);
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  font-size: 12px;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--wotc-hairline);
-}
 .wp-nav-list {
   list-style: none;
   margin: 0;
@@ -958,6 +948,30 @@ main.main-wrapper { display: none !important; }
 .wp-nav-link.is-active {
   color: var(--wotc-ink) !important;
   border-left-color: var(--wotc-ink);
+}
+
+#wp-documentation a {
+  color: var(--wotc-ink-muted) !important;
+  transition: color 160ms ease;
+}
+#wp-documentation a:hover {
+  color: var(--wotc-ink) !important;
+}
+
+/* Imperfect-circle subtitle: the ns-logo-small mark used as a glyph
+   in place of a text lede, dimmed to muted-ink weight. */
+.wp-circle-mark {
+  margin: 0 0 14px;
+}
+.wp-circle-mark img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 0.5;
+}
+html[data-theme="dark"] .wp-circle-mark img {
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
 }
 
 /* Article column — narrow for reading comfort. */
@@ -1047,6 +1061,13 @@ html[data-theme="dark"] .pn-theme-toggle:hover { color: #f2f3f7; }
   letter-spacing: -0.005em;
   margin: 0 0 16px;
   line-height: 1.25;
+}
+.wp-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  margin: 36px 0 12px;
+  line-height: 1.3;
 }
 .wp p { margin: 0 0 14px; }
 .wp em { font-style: italic; }

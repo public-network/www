@@ -1,8 +1,12 @@
 /* Scroll-spy for the whitepaper floating nav.
    Marks the nearest section as `.is-active` on .wp-nav-link so the
-   reader always knows where they are in the document. Uses
-   IntersectionObserver with a tall rootMargin so the active section
-   updates the moment it enters the top third of the viewport. */
+   reader always knows where they are in the document.
+
+   Strategy: for each section, compute its top relative to the viewport.
+   The active section is the one whose top is closest to (but not below)
+   an activation line ~33% down the viewport. At the very bottom of the
+   page, force the last section active so short final sections don't get
+   skipped. */
 (function () {
   'use strict';
 
@@ -19,38 +23,44 @@
       if (id) linksById.set(id, a);
     });
 
+    const lastSection = sections[sections.length - 1];
+
     function setActive(id) {
       linksById.forEach((el, key) => {
         el.classList.toggle('is-active', key === id);
       });
     }
 
-    // Intersection approach: the last section whose top has crossed the
-    // activation line is active. We track visibility state ourselves
-    // rather than relying on IO entry ordering, which varies by browser.
-    const visible = new Set();
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) visible.add(e.target.id);
-        else visible.delete(e.target.id);
+    function update() {
+      // Activation line sits 33% down the viewport. The active section
+      // is the one whose top is closest to (but not past) this line.
+      const activationLine = window.innerHeight * 0.33;
+      let best = sections[0].id;
+      let bestTop = -Infinity;
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= activationLine && top > bestTop) {
+          bestTop = top;
+          best = section.id;
+        }
       });
-      if (!visible.size) return;
-      // Pick the topmost visible section (smallest y).
-      let best = null;
-      let bestTop = Infinity;
-      visible.forEach((id) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const top = el.getBoundingClientRect().top;
-        if (top < bestTop) { bestTop = top; best = id; }
-      });
-      if (best) setActive(best);
-    }, {
-      rootMargin: '-80px 0px -60% 0px',
-      threshold: 0,
-    });
 
-    sections.forEach((s) => io.observe(s));
+      // Bottom-of-page override: if the user has scrolled to the absolute
+      // end of the document, force the last section active. Short final
+      // sections may never have their top cross the activation line
+      // because the page can't scroll far enough.
+      const atBottom = window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (atBottom && lastSection) {
+        best = lastSection.id;
+      }
+
+      setActive(best);
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   }
 
   if (document.readyState === 'loading') {
