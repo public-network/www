@@ -112,15 +112,15 @@
             <p>Who you are. What you own. What you say. What you exchange. What you authorize. These five categories of fact underpin any functioning society, and today most of these records are controlled by a small number of private companies and institutions. They live on servers and in registries that can change the rules, restrict access, or remove records at any time.</p>
             <p>Public Network is a protocol that records these five facts onchain: identity, asset, information, transaction, and authentication. It is an open set of schemas that anyone can read from and write to. No participant can modify, remove, or gate them. Anyone can build on top; the protocol itself holds no position on what gets built.</p>
             <p>The minimalism is deliberate. A public good must be small enough to audit, simple enough to verify, and narrow enough to stay neutral. Applications read and write the five primitives through an open source SDK. The protocol itself is credibly neutral, permanent, and built onchain.</p>
-            <p>Public Network is built on Ethereum. It does not run its own chain and does not operate its own consensus, inheriting Ethereum's security and neutrality. Transactions settle in Units, the protocol's stable unit of account. Units is a neutral means of exchange, fully backed by reserves held transparently onchain, and belongs to no single jurisdiction. Units is price-stable by design and has no speculation mechanism; it exists only to denominate value within the protocol. The protocol fee flows to a treasury stewarded by Patrons, governed with progressive decentralization. Anyone can verify protocol state directly, with or without a Public Network application.</p>
+            <p>Public Network is secured by Ethereum. It does not run its own chain and does not operate its own consensus. Transactions settle in Units, the protocol's stable unit of account. Units is a neutral means of exchange, fully backed by reserves held transparently onchain, and belongs to no single jurisdiction. Units is price-stable by design and has no speculation mechanism; it exists only to denominate value within the protocol. The protocol fee flows to a treasury stewarded by Patrons, governed with progressive decentralization. Anyone can verify protocol state directly, with or without a Public Network application.</p>
           </section>
 
           <!-- IDENTITY -->
           <section id="wp-identity" class="wp-section">
             <h2>Identity</h2>
             <p class="wp-pillar-lede">Who they are.</p>
-            <p>A record of an entity that holds a cryptographic key, such as an individual, a group, an institution, or an autonomous agent. Today, identity is rented from platforms. A social account, an email login, a government handle, and so on. Each can be revoked, suspended, or deleted. On Public Network, an identity is bound to the keys that created it and works across every application on the protocol. It cannot be taken away.</p>
-            <p>Identities are ERC-721 tokens (<code>PNI</code>). Each identity owns attributes such as a primary handle, a set of linked wallets, and an avatar. External accounts (Apple, Google, GitHub, X, email, etc.) may be linked to extend reputation across systems. These links are additive and revocable; the identity functions with none attached.</p>
+            <p>A record of an entity that holds a cryptographic key, such as an individual, a group, an institution, or an autonomous agent. Today, identity is rented from platforms. A social account, an email login, a government handle, and so on. Each can be revoked, suspended, or deleted. On Public Network, an identity is bound to the keys that created it and works across every application on the protocol. It cannot be taken away. Identities may be pseudonymous; the protocol binds keys, not names.</p>
+            <p>Identities are ERC-721 tokens (<code>PNI</code>). Each identity owns attributes such as a primary handle, a set of linked wallets, and an avatar. External accounts from social, professional, and communication platforms may be linked to extend reputation across systems. These links are additive and revocable; the identity functions with none attached.</p>
           </section>
 
           <!-- ASSET -->
@@ -144,23 +144,23 @@
             <h2>Transaction</h2>
             <p class="wp-pillar-lede">What they did.</p>
             <p>A record of value exchange between identities, such as a sale, a listing, a coin issuance, or a cross-chain settlement. The digital economy today runs through intermediaries that take twenty to thirty percent of every sale and can deny service at any time. On Public Network, transactions are recorded at the protocol layer. Each transaction carries the signatures of its participants; fees route at the protocol layer.</p>
-            <p>The protocol fee is fixed at <strong>1%</strong> of transaction value. Hard-coded, non-configurable. Fees settle in Units alongside the transaction itself; the fee flows to the Public Network treasury, stewarded by Patrons, to fund audits, infrastructure, and ecosystem grants. Applications may layer additional fees; the originator retains the remainder.</p>
+            <p>The protocol fee is fixed at 1% of transaction value. Hard-coded, non-configurable. Fees settle in Units alongside the transaction itself; the fee flows to the Public Network treasury, stewarded by Patrons, to fund audits, infrastructure, and ecosystem grants. Applications may layer additional fees; the originator retains the remainder.</p>
           </section>
 
           <!-- AUTHENTICATION -->
           <section id="wp-authentication" class="wp-section">
             <h2>Authentication</h2>
             <p class="wp-pillar-lede">What they authorized.</p>
-            <p>A record of an authorized action, such as a sign-in, a delegation to an agent, or an approval of a third-party application. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs a scoped authorization directly. Each authentication is a cryptographic signature from an identity attached to a scoped permission.</p>
+            <p>A record of an authorized action, such as a sign-in, a delegation to an agent, or an approval of a third-party application. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs every authorization directly. Every action on the protocol carries the signature of the identity behind it, permanently and publicly.</p>
             <p>An identity may delegate scoped, time-bound authority to another key and revoke it at any time. Every delegation and revocation is recorded; the chain of authority is always walkable.</p>
-            <p>Over time, the attestations an identity makes and receives become its reputation. Apps and readers choose whom to trust through this public record. No protocol-level gatekeeper decides who is credible.</p>
+            <p>Over time, these signatures accumulate into an identity's reputation: a permanent, public record of its actions and what has been attested about it. Apps and readers choose whom to trust through this record. No protocol-level gatekeeper decides who is credible.</p>
           </section>
 
           <!-- PATRONS -->
           <section id="wp-patrons" class="wp-section">
             <h2>Patrons</h2>
             <p class="wp-pillar-lede">Decentralize and open source humanity.</p>
-            <p>Patrons protect, support, and evolve Public Network one initiative at a time. They fund audits, infrastructure, and ecosystem grants that sustain the protocol. Any individual, group, institution, or autonomous agent can become a Patron by contributing to Public Network.</p>
+            <p>Patrons protect, support, and evolve Public Network one initiative at a time. They steward the Public Network treasury, which funds audits, infrastructure, and ecosystem grants. Any individual, group, institution, or autonomous agent can become a Patron by contributing to Public Network.</p>
           </section>
 
           <!-- IMPERFECT CIRCLE -->
