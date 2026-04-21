@@ -97,6 +97,8 @@
             <li class="wp-nav-sub"><a href="#wp-information" class="wp-nav-link">information</a></li>
             <li class="wp-nav-sub"><a href="#wp-transaction" class="wp-nav-link">transaction</a></li>
             <li class="wp-nav-sub"><a href="#wp-authentication" class="wp-nav-link">authentication</a></li>
+            <li><a href="#wp-applications" class="wp-nav-link">applications</a></li>
+            <li><a href="#wp-interface" class="wp-nav-link">interface</a></li>
             <li><a href="#wp-patrons" class="wp-nav-link">patrons</a></li>
             <li><a href="#wp-circle" class="wp-nav-link">imperfect&nbsp;circle</a></li>
             <li><a href="#wp-documentation" class="wp-nav-link">documentation</a></li>
@@ -153,7 +155,21 @@
             <p class="wp-pillar-lede">What they authorized.</p>
             <p>A record of an authorized action, such as a sign-in, a delegation to an agent, or an approval of a third-party application. Most authentication today runs through servers owned by a handful of companies that control which applications can access which users. On Public Network, an identity signs every authorization directly. Every action on the protocol carries the signature of the identity behind it, permanently and publicly.</p>
             <p>An identity may delegate scoped, time-bound authority to another key and revoke it at any time. Every delegation and revocation is recorded; the chain of authority is always walkable.</p>
-            <p>Over time, these signatures accumulate into an identity's reputation: a permanent, public record of its actions and what has been attested about it. Apps and readers choose whom to trust through this record. No protocol-level gatekeeper decides who is credible.</p>
+            <p>Over time, these signatures accumulate into an identity's reputation: a permanent, public record of its actions and what has been attested about it. Applications and readers choose whom to trust through this record. No protocol-level gatekeeper decides who is credible.</p>
+          </section>
+
+          <!-- APPLICATIONS -->
+          <section id="wp-applications" class="wp-section">
+            <h2>Applications</h2>
+            <p class="wp-pillar-lede">What they build.</p>
+            <p>Applications are built on the protocol. Anyone may build one: an individual, a group, an institution, or an autonomous agent. No permission is granted because none is required. A marketplace, an open source model, a credential system, a provenance registry, a self-governing collective. Each reads and writes the same five primitives. None owns the substrate. None can remove another. Nothing built on it can be captured. A user who leaves one application, or who builds their own, carries their identity, their assets, their history, and their authority with them. Those records live in the protocol. Applications read and write them, but never hold them.</p>
+          </section>
+
+          <!-- INTERFACE -->
+          <section id="wp-interface" class="wp-section">
+            <h2>Interface</h2>
+            <p class="wp-pillar-lede">How they see.</p>
+            <p>Applications reach people through interfaces. A canonical open source interface lives at public.network: a reference implementation over every pillar of the protocol, and not the only one. Anyone may fork it, adapt it, embed it, or replace it entirely. Every interface inherits the same substrate: the identity, the assets, the information, the transactions, and the authority recorded onchain. The protocol is infrastructure. The interface is how it is seen.</p>
           </section>
 
           <!-- PATRONS -->
