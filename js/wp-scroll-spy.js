@@ -4,9 +4,11 @@
 
    Strategy: for each section, compute its top relative to the viewport.
    The active section is the one whose top is closest to (but not below)
-   an activation line ~33% down the viewport. At the very bottom of the
-   page, force the last section active so short final sections don't get
-   skipped. */
+   an activation line 68% down the viewport. The deeper activation line
+   lets short ending sections like "imperfect circle" become active
+   before the document hits the final scroll position. At the very
+   bottom of the page, force the last section active so the final
+   documentation section does not get skipped. */
 (function () {
   'use strict';
 
@@ -32,9 +34,9 @@
     }
 
     function update() {
-      // Activation line sits 33% down the viewport. The active section
-      // is the one whose top is closest to (but not past) this line.
-      const activationLine = window.innerHeight * 0.33;
+      // Activation line sits 68% down the viewport. The desktop app uses
+      // the same ratio so short final sections still enter the nav state.
+      const activationLine = window.innerHeight * 0.68;
       let best = sections[0].id;
       let bestTop = -Infinity;
       sections.forEach((section) => {
